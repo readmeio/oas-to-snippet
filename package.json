@@ -32,7 +32,7 @@
   "devDependencies": {
     "@commitlint/cli": "^12.1.4",
     "@commitlint/config-conventional": "^12.1.4",
-    "@readme/eslint-config": "^4.0.0",
+    "@readme/eslint-config": "^5.2.0",
     "@readme/oas-examples": "^4.0.0",
     "conventional-changelog-cli": "^2.1.1",
     "datauri": "^3.0.0",
