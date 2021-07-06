@@ -15,7 +15,7 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "postinstall": "husky install",
+    "prepare": "husky install",
     "pretest": "npm run lint",
     "prettier": "prettier --list-different --write \"./**/**.{js,jsx}\"",
     "test": "jest --coverage",
