@@ -7,10 +7,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/readmeio/api-explorer.git",
-    "directory": "packages/oas-to-snippet"
+    "url": "git://github.com/readmeio/oas-to-snippet.git"
   },
   "engines": {
+    "node": "^12 || ^14 || ^16",
     "npm": "^7"
   },
   "scripts": {
@@ -21,8 +21,8 @@
   },
   "dependencies": {
     "@readme/httpsnippet": "^2.5.1",
-    "@readme/oas-extensions": "file:../oas-extensions",
-    "@readme/oas-to-har": "file:../oas-to-har",
+    "@readme/oas-extensions": "^13.4.17",
+    "@readme/oas-to-har": "^13.4.17",
     "@readme/syntax-highlighter": "^10.7.0",
     "httpsnippet-client-api": "^3.2.5",
     "oas": "^13.0.4"
