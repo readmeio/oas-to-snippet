@@ -15,9 +15,11 @@
   },
   "scripts": {
     "lint": "eslint .",
+    "postinstall": "husky install",
     "pretest": "npm run lint",
     "prettier": "prettier --list-different --write \"./**/**.{js,jsx}\"",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "version": "conventional-changelog --pkg lerna.json -i CHANGELOG.md -s && git add CHANGELOG.md"
   },
   "dependencies": {
     "@readme/httpsnippet": "^2.5.1",
@@ -28,13 +30,34 @@
     "oas": "^13.0.4"
   },
   "devDependencies": {
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
     "@readme/eslint-config": "^4.0.0",
     "@readme/oas-examples": "^4.0.0",
+    "conventional-changelog-cli": "^2.1.1",
     "datauri": "^3.0.0",
     "eslint": "^7.0.0",
     "har-examples": "^1.0.6",
+    "husky": "^7.0.1",
     "jest": "^26.0.1",
     "prettier": "^2.0.1"
   },
-  "prettier": "@readme/eslint-config/prettier"
+  "prettier": "@readme/eslint-config/prettier",
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
+    "rules": {
+      "body-max-line-length": [
+        0,
+        "always",
+        "Infinity"
+      ],
+      "footer-max-line-length": [
+        0,
+        "always",
+        "Infinity"
+      ]
+    }
+  }
 }
