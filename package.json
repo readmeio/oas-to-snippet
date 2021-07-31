@@ -23,11 +23,11 @@
   },
   "dependencies": {
     "@readme/httpsnippet": "^2.5.1",
-    "@readme/oas-extensions": "^13.5.0",
-    "@readme/oas-to-har": "^13.5.0",
+    "@readme/oas-extensions": "^13.6.0",
+    "@readme/oas-to-har": "^13.6.0",
     "@readme/syntax-highlighter": "^10.10.1",
-    "httpsnippet-client-api": "^3.2.5",
-    "oas": "^13.0.4"
+    "httpsnippet-client-api": "^3.3.0",
+    "oas": "^14.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^12.1.4",
