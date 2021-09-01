@@ -1,3 +1,14 @@
+## <small>13.6.2 (2021-09-01)</small>
+
+* chore(deps-dev): bump jest from 27.0.6 to 27.1.0 (#18) ([9c660e7](https://github.com/readmeio/oas-to-snippet/commit/9c660e7)), closes [#18](https://github.com/readmeio/oas-to-snippet/issues/18)
+* chore(deps-dev): removing conventional-changelog-cli in favor of npx ([3aa80dc](https://github.com/readmeio/oas-to-snippet/commit/3aa80dc))
+* chore(deps): bump @readme/oas-extensions from 13.6.0 to 13.6.1 (#15) ([c126a31](https://github.com/readmeio/oas-to-snippet/commit/c126a31)), closes [#15](https://github.com/readmeio/oas-to-snippet/issues/15)
+* chore(deps): bump @readme/oas-to-har from 13.6.0 to 13.6.1 (#16) ([3838d98](https://github.com/readmeio/oas-to-snippet/commit/3838d98)), closes [#16](https://github.com/readmeio/oas-to-snippet/issues/16)
+* chore(deps): bump @readme/syntax-highlighter from 10.11.0 to 10.11.1 (#17) ([c8e2967](https://github.com/readmeio/oas-to-snippet/commit/c8e2967)), closes [#17](https://github.com/readmeio/oas-to-snippet/issues/17)
+* chore(deps): bump oas from 14.3.1 to 14.4.0 (#14) ([850e6e6](https://github.com/readmeio/oas-to-snippet/commit/850e6e6)), closes [#14](https://github.com/readmeio/oas-to-snippet/issues/14)
+
+
+
 ## <small>13.6.1 (2021-08-26)</small>
 
 * chore: adding some more exclusions to the npm pkg ([7b8db8d](https://github.com/readmeio/oas-to-snippet/commit/7b8db8d))
