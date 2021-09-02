@@ -51,8 +51,12 @@ exports[`supported languages c should generate code for the default target 1`] =
 Object {
   "code": "CURL *hnd = curl_easy_init();
 
-curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, \\"GET\\");
-curl_easy_setopt(hnd, CURLOPT_URL, \\"https://example.com/path/123\\");
+curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, \\"POST\\");
+curl_easy_setopt(hnd, CURLOPT_URL, \\"http://petstore.swagger.io/v2/pet\\");
+
+struct curl_slist *headers = NULL;
+headers = curl_slist_append(headers, \\"Content-Type: application/json\\");
+curl_easy_setopt(hnd, CURLOPT_HTTPHEADER, headers);
 
 CURLcode ret = curl_easy_perform(hnd);",
   "highlightMode": "text/x-csrc",
@@ -79,7 +83,7 @@ exports[`supported languages clojure should generate code for the default target
 Object {
   "code": "(require '[clj-http.client :as client])
 
-(client/get \\"https://example.com/path/123\\")",
+(client/post \\"http://petstore.swagger.io/v2/pet\\" {:headers {:Content-Type \\"application/json\\"}})",
   "highlightMode": "clojure",
 }
 `;
@@ -99,8 +103,12 @@ exports[`supported languages cplusplus should generate code for the default targ
 Object {
   "code": "CURL *hnd = curl_easy_init();
 
-curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, \\"GET\\");
-curl_easy_setopt(hnd, CURLOPT_URL, \\"https://example.com/path/123\\");
+curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, \\"POST\\");
+curl_easy_setopt(hnd, CURLOPT_URL, \\"http://petstore.swagger.io/v2/pet\\");
+
+struct curl_slist *headers = NULL;
+headers = curl_slist_append(headers, \\"Content-Type: application/json\\");
+curl_easy_setopt(hnd, CURLOPT_HTTPHEADER, headers);
 
 CURLcode ret = curl_easy_perform(hnd);",
   "highlightMode": "text/x-c++src",
@@ -125,8 +133,9 @@ CURLcode ret = curl_easy_perform(hnd);",
 
 exports[`supported languages csharp should generate code for the default target 1`] = `
 Object {
-  "code": "var client = new RestClient(\\"https://example.com/path/123\\");
-var request = new RestRequest(Method.GET);
+  "code": "var client = new RestClient(\\"http://petstore.swagger.io/v2/pet\\");
+var request = new RestRequest(Method.POST);
+request.AddHeader(\\"Content-Type\\", \\"application/json\\");
 IRestResponse response = client.Execute(request);",
   "highlightMode": "text/x-csharp",
 }
@@ -166,8 +175,9 @@ IRestResponse response = client.Execute(request);",
 
 exports[`supported languages curl should generate code for the default target 1`] = `
 Object {
-  "code": "curl --request GET \\\\
-     --url https://example.com/path/123",
+  "code": "curl --request POST \\\\
+     --url http://petstore.swagger.io/v2/pet \\\\
+     --header 'Content-Type: application/json'",
   "highlightMode": "shell",
 }
 `;
@@ -193,9 +203,11 @@ import (
 
 func main() {
 
-	url := \\"https://example.com/path/123\\"
+	url := \\"http://petstore.swagger.io/v2/pet\\"
 
-	req, _ := http.NewRequest(\\"GET\\", url, nil)
+	req, _ := http.NewRequest(\\"POST\\", url, nil)
+
+	req.Header.Add(\\"Content-Type\\", \\"application/json\\")
 
 	res, _ := http.DefaultClient.Do(req)
 
@@ -246,8 +258,9 @@ Object {
   "code": "OkHttpClient client = new OkHttpClient();
 
 Request request = new Request.Builder()
-  .url(\\"https://example.com/path/123\\")
-  .get()
+  .url(\\"http://petstore.swagger.io/v2/pet\\")
+  .post(null)
+  .addHeader(\\"Content-Type\\", \\"application/json\\")
   .build();
 
 Response response = client.newCall(request).execute();",
@@ -309,9 +322,9 @@ Object {
 
 exports[`supported languages javascript should generate code for the default target 1`] = `
 Object {
-  "code": "const options = {method: 'GET'};
+  "code": "const options = {method: 'POST', headers: {'Content-Type': 'application/json'}};
 
-fetch('https://example.com/path/123', options)
+fetch('http://petstore.swagger.io/v2/pet', options)
   .then(response => response.json())
   .then(response => console.log(response))
   .catch(err => console.error(err));",
@@ -396,8 +409,9 @@ Object {
   "code": "OkHttpClient client = new OkHttpClient();
 
 Request request = new Request.Builder()
-  .url(\\"https://example.com/path/123\\")
-  .get()
+  .url(\\"http://petstore.swagger.io/v2/pet\\")
+  .post(null)
+  .addHeader(\\"Content-Type\\", \\"application/json\\")
   .build();
 
 Response response = client.newCall(request).execute();",
@@ -424,8 +438,8 @@ exports[`supported languages node should generate code for the default target 1`
 Object {
   "code": "const fetch = require('node-fetch');
 
-const url = 'https://example.com/path/123';
-const options = {method: 'GET'};
+const url = 'http://petstore.swagger.io/v2/pet';
+const options = {method: 'POST', headers: {'Content-Type': 'application/json'}};
 
 fetch(url, options)
   .then(res => res.json())
@@ -538,10 +552,13 @@ exports[`supported languages objectivec should generate code for the default tar
 Object {
   "code": "#import <Foundation/Foundation.h>
 
-NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@\\"https://example.com/path/123\\"]
+NSDictionary *headers = @{ @\\"Content-Type\\": @\\"application/json\\" };
+
+NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@\\"http://petstore.swagger.io/v2/pet\\"]
                                                        cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                    timeoutInterval:10.0];
-[request setHTTPMethod:@\\"GET\\"];
+[request setHTTPMethod:@\\"POST\\"];
+[request setAllHTTPHeaderFields:headers];
 
 NSURLSession *session = [NSURLSession sharedSession];
 NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
@@ -591,9 +608,10 @@ Object {
 open Cohttp
 open Lwt
 
-let uri = Uri.of_string \\"https://example.com/path/123\\" in
+let uri = Uri.of_string \\"http://petstore.swagger.io/v2/pet\\" in
+let headers = Header.add (Header.init ()) \\"Content-Type\\" \\"application/json\\" in
 
-Client.call \`GET uri
+Client.call ~headers \`POST uri
 >>= fun (res, body_stream) ->
   (* Do stuff with the result *)",
   "highlightMode": "ocaml",
@@ -623,13 +641,16 @@ Object {
 $curl = curl_init();
 
 curl_setopt_array($curl, [
-  CURLOPT_URL => \\"https://example.com/path/123\\",
+  CURLOPT_URL => \\"http://petstore.swagger.io/v2/pet\\",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => \\"\\",
   CURLOPT_MAXREDIRS => 10,
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-  CURLOPT_CUSTOMREQUEST => \\"GET\\",
+  CURLOPT_CUSTOMREQUEST => \\"POST\\",
+  CURLOPT_HTTPHEADER => [
+    \\"Content-Type: application/json\\"
+  ],
 ]);
 
 $response = curl_exec($curl);
@@ -681,7 +702,9 @@ if ($err) {
 
 exports[`supported languages powershell should generate code for the default target 1`] = `
 Object {
-  "code": "$response = Invoke-WebRequest -Uri 'https://example.com/path/123' -Method GET ",
+  "code": "$headers=@{}
+$headers.Add(\\"Content-Type\\", \\"application/json\\")
+$response = Invoke-WebRequest -Uri 'http://petstore.swagger.io/v2/pet' -Method POST -Headers $headers",
   "highlightMode": "powershell",
 }
 `;
@@ -708,9 +731,11 @@ exports[`supported languages python should generate code for the default target 
 Object {
   "code": "import requests
 
-url = \\"https://example.com/path/123\\"
+url = \\"http://petstore.swagger.io/v2/pet\\"
 
-response = requests.request(\\"GET\\", url)
+headers = {\\"Content-Type\\": \\"application/json\\"}
+
+response = requests.request(\\"POST\\", url, headers=headers)
 
 print(response.text)",
   "highlightMode": "python",
@@ -738,9 +763,9 @@ exports[`supported languages r should generate code for the default target 1`] =
 Object {
   "code": "library(httr)
 
-url <- \\"https://example.com/path/123\\"
+url <- \\"http://petstore.swagger.io/v2/pet\\"
 
-response <- VERB(\\"GET\\", url, content_type(\\"application/octet-stream\\"))
+response <- VERB(\\"POST\\", url, content_type(\\"application/octet-stream\\"))
 
 content(response, \\"text\\")",
   "highlightMode": "r",
@@ -769,14 +794,13 @@ exports[`supported languages ruby should generate code for the default target 1`
 Object {
   "code": "require 'uri'
 require 'net/http'
-require 'openssl'
 
-url = URI(\\"https://example.com/path/123\\")
+url = URI(\\"http://petstore.swagger.io/v2/pet\\")
 
 http = Net::HTTP.new(url.host, url.port)
-http.use_ssl = true
 
-request = Net::HTTP::Get.new(url)
+request = Net::HTTP::Post.new(url)
+request[\\"Content-Type\\"] = 'application/json'
 
 response = http.request(request)
 puts response.read_body",
@@ -806,10 +830,13 @@ exports[`supported languages swift should generate code for the default target 1
 Object {
   "code": "import Foundation
 
-let request = NSMutableURLRequest(url: NSURL(string: \\"https://example.com/path/123\\")! as URL,
+let headers = [\\"Content-Type\\": \\"application/json\\"]
+
+let request = NSMutableURLRequest(url: NSURL(string: \\"http://petstore.swagger.io/v2/pet\\")! as URL,
                                         cachePolicy: .useProtocolCachePolicy,
                                     timeoutInterval: 10.0)
-request.httpMethod = \\"GET\\"
+request.httpMethod = \\"POST\\"
+request.allHTTPHeaderFields = headers
 
 let session = URLSession.shared
 let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in

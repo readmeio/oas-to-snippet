@@ -1,6 +1,5 @@
 const extensions = require('@readme/oas-extensions');
 const Oas = require('oas');
-const petstore = require('@readme/oas-examples/3.0/json/petstore.json');
 const path = require('path');
 const datauri = require('datauri');
 const harExamples = require('har-examples');
@@ -8,23 +7,12 @@ const harExamples = require('har-examples');
 const generateCodeSnippet = require('../src');
 const supportedLanguages = require('../src/supportedLanguages');
 
-const oas = new Oas();
-const petstoreOas = new Oas(petstore);
+const petstoreOas = require('@readme/oas-examples/3.0/json/petstore.json');
+
+const petstore = new Oas(petstoreOas);
 
 const oasUrl = 'https://example.com/openapi.json';
-const operation = {
-  path: '/path/{id}',
-  method: 'get',
-  parameters: [
-    {
-      name: 'id',
-      in: 'path',
-      required: true,
-    },
-  ],
-};
-
-const formData = { path: { id: 123 } };
+const formData = { path: { petId: 123 } };
 
 test('should be able to accept a har override', () => {
   const codeSnippet = generateCodeSnippet(null, null, null, null, 'node', null, harExamples.full);
@@ -32,7 +20,7 @@ test('should be able to accept a har override', () => {
 });
 
 test('should return falsy values for an unknown language', () => {
-  const codeSnippet = generateCodeSnippet(oas, operation, {}, {}, 'css', oasUrl);
+  const codeSnippet = generateCodeSnippet(petstore, petstore.operation('/pet/{petId}', 'get'), {}, {}, 'css', oasUrl);
 
   expect(codeSnippet).toStrictEqual({
     code: '',
@@ -41,32 +29,22 @@ test('should return falsy values for an unknown language', () => {
 });
 
 test('should pass through values to code snippet', () => {
-  const { code } = generateCodeSnippet(oas, operation, formData, {}, 'node', oasUrl);
+  const { code } = generateCodeSnippet(
+    petstore,
+    petstore.operation('/pet/{petId}', 'get'),
+    formData,
+    {},
+    'node',
+    oasUrl
+  );
 
-  expect(code).toStrictEqual(expect.stringMatching('https://example.com/path/123'));
+  expect(code).toStrictEqual(expect.stringMatching('http://petstore.swagger.io/v2/pet/123'));
 });
 
 test('should pass through json values to code snippet', () => {
   const { code } = generateCodeSnippet(
-    oas,
-    {
-      path: '/path',
-      method: 'post',
-      requestBody: {
-        content: {
-          'application/json': {
-            schema: {
-              type: 'object',
-              properties: {
-                id: {
-                  type: 'string',
-                },
-              },
-            },
-          },
-        },
-      },
-    },
+    petstore,
+    petstore.operation('/pet', 'post'),
     { body: { id: '123' } },
     {},
     'node',
@@ -78,50 +56,41 @@ test('should pass through json values to code snippet', () => {
 
 test('should pass through form encoded values to code snippet', () => {
   const { code } = generateCodeSnippet(
-    oas,
+    petstore,
+    petstore.operation('/pet/{petId}', 'post'),
     {
-      path: '/path',
-      method: 'post',
-      requestBody: {
-        content: {
-          'application/x-www-form-urlencoded': {
-            schema: {
-              type: 'object',
-              properties: {
-                id: {
-                  type: 'string',
-                },
-              },
-            },
-          },
-        },
+      path: { petId: 123 },
+      formData: {
+        id: '123',
+        name: 'buster',
       },
     },
-    { formData: { id: '123' } },
     {},
     'node',
     oasUrl
   );
 
   expect(code).toMatch("encodedParams.set('id', '123');");
+  expect(code).toMatch("encodedParams.set('name', 'buster');");
   expect(code).toMatch('body: encodedParams');
 });
 
 test('should have special indents for curl snippets', () => {
-  const { code } = generateCodeSnippet(
-    oas,
-    {
-      path: '/body',
-      method: 'get',
-      requestBody: {
-        content: {
-          'application/x-www-form-urlencoded': {
-            schema: {
-              type: 'object',
-              required: ['a'],
-              properties: {
-                a: {
-                  type: 'string',
+  const oas = new Oas({
+    paths: {
+      '/body': {
+        get: {
+          requestBody: {
+            content: {
+              'application/x-www-form-urlencoded': {
+                schema: {
+                  type: 'object',
+                  required: ['a'],
+                  properties: {
+                    a: {
+                      type: 'string',
+                    },
+                  },
                 },
               },
             },
@@ -129,6 +98,11 @@ test('should have special indents for curl snippets', () => {
         },
       },
     },
+  });
+
+  const { code } = generateCodeSnippet(
+    oas,
+    oas.operation('/body', 'get'),
     { formData: { a: 'test', b: [1, 2, 3] } },
     {},
     'curl'
@@ -138,26 +112,38 @@ test('should have special indents for curl snippets', () => {
 });
 
 test('should not contain proxy url', () => {
-  const { code } = generateCodeSnippet(
-    new Oas({ [extensions.PROXY_ENABLED]: true }),
-    operation,
-    formData,
-    {},
-    'node',
-    oasUrl
-  );
+  const oas = new Oas({
+    ...JSON.parse(JSON.stringify(petstoreOas)),
+    [extensions.PROXY_ENABLED]: true,
+  });
 
-  expect(code).toStrictEqual(expect.stringMatching('https://example.com/path/123'));
+  const { code } = generateCodeSnippet(oas, oas.operation('/pet/{petId}', 'post'), formData, {}, 'node', oasUrl);
+
+  expect(code).toStrictEqual(expect.stringMatching('http://petstore.swagger.io/v2/pet/123'));
 });
 
 test('should not contain `withCredentials` in javascript snippets', () => {
-  const { code } = generateCodeSnippet(oas, operation, {}, {}, 'javascript', oasUrl);
+  const { code } = generateCodeSnippet(
+    petstore,
+    petstore.operation('/pet/{petId}', 'post'),
+    {},
+    {},
+    'javascript',
+    oasUrl
+  );
 
   expect(code).not.toMatch(/withCredentials/);
 });
 
 test('should return with unhighlighted code', () => {
-  const { code } = generateCodeSnippet(oas, operation, {}, {}, 'javascript', oasUrl);
+  const { code } = generateCodeSnippet(
+    petstore,
+    petstore.operation('/pet/{petId}', 'post'),
+    {},
+    {},
+    'javascript',
+    oasUrl
+  );
 
   expect(code).not.toMatch(/cm-s-tomorrow-night/);
 });
@@ -249,32 +235,38 @@ test('should not double-encode query strings', () => {
   const startTime = '2019-06-13T19:08:25.455Z';
   const endTime = '2015-09-15T14:00:12-04:00';
 
+  const oas = new Oas({
+    paths: {
+      '/': {
+        get: {
+          parameters: [
+            {
+              explode: true,
+              in: 'query',
+              name: 'startTime',
+              schema: {
+                type: 'string',
+              },
+              style: 'form',
+            },
+            {
+              explode: true,
+              in: 'query',
+              name: 'endTime',
+              schema: {
+                type: 'string',
+              },
+              style: 'form',
+            },
+          ],
+        },
+      },
+    },
+  });
+
   const snippet = generateCodeSnippet(
     oas,
-    {
-      path: '/',
-      method: 'get',
-      parameters: [
-        {
-          explode: true,
-          in: 'query',
-          name: 'startTime',
-          schema: {
-            type: 'string',
-          },
-          style: 'form',
-        },
-        {
-          explode: true,
-          in: 'query',
-          name: 'endTime',
-          schema: {
-            type: 'string',
-          },
-          style: 'form',
-        },
-      ],
-    },
+    oas.operation('/', 'get'),
     { query: { startTime, endTime } },
     {},
     'javascript',
@@ -308,7 +300,7 @@ describe('supported languages', () => {
     });
 
     it('should generate code for the default target', () => {
-      const snippet = generateCodeSnippet(oas, operation, formData, {}, lang);
+      const snippet = generateCodeSnippet(petstore, petstore.operation('/pet', 'post'), formData, {}, lang);
       expect(snippet).toMatchSnapshot();
     });
 
@@ -330,8 +322,8 @@ describe('supported languages', () => {
 
         it('should support snippet generation', () => {
           const snippet = generateCodeSnippet(
-            petstoreOas,
-            petstoreOas.operation('/user/login', 'get'),
+            petstore,
+            petstore.operation('/user/login', 'get'),
             {
               query: { username: 'woof', password: 'barkbarkbark' },
             },
@@ -348,8 +340,8 @@ describe('supported languages', () => {
 
   it('should support `node-simple`', () => {
     const snippet = generateCodeSnippet(
-      petstoreOas,
-      petstoreOas.operation('/user/login', 'get'),
+      petstore,
+      petstore.operation('/user/login', 'get'),
       {
         query: { username: 'woof', password: 'barkbarkbark' },
       },
