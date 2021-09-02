@@ -8,8 +8,6 @@ const harExamples = require('har-examples');
 const generateCodeSnippet = require('../src');
 const supportedLanguages = require('../src/supportedLanguages');
 
-const { getLangName } = generateCodeSnippet;
-
 const oas = new Oas();
 const petstoreOas = new Oas(petstore);
 
@@ -371,34 +369,5 @@ describe('supported languages', () => {
 
     expect(snippet.code).toStrictEqual(expect.stringMatching('node-fetch'));
     expect(snippet.highlightMode).toBe('javascript');
-  });
-});
-
-describe('#getLangName()', () => {
-  it('should convert name to correct case', () => {
-    expect(getLangName('c')).toBe('C');
-    expect(getLangName('cplusplus')).toBe('C++');
-    expect(getLangName('csharp')).toBe('C#');
-    expect(getLangName('clojure')).toBe('Clojure');
-    expect(getLangName('curl')).toBe('cURL');
-    expect(getLangName('go')).toBe('Go');
-    expect(getLangName('java')).toBe('Java');
-    expect(getLangName('javascript')).toBe('JavaScript');
-    expect(getLangName('kotlin')).toBe('Kotlin');
-    expect(getLangName('node')).toBe('Node');
-    expect(getLangName('node-simple')).toBe('Node (simple)');
-    expect(getLangName('objectivec')).toBe('Objective-C');
-    expect(getLangName('ocaml')).toBe('OCaml');
-    expect(getLangName('php')).toBe('PHP');
-    expect(getLangName('powershell')).toBe('PowerShell');
-    expect(getLangName('python')).toBe('Python');
-    expect(getLangName('r')).toBe('R');
-    expect(getLangName('ruby')).toBe('Ruby');
-    expect(getLangName('swift')).toBe('Swift');
-  });
-
-  it('should pass through unknown values', () => {
-    expect(getLangName('HTTP')).toBe('HTTP');
-    expect(getLangName('unknown')).toBe('unknown');
   });
 });
