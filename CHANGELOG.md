@@ -1,3 +1,15 @@
+## 14.0.0 (2021-09-02)
+
+> 🚨 BREAKING CHANGE
+>
+> This library no longer ships with [@readme/syntax-highlighter](https://npm.im/@readme/syntax-highlighter) and no longer exports a `getLangName` method. If you need that, you can use the `uppercase` export that the syntax highlighter library exports to do the same.
+
+* test: refactoring our test suite to have more real-world use cases ([bafee22](https://github.com/readmeio/oas-to-snippet/commit/bafee22))
+* chore(deps): upgrading deps ([ac1135c](https://github.com/readmeio/oas-to-snippet/commit/ac1135c))
+* refactor: removing the dependency on @readme/syntax-highlighter (#19) ([72ed0c6](https://github.com/readmeio/oas-to-snippet/commit/72ed0c6)), closes [#19](https://github.com/readmeio/oas-to-snippet/issues/19)
+
+
+
 ## <small>13.6.2 (2021-09-01)</small>
 
 * chore(deps-dev): bump jest from 27.0.6 to 27.1.0 (#18) ([9c660e7](https://github.com/readmeio/oas-to-snippet/commit/9c660e7)), closes [#18](https://github.com/readmeio/oas-to-snippet/issues/18)
