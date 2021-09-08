@@ -24,7 +24,7 @@
   "dependencies": {
     "@readme/httpsnippet": "^2.5.1",
     "@readme/oas-extensions": "^13.6.0",
-    "@readme/oas-to-har": "^13.6.0",
+    "@readme/oas-to-har": "^13.7.1",
     "httpsnippet-client-api": "^3.3.2",
     "oas": "^14.0.0"
   },
