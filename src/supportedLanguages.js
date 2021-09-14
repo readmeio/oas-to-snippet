@@ -92,10 +92,7 @@ module.exports = {
           name: 'Axios',
           install: 'npm install axios --save',
         },
-        fetch: {
-          name: 'fetch',
-          opts: { useObjectBody: true },
-        },
+        fetch: { name: 'fetch' },
         jquery: { name: 'jQuery' },
         xhr: { name: 'XMLHttpRequest' },
       },
@@ -131,7 +128,6 @@ module.exports = {
         },
         fetch: {
           name: 'fetch',
-          opts: { useObjectBody: true },
           install: 'npm install node-fetch --save',
         },
         native: { name: 'http' },
