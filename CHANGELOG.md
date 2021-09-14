@@ -1,3 +1,13 @@
+## 14.1.0 (2021-09-14)
+
+* chore(deps-dev): bumping dev deps ([b780ed6](https://github.com/readmeio/oas-to-snippet/commit/b780ed6))
+* chore(deps-dev): downgrading oas-extensions to being just a dev dep ([b9aa522](https://github.com/readmeio/oas-to-snippet/commit/b9aa522))
+* chore(deps): bumping har-related deps (#20) ([2c3739f](https://github.com/readmeio/oas-to-snippet/commit/2c3739f)), closes [#20](https://github.com/readmeio/oas-to-snippet/issues/20)
+* fix: don't treat har overrides as already being encoded ([a00c933](https://github.com/readmeio/oas-to-snippet/commit/a00c933))
+* fix: upgrading oas-to-har to resolve issues with style serialization ([e7a3d32](https://github.com/readmeio/oas-to-snippet/commit/e7a3d32))
+
+
+
 ## 14.0.0 (2021-09-02)
 
 > 🚨 BREAKING CHANGE
