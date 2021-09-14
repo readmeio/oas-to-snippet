@@ -4,7 +4,7 @@ exports[`multipart/form-data handlings should convert a multipart/form-data oper
 Object {
   "code": "curl --request POST \\\\
      --url https://example.com/multipart \\\\
-     --header 'Content-Type: multipart/form-data; boundary=---011000010111000001101001' \\\\
+     --header 'Content-Type: multipart/form-data' \\\\
      --form orderId=10 \\\\
      --form userId=3232 \\\\
      --form documentFile=@owlbert.png",
@@ -24,9 +24,9 @@ const url = 'https://httpbin.org/post?foo=bar&foo=baz&baz=abc&key=value';
 const options = {
   method: 'POST',
   headers: {
+    cookie: 'foo=bar; bar=baz',
     accept: 'application/json',
-    'content-type': 'application/x-www-form-urlencoded',
-    cookie: 'foo=bar; bar=baz; '
+    'content-type': 'application/x-www-form-urlencoded'
   },
   body: encodedParams
 };
@@ -462,12 +462,11 @@ sdk.loginUser({username: 'woof', password: 'barkbarkbark', Accept: 'application/
 
 exports[`supported languages node targets axios should support snippet generation 1`] = `
 Object {
-  "code": "var axios = require(\\"axios\\").default;
+  "code": "const axios = require(\\"axios\\").default;
 
-var options = {
+const options = {
   method: 'GET',
-  url: 'http://petstore.swagger.io/v2/user/login',
-  params: {username: 'woof', password: 'barkbarkbark'},
+  url: 'http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark',
   headers: {Accept: 'application/xml'}
 };
 
@@ -533,8 +532,7 @@ Object {
 
 const options = {
   method: 'GET',
-  url: 'http://petstore.swagger.io/v2/user/login',
-  qs: {username: 'woof', password: 'barkbarkbark'},
+  url: 'http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark',
   headers: {Accept: 'application/xml'}
 };
 
@@ -746,13 +744,11 @@ exports[`supported languages python targets requests should support snippet gene
 Object {
   "code": "import requests
 
-url = \\"http://petstore.swagger.io/v2/user/login\\"
-
-querystring = {\\"username\\":\\"woof\\",\\"password\\":\\"barkbarkbark\\"}
+url = \\"http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark\\"
 
 headers = {\\"Accept\\": \\"application/xml\\"}
 
-response = requests.request(\\"GET\\", url, headers=headers, params=querystring)
+response = requests.request(\\"GET\\", url, headers=headers)
 
 print(response.text)",
   "highlightMode": "python",

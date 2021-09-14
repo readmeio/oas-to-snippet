@@ -46,7 +46,7 @@ module.exports = (oas, operation, values, auth, lang, oasUrl, harOverride) => {
   }
 
   const har = harOverride || generateHar(oas, operation, values, auth);
-  const snippet = new HTTPSnippet(har, { escapeQueryStrings: false });
+  const snippet = new HTTPSnippet(har, { harIsAlreadyEncoded: true });
 
   let targetOpts = config.httpsnippet.targets[target].opts || {};
   const highlightMode = config.highlight;
