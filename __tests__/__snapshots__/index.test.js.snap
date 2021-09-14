@@ -1,18 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`multipart/form-data handlings should convert a multipart/form-data operation into a proper snippet that uses the original file 1`] = `
-Object {
-  "code": "curl --request POST \\\\
-     --url https://example.com/multipart \\\\
-     --header 'Content-Type: multipart/form-data' \\\\
-     --form orderId=10 \\\\
-     --form userId=3232 \\\\
-     --form documentFile=@owlbert.png",
-  "highlightMode": "shell",
-}
-`;
-
-exports[`should be able to accept a har override 1`] = `
+exports[`HAR overrides should be able to accept a har override 1`] = `
 Object {
   "code": "const { URLSearchParams } = require('url');
 const fetch = require('node-fetch');
@@ -36,6 +24,33 @@ fetch(url, options)
   .then(json => console.log(json))
   .catch(err => console.error('error:' + err));",
   "highlightMode": "javascript",
+}
+`;
+
+exports[`HAR overrides should treat overrides as if they are not yet encoded 1`] = `
+Object {
+  "code": "const fetch = require('node-fetch');
+
+const url = 'https://httpbin.org/anything?startTime=2019-06-13T19%3A08%3A25.455Z&endTime=2015-09-15T14%3A00%3A12-04%3A00';
+const options = {method: 'GET'};
+
+fetch(url, options)
+  .then(res => res.json())
+  .then(json => console.log(json))
+  .catch(err => console.error('error:' + err));",
+  "highlightMode": "javascript",
+}
+`;
+
+exports[`multipart/form-data handlings should convert a multipart/form-data operation into a proper snippet that uses the original file 1`] = `
+Object {
+  "code": "curl --request POST \\\\
+     --url https://example.com/multipart \\\\
+     --header 'Content-Type: multipart/form-data' \\\\
+     --form orderId=10 \\\\
+     --form userId=3232 \\\\
+     --form documentFile=@owlbert.png",
+  "highlightMode": "shell",
 }
 `;
 

@@ -46,7 +46,10 @@ module.exports = (oas, operation, values, auth, lang, oasUrl, harOverride) => {
   }
 
   const har = harOverride || generateHar(oas, operation, values, auth);
-  const snippet = new HTTPSnippet(har, { harIsAlreadyEncoded: true });
+  const snippet = new HTTPSnippet(har, {
+    // We should only expect HAR's generated with `@readme/oas-to-har` to already be encoded.
+    harIsAlreadyEncoded: !harOverride,
+  });
 
   let targetOpts = config.httpsnippet.targets[target].opts || {};
   const highlightMode = config.highlight;

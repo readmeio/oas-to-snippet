@@ -3,6 +3,7 @@ const Oas = require('oas');
 const path = require('path');
 const datauri = require('datauri');
 const harExamples = require('har-examples');
+const queryEncodedHAR = require('./__fixtures__/query-encoded.har.json');
 
 const generateCodeSnippet = require('../src');
 const supportedLanguages = require('../src/supportedLanguages');
@@ -14,9 +15,16 @@ const petstore = new Oas(petstoreOas);
 const oasUrl = 'https://example.com/openapi.json';
 const formData = { path: { petId: 123 } };
 
-test('should be able to accept a har override', () => {
-  const codeSnippet = generateCodeSnippet(null, null, null, null, 'node', null, harExamples.full);
-  expect(codeSnippet).toMatchSnapshot();
+describe('HAR overrides', () => {
+  it('should be able to accept a har override', () => {
+    const snippet = generateCodeSnippet(null, null, null, null, 'node', null, harExamples.full);
+    expect(snippet).toMatchSnapshot();
+  });
+
+  it('should treat overrides as if they are not yet encoded', () => {
+    const snippet = generateCodeSnippet(null, null, null, null, 'node', null, queryEncodedHAR);
+    expect(snippet).toMatchSnapshot();
+  });
 });
 
 test('should return falsy values for an unknown language', () => {
