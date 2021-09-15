@@ -1,3 +1,9 @@
+## 14.2.0 (2021-09-15)
+
+* feat: promoting the new guzzle snippet to be the php default ([4aea7c7](https://github.com/readmeio/oas-to-snippet/commit/4aea7c7))
+
+
+
 ## 14.1.0 (2021-09-14)
 
 * chore(deps-dev): bumping dev deps ([b780ed6](https://github.com/readmeio/oas-to-snippet/commit/b780ed6))
