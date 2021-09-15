@@ -165,9 +165,13 @@ module.exports = {
     highlight: 'php',
     httpsnippet: {
       lang: 'php',
-      default: 'curl',
+      default: 'guzzle',
       targets: {
         curl: { name: 'cURL' },
+        guzzle: {
+          name: 'Guzzle',
+          install: 'composer require guzzlehttp/guzzle',
+        },
       },
     },
   },

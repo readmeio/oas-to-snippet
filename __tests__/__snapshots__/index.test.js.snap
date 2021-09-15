@@ -650,32 +650,17 @@ Client.call ~headers \`GET uri
 exports[`supported languages php should generate code for the default target 1`] = `
 Object {
   "code": "<?php
+require_once('vendor/autoload.php');
 
-$curl = curl_init();
+$client = new \\\\GuzzleHttp\\\\Client();
 
-curl_setopt_array($curl, [
-  CURLOPT_URL => \\"http://petstore.swagger.io/v2/pet\\",
-  CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_ENCODING => \\"\\",
-  CURLOPT_MAXREDIRS => 10,
-  CURLOPT_TIMEOUT => 30,
-  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-  CURLOPT_CUSTOMREQUEST => \\"POST\\",
-  CURLOPT_HTTPHEADER => [
-    \\"Content-Type: application/json\\"
+$response = $client->request('POST', 'http://petstore.swagger.io/v2/pet', [
+  'headers' => [
+    'Content-Type' => 'application/json',
   ],
 ]);
 
-$response = curl_exec($curl);
-$err = curl_error($curl);
-
-curl_close($curl);
-
-if ($err) {
-  echo \\"cURL Error #:\\" . $err;
-} else {
-  echo $response;
-}",
+echo $response->getBody();",
   "highlightMode": "php",
 }
 `;
@@ -709,6 +694,24 @@ if ($err) {
 } else {
   echo $response;
 }",
+  "highlightMode": "php",
+}
+`;
+
+exports[`supported languages php targets guzzle should support snippet generation 1`] = `
+Object {
+  "code": "<?php
+require_once('vendor/autoload.php');
+
+$client = new \\\\GuzzleHttp\\\\Client();
+
+$response = $client->request('GET', 'http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark', [
+  'headers' => [
+    'Accept' => 'application/xml',
+  ],
+]);
+
+echo $response->getBody();",
   "highlightMode": "php",
 }
 `;
