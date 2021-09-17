@@ -1,3 +1,12 @@
+## <small>14.2.1 (2021-09-17)</small>
+
+* chore(deps-dev): bumping dev deps ([8beea62](https://github.com/readmeio/oas-to-snippet/commit/8beea62))
+* chore(deps): bumping deps ([43d2365](https://github.com/readmeio/oas-to-snippet/commit/43d2365))
+* ci: setting up codeql ([99658a7](https://github.com/readmeio/oas-to-snippet/commit/99658a7))
+* docs: adding a security policy ([52e87fb](https://github.com/readmeio/oas-to-snippet/commit/52e87fb))
+
+
+
 ## 14.2.0 (2021-09-15)
 
 * feat: promoting the new guzzle snippet to be the php default ([4aea7c7](https://github.com/readmeio/oas-to-snippet/commit/4aea7c7))
