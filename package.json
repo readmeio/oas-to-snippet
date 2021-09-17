@@ -23,9 +23,9 @@
   },
   "dependencies": {
     "@readme/httpsnippet": "^3.0.0",
-    "@readme/oas-to-har": "^13.7.2",
+    "@readme/oas-to-har": "^13.7.3",
     "httpsnippet-client-api": "^3.4.0",
-    "oas": "^14.5.1"
+    "oas": "^14.6.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^13.1.0",
