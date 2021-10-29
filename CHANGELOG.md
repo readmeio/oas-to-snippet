@@ -1,3 +1,16 @@
+## 14.3.0 (2021-10-29)
+
+* chore(deps-dev): bump @commitlint/cli from 13.1.0 to 13.2.0 (#24) ([075ff97](https://github.com/readmeio/oas-to-snippet/commit/075ff97)), closes [#24](https://github.com/readmeio/oas-to-snippet/issues/24)
+* chore(deps-dev): bump @commitlint/config-conventional (#23) ([6cf1623](https://github.com/readmeio/oas-to-snippet/commit/6cf1623)), closes [#23](https://github.com/readmeio/oas-to-snippet/issues/23)
+* chore(deps-dev): bump har-examples from 2.0.1 to 2.0.2 (#22) ([ddd1f45](https://github.com/readmeio/oas-to-snippet/commit/ddd1f45)), closes [#22](https://github.com/readmeio/oas-to-snippet/issues/22)
+* chore(deps-dev): bump jest from 27.2.0 to 27.2.4 (#25) ([87efeac](https://github.com/readmeio/oas-to-snippet/commit/87efeac)), closes [#25](https://github.com/readmeio/oas-to-snippet/issues/25)
+* chore(deps-dev): upgrading dev deps ([a75e681](https://github.com/readmeio/oas-to-snippet/commit/a75e681))
+* chore(deps): bump actions/setup-node from 2.4.0 to 2.4.1 (#21) ([652f4a5](https://github.com/readmeio/oas-to-snippet/commit/652f4a5)), closes [#21](https://github.com/readmeio/oas-to-snippet/issues/21)
+* chore(deps): upgrading oas and har dependencies to support OpenAPI 3.1 ([e3c516d](https://github.com/readmeio/oas-to-snippet/commit/e3c516d))
+* docs: adding a code of conduct ([159c97b](https://github.com/readmeio/oas-to-snippet/commit/159c97b))
+
+
+
 ## <small>14.2.1 (2021-09-17)</small>
 
 * chore(deps-dev): bumping dev deps ([8beea62](https://github.com/readmeio/oas-to-snippet/commit/8beea62))
