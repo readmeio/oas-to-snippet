@@ -62,6 +62,26 @@ exports[`should have special indents for curl snippets 1`] = `
      --data 'b=1,2,3'"
 `;
 
+exports[`supported languages backwards compatibiltiy should still support \`curl\` as the supplied language 1`] = `
+Object {
+  "code": "curl --request GET \\\\
+     --url 'http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark' \\\\
+     --header 'Accept: application/xml'",
+  "highlightMode": "shell",
+}
+`;
+
+exports[`supported languages backwards compatibiltiy should still support \`node-simple\` as the supplied language 1`] = `
+Object {
+  "code": "const sdk = require('api')('https://example.com/openapi.json');
+
+sdk.loginUser({username: 'woof', password: 'barkbarkbark', Accept: 'application/xml'})
+  .then(res => console.log(res))
+  .catch(err => console.error(err));",
+  "highlightMode": "javascript",
+}
+`;
+
 exports[`supported languages c should generate code for the default target 1`] = `
 Object {
   "code": "CURL *hnd = curl_easy_init();
@@ -185,24 +205,6 @@ var request = new RestRequest(Method.GET);
 request.AddHeader(\\"Accept\\", \\"application/xml\\");
 IRestResponse response = client.Execute(request);",
   "highlightMode": "text/x-csharp",
-}
-`;
-
-exports[`supported languages curl should generate code for the default target 1`] = `
-Object {
-  "code": "curl --request POST \\\\
-     --url http://petstore.swagger.io/v2/pet \\\\
-     --header 'Content-Type: application/json'",
-  "highlightMode": "shell",
-}
-`;
-
-exports[`supported languages curl targets curl should support snippet generation 1`] = `
-Object {
-  "code": "curl --request GET \\\\
-     --url 'http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark' \\\\
-     --header 'Accept: application/xml'",
-  "highlightMode": "shell",
 }
 `;
 
@@ -859,6 +861,32 @@ request[\\"Accept\\"] = 'application/xml'
 response = http.request(request)
 puts response.read_body",
   "highlightMode": "ruby",
+}
+`;
+
+exports[`supported languages shell should generate code for the default target 1`] = `
+Object {
+  "code": "curl --request POST \\\\
+     --url http://petstore.swagger.io/v2/pet \\\\
+     --header 'Content-Type: application/json'",
+  "highlightMode": "shell",
+}
+`;
+
+exports[`supported languages shell targets curl should support snippet generation 1`] = `
+Object {
+  "code": "curl --request GET \\\\
+     --url 'http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark' \\\\
+     --header 'Accept: application/xml'",
+  "highlightMode": "shell",
+}
+`;
+
+exports[`supported languages shell targets httpie should support snippet generation 1`] = `
+Object {
+  "code": "http GET 'http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark' \\\\
+  Accept:application/xml",
+  "highlightMode": "shell",
 }
 `;
 

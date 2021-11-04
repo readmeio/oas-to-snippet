@@ -346,20 +346,21 @@ describe('supported languages', () => {
     });
   });
 
-  it('should support `node-simple`', () => {
-    const snippet = generateCodeSnippet(
-      petstore,
-      petstore.operation('/user/login', 'get'),
-      {
-        query: { username: 'woof', password: 'barkbarkbark' },
-      },
-      {},
-      'node-simple',
-      oasUrl
-    );
+  describe('backwards compatibiltiy', () => {
+    it.each([['curl'], ['node-simple']])('should still support `%s` as the supplied language', lang => {
+      const snippet = generateCodeSnippet(
+        petstore,
+        petstore.operation('/user/login', 'get'),
+        {
+          query: { username: 'woof', password: 'barkbarkbark' },
+        },
+        {},
+        lang,
+        oasUrl
+      );
 
-    expect(snippet.code).toStrictEqual(expect.stringMatching('https://example.com/openapi.json'));
-    expect(snippet.highlightMode).toBe('javascript');
+      expect(snippet).toMatchSnapshot();
+    });
   });
 
   it('should gracefully fallback to `fetch` snippets if our `api` target fails', () => {

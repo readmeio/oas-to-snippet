@@ -43,22 +43,6 @@ module.exports = {
       },
     },
   },
-  curl: {
-    highlight: 'shell',
-    httpsnippet: {
-      lang: 'shell',
-      default: 'curl',
-      targets: {
-        curl: {
-          name: 'cURL',
-          opts: {
-            escapeBrackets: true,
-            indent: '     ',
-          },
-        },
-      },
-    },
-  },
   http: {
     highlight: 'http',
     httpsnippet: {
@@ -226,6 +210,23 @@ module.exports = {
       default: 'ruby',
       targets: {
         ruby: { name: 'net::http' },
+      },
+    },
+  },
+  shell: {
+    highlight: 'shell',
+    httpsnippet: {
+      lang: 'shell',
+      default: 'curl',
+      targets: {
+        curl: {
+          name: 'cURL',
+          opts: {
+            escapeBrackets: true,
+            indent: '     ',
+          },
+        },
+        httpie: { name: 'HTTPie' },
       },
     },
   },
