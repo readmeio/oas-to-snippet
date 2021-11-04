@@ -59,6 +59,16 @@ module.exports = {
       },
     },
   },
+  http: {
+    highlight: 'http',
+    httpsnippet: {
+      lang: 'http',
+      default: '1.1',
+      targets: {
+        1.1: { name: 'HTTP 1.1' },
+      },
+    },
+  },
   go: {
     highlight: 'go',
     httpsnippet: {
