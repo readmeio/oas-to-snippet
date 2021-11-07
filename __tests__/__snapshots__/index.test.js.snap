@@ -268,6 +268,28 @@ func main() {
 }
 `;
 
+exports[`supported languages http should generate code for the default target 1`] = `
+Object {
+  "code": "POST /v2/pet HTTP/1.1
+Content-Type: application/json
+Host: petstore.swagger.io
+
+",
+  "highlightMode": "http",
+}
+`;
+
+exports[`supported languages http targets 1.1 should support snippet generation 1`] = `
+Object {
+  "code": "GET /v2/user/login?username=woof&password=barkbarkbark HTTP/1.1
+Accept: application/xml
+Host: petstore.swagger.io
+
+",
+  "highlightMode": "http",
+}
+`;
+
 exports[`supported languages java should generate code for the default target 1`] = `
 Object {
   "code": "OkHttpClient client = new OkHttpClient();
