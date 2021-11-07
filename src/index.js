@@ -25,6 +25,10 @@ module.exports = (oas, operation, values, auth, lang, oasUrl, harOverride) => {
     config = supportedLanguages.node;
     language = 'node';
     target = 'api';
+  } else if (lang === 'curl') {
+    config = supportedLanguages.shell;
+    language = 'shell';
+    target = 'curl';
   } else if (Array.isArray(lang)) {
     if (lang[0] in supportedLanguages) {
       if (lang[1] in supportedLanguages[lang[0]].httpsnippet.targets) {
