@@ -1,3 +1,15 @@
+## 15.0.0 (2021-11-08)
+
+* feat: adding HTTP into our list of supported snippet targets (#30) ([639a99e](https://github.com/readmeio/oas-to-snippet/commit/639a99e)), closes [#30](https://github.com/readmeio/oas-to-snippet/issues/30)
+* feat: rename curl to shell (#31) ([a11a1ce](https://github.com/readmeio/oas-to-snippet/commit/a11a1ce)), closes [#31](https://github.com/readmeio/oas-to-snippet/issues/31)
+* feat: upgrading oas to v17 (#32) ([3b4e22d](https://github.com/readmeio/oas-to-snippet/commit/3b4e22d)), closes [#32](https://github.com/readmeio/oas-to-snippet/issues/32)
+* chore(deps-dev): bump @commitlint/cli from 13.2.1 to 14.1.0 (#28) ([9f37901](https://github.com/readmeio/oas-to-snippet/commit/9f37901)), closes [#28](https://github.com/readmeio/oas-to-snippet/issues/28)
+* chore(deps-dev): bump @commitlint/config-conventional (#29) ([c26e08e](https://github.com/readmeio/oas-to-snippet/commit/c26e08e)), closes [#29](https://github.com/readmeio/oas-to-snippet/issues/29)
+* chore(deps-dev): bump oas from 16.0.3 to 16.0.4 (#27) ([f2e9347](https://github.com/readmeio/oas-to-snippet/commit/f2e9347)), closes [#27](https://github.com/readmeio/oas-to-snippet/issues/27)
+* chore(deps): bump actions/checkout from 2.3.4 to 2.3.5 (#26) ([a7dc2b3](https://github.com/readmeio/oas-to-snippet/commit/a7dc2b3)), closes [#26](https://github.com/readmeio/oas-to-snippet/issues/26)
+
+
+
 ## 14.3.0 (2021-10-29)
 
 * chore(deps-dev): bump @commitlint/cli from 13.1.0 to 13.2.0 (#24) ([075ff97](https://github.com/readmeio/oas-to-snippet/commit/075ff97)), closes [#24](https://github.com/readmeio/oas-to-snippet/issues/24)
