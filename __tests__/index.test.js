@@ -1,5 +1,5 @@
 const extensions = require('@readme/oas-extensions');
-const Oas = require('oas');
+const Oas = require('oas').default;
 const path = require('path');
 const datauri = require('datauri');
 const harExamples = require('har-examples');

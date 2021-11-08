@@ -69,7 +69,7 @@ module.exports = (oas, operation, values, auth, lang, oasUrl, harOverride) => {
       }
     }
 
-    targetOpts.apiDefinition = oas;
+    targetOpts.apiDefinition = oas ? oas.getDefinition() : null;
     targetOpts.apiDefinitionUri = oasUrl;
   }
 
