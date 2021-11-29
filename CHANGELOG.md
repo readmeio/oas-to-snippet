@@ -1,3 +1,10 @@
+## <small>15.0.1 (2021-11-29)</small>
+
+* fix: upgrading oas-to-har to fix a nested object bug ([afe5b3b](https://github.com/readmeio/oas-to-snippet/commit/afe5b3b))
+* chore(deps-dev): upgrading eslint to v8 ([e38b903](https://github.com/readmeio/oas-to-snippet/commit/e38b903))
+
+
+
 ## 15.0.0 (2021-11-08)
 
 * feat: adding HTTP into our list of supported snippet targets (#30) ([639a99e](https://github.com/readmeio/oas-to-snippet/commit/639a99e)), closes [#30](https://github.com/readmeio/oas-to-snippet/issues/30)
