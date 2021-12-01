@@ -1,3 +1,17 @@
+## <small>15.0.2 (2021-12-01)</small>
+
+* chore(deps-dev): bump @commitlint/cli from 14.1.0 to 15.0.0 (#37) ([ff9374a](https://github.com/readmeio/oas-to-snippet/commit/ff9374a)), closes [#37](https://github.com/readmeio/oas-to-snippet/issues/37)
+* chore(deps-dev): bump @commitlint/config-conventional (#36) ([3fda0ea](https://github.com/readmeio/oas-to-snippet/commit/3fda0ea)), closes [#36](https://github.com/readmeio/oas-to-snippet/issues/36)
+* chore(deps-dev): bump @readme/oas-extensions from 14.0.0 to 14.0.1 (#39) ([4ce5418](https://github.com/readmeio/oas-to-snippet/commit/4ce5418)), closes [#39](https://github.com/readmeio/oas-to-snippet/issues/39)
+* chore(deps-dev): bump eslint from 8.2.0 to 8.3.0 (#35) ([3fdda38](https://github.com/readmeio/oas-to-snippet/commit/3fdda38)), closes [#35](https://github.com/readmeio/oas-to-snippet/issues/35)
+* chore(deps-dev): bump jest from 27.3.1 to 27.4.2 (#41) ([7165291](https://github.com/readmeio/oas-to-snippet/commit/7165291)), closes [#41](https://github.com/readmeio/oas-to-snippet/issues/41)
+* chore(deps-dev): bump oas from 17.1.0 to 17.1.6 (#38) ([34afc2d](https://github.com/readmeio/oas-to-snippet/commit/34afc2d)), closes [#38](https://github.com/readmeio/oas-to-snippet/issues/38)
+* chore(deps-dev): bump prettier from 2.4.1 to 2.5.0 (#40) ([9255aa2](https://github.com/readmeio/oas-to-snippet/commit/9255aa2)), closes [#40](https://github.com/readmeio/oas-to-snippet/issues/40)
+* chore(deps): bump actions/checkout from 2.3.5 to 2.4.0 (#34) ([c168696](https://github.com/readmeio/oas-to-snippet/commit/c168696)), closes [#34](https://github.com/readmeio/oas-to-snippet/issues/34)
+* chore(deps): bump actions/setup-node from 2.4.1 to 2.5.0 (#33) ([d9bcb5a](https://github.com/readmeio/oas-to-snippet/commit/d9bcb5a)), closes [#33](https://github.com/readmeio/oas-to-snippet/issues/33)
+
+
+
 ## <small>15.0.1 (2021-11-29)</small>
 
 * fix: upgrading oas-to-har to fix a nested object bug ([afe5b3b](https://github.com/readmeio/oas-to-snippet/commit/afe5b3b))
