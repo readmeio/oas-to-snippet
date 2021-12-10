@@ -1,3 +1,9 @@
+## <small>15.0.3 (2021-12-10)</small>
+
+* fix: upgrading snippet deps to fix a bug with multipart/form-data requests (#42) ([cf228a5](https://github.com/readmeio/oas-to-snippet/commit/cf228a5)), closes [#42](https://github.com/readmeio/oas-to-snippet/issues/42)
+
+
+
 ## <small>15.0.2 (2021-12-01)</small>
 
 * chore(deps-dev): bump @commitlint/cli from 14.1.0 to 15.0.0 (#37) ([ff9374a](https://github.com/readmeio/oas-to-snippet/commit/ff9374a)), closes [#37](https://github.com/readmeio/oas-to-snippet/issues/37)
