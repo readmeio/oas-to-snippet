@@ -1,3 +1,9 @@
+## <small>15.0.4 (2021-12-16)</small>
+
+* fix: cleaning up engine requirements and updating dev deps (#43) ([6998e0a](https://github.com/readmeio/oas-to-snippet/commit/6998e0a)), closes [#43](https://github.com/readmeio/oas-to-snippet/issues/43)
+
+
+
 ## <small>15.0.3 (2021-12-10)</small>
 
 * fix: upgrading snippet deps to fix a bug with multipart/form-data requests (#42) ([cf228a5](https://github.com/readmeio/oas-to-snippet/commit/cf228a5)), closes [#42](https://github.com/readmeio/oas-to-snippet/issues/42)
