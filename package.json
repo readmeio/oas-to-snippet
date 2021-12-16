@@ -10,8 +10,7 @@
     "url": "git://github.com/readmeio/oas-to-snippet.git"
   },
   "engines": {
-    "node": "^12 || ^14 || ^16",
-    "npm": "^7"
+    "node": "^12 || ^14 || ^16"
   },
   "scripts": {
     "lint": "eslint .",
@@ -23,15 +22,15 @@
   },
   "dependencies": {
     "@readme/httpsnippet": "^3.0.1",
-    "@readme/oas-to-har": "^14.0.2",
+    "@readme/oas-to-har": "^14.0.4",
     "httpsnippet-client-api": "^4.1.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^15.0.0",
     "@commitlint/config-conventional": "^15.0.0",
-    "@readme/eslint-config": "^8.0.2",
+    "@readme/eslint-config": "^8.0.4",
     "@readme/oas-examples": "^4.3.2",
-    "@readme/oas-extensions": "^14.0.0",
+    "@readme/oas-extensions": "^14.0.3",
     "datauri": "^4.1.0",
     "eslint": "^8.2.0",
     "har-examples": "^2.0.1",
