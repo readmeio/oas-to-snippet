@@ -21,8 +21,8 @@
     "test": "jest --coverage"
   },
   "dependencies": {
-    "@readme/httpsnippet": "^3.0.1",
-    "@readme/oas-to-har": "^14.0.4",
+    "@readme/httpsnippet": "^3.0.2",
+    "@readme/oas-to-har": "^14.0.5",
     "httpsnippet-client-api": "^4.1.2"
   },
   "devDependencies": {
@@ -30,13 +30,13 @@
     "@commitlint/config-conventional": "^16.0.0",
     "@readme/eslint-config": "^8.0.4",
     "@readme/oas-examples": "^4.3.2",
-    "@readme/oas-extensions": "^14.0.3",
+    "@readme/oas-extensions": "^14.0.4",
     "datauri": "^4.1.0",
     "eslint": "^8.2.0",
     "har-examples": "^2.0.1",
     "husky": "^7.0.4",
     "jest": "^27.3.1",
-    "oas": "^17.1.7",
+    "oas": "^17.4.1",
     "prettier": "^2.4.1"
   },
   "prettier": "@readme/eslint-config/prettier",
