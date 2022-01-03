@@ -1,3 +1,19 @@
+## <small>15.0.5 (2022-01-03)</small>
+
+* chore(deps-dev): bump @commitlint/cli from 15.0.0 to 16.0.1 (#48) ([ebeb03e](https://github.com/readmeio/oas-to-snippet/commit/ebeb03e)), closes [#48](https://github.com/readmeio/oas-to-snippet/issues/48)
+* chore(deps-dev): bump @commitlint/config-conventional (#47) ([6c0d7e4](https://github.com/readmeio/oas-to-snippet/commit/6c0d7e4)), closes [#47](https://github.com/readmeio/oas-to-snippet/issues/47)
+* chore(deps-dev): bump @readme/eslint-config from 8.0.4 to 8.1.1 (#53) ([fe83dfd](https://github.com/readmeio/oas-to-snippet/commit/fe83dfd)), closes [#53](https://github.com/readmeio/oas-to-snippet/issues/53)
+* chore(deps-dev): bump eslint from 8.3.0 to 8.6.0 (#49) ([889992f](https://github.com/readmeio/oas-to-snippet/commit/889992f)), closes [#49](https://github.com/readmeio/oas-to-snippet/issues/49)
+* chore(deps-dev): bump har-examples from 2.0.2 to 2.1.0 (#52) ([0aa084d](https://github.com/readmeio/oas-to-snippet/commit/0aa084d)), closes [#52](https://github.com/readmeio/oas-to-snippet/issues/52)
+* chore(deps-dev): bump jest from 27.4.2 to 27.4.5 (#50) ([04b1f2d](https://github.com/readmeio/oas-to-snippet/commit/04b1f2d)), closes [#50](https://github.com/readmeio/oas-to-snippet/issues/50)
+* chore(deps-dev): bump oas from 17.3.2 to 17.4.0 (#46) ([1ebcf7f](https://github.com/readmeio/oas-to-snippet/commit/1ebcf7f)), closes [#46](https://github.com/readmeio/oas-to-snippet/issues/46)
+* chore(deps-dev): bump prettier from 2.5.0 to 2.5.1 (#51) ([d4dfc7d](https://github.com/readmeio/oas-to-snippet/commit/d4dfc7d)), closes [#51](https://github.com/readmeio/oas-to-snippet/issues/51)
+* chore(deps): bump actions/setup-node from 2.5.0 to 2.5.1 (#44) ([c21bb5f](https://github.com/readmeio/oas-to-snippet/commit/c21bb5f)), closes [#44](https://github.com/readmeio/oas-to-snippet/issues/44)
+* chore(deps): bump httpsnippet-client-api from 4.1.2 to 4.1.3 (#45) ([ae3866a](https://github.com/readmeio/oas-to-snippet/commit/ae3866a)), closes [#45](https://github.com/readmeio/oas-to-snippet/issues/45)
+* chore(deps): upgrading various oas-related deps (#54) ([6eedda9](https://github.com/readmeio/oas-to-snippet/commit/6eedda9)), closes [#54](https://github.com/readmeio/oas-to-snippet/issues/54)
+
+
+
 ## <small>15.0.4 (2021-12-16)</small>
 
 * fix: cleaning up engine requirements and updating dev deps (#43) ([6998e0a](https://github.com/readmeio/oas-to-snippet/commit/6998e0a)), closes [#43](https://github.com/readmeio/oas-to-snippet/issues/43)
