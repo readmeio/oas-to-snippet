@@ -1,3 +1,19 @@
+## <small>15.0.6 (2022-02-02)</small>
+
+* chore(deps-dev): bump @commitlint/cli from 16.0.1 to 16.1.0 (#61) ([d8b7287](https://github.com/readmeio/oas-to-snippet/commit/d8b7287)), closes [#61](https://github.com/readmeio/oas-to-snippet/issues/61)
+* chore(deps-dev): bump @readme/eslint-config from 8.1.1 to 8.2.0 (#58) ([34bfea9](https://github.com/readmeio/oas-to-snippet/commit/34bfea9)), closes [#58](https://github.com/readmeio/oas-to-snippet/issues/58)
+* chore(deps-dev): bump @readme/oas-examples from 4.3.2 to 4.4.0 (#56) ([f9361e2](https://github.com/readmeio/oas-to-snippet/commit/f9361e2)), closes [#56](https://github.com/readmeio/oas-to-snippet/issues/56)
+* chore(deps-dev): bump @readme/oas-extensions from 14.0.4 to 14.1.1 (#66) ([dfe108f](https://github.com/readmeio/oas-to-snippet/commit/dfe108f)), closes [#66](https://github.com/readmeio/oas-to-snippet/issues/66)
+* chore(deps-dev): bump eslint from 8.6.0 to 8.8.0 (#55) ([0e804eb](https://github.com/readmeio/oas-to-snippet/commit/0e804eb)), closes [#55](https://github.com/readmeio/oas-to-snippet/issues/55)
+* chore(deps-dev): bump har-examples from 2.1.0 to 3.1.0 (#57) ([9decb9c](https://github.com/readmeio/oas-to-snippet/commit/9decb9c)), closes [#57](https://github.com/readmeio/oas-to-snippet/issues/57)
+* chore(deps-dev): bump jest from 27.4.5 to 27.4.7 (#63) ([7f79ff4](https://github.com/readmeio/oas-to-snippet/commit/7f79ff4)), closes [#63](https://github.com/readmeio/oas-to-snippet/issues/63)
+* chore(deps-dev): bump oas from 17.4.1 to 17.7.2 (#67) ([327712c](https://github.com/readmeio/oas-to-snippet/commit/327712c)), closes [#67](https://github.com/readmeio/oas-to-snippet/issues/67)
+* chore(deps): bump @readme/oas-to-har from 14.0.5 to 14.1.0 (#60) ([5ebe22f](https://github.com/readmeio/oas-to-snippet/commit/5ebe22f)), closes [#60](https://github.com/readmeio/oas-to-snippet/issues/60)
+* chore(deps): bump httpsnippet-client-api from 4.1.3 to 4.2.0 (#64) ([b4ee5c6](https://github.com/readmeio/oas-to-snippet/commit/b4ee5c6)), closes [#64](https://github.com/readmeio/oas-to-snippet/issues/64)
+* chore(deps): bump node-fetch from 2.6.6 to 2.6.7 (#65) ([8ac9b1c](https://github.com/readmeio/oas-to-snippet/commit/8ac9b1c)), closes [#65](https://github.com/readmeio/oas-to-snippet/issues/65)
+
+
+
 ## <small>15.0.5 (2022-01-03)</small>
 
 * chore(deps-dev): bump @commitlint/cli from 15.0.0 to 16.0.1 (#48) ([ebeb03e](https://github.com/readmeio/oas-to-snippet/commit/ebeb03e)), closes [#48](https://github.com/readmeio/oas-to-snippet/issues/48)
