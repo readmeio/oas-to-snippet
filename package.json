@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@readme/httpsnippet": "^3.0.2",
-    "@readme/oas-to-har": "^14.0.5",
+    "@readme/oas-to-har": "^15.0.0",
     "httpsnippet-client-api": "^4.1.2"
   },
   "devDependencies": {
