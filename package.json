@@ -14,8 +14,9 @@
   },
   "scripts": {
     "lint": "eslint .",
+    "lint:docs": "alex . .github/",
     "prepare": "husky install",
-    "pretest": "npm run lint",
+    "pretest": "npm run lint && npm run lint:docs",
     "prettier": "prettier --list-different --write \"./**/**.{js,jsx}\"",
     "release": "npx conventional-changelog-cli -i CHANGELOG.md -s && git add CHANGELOG.md",
     "test": "jest --coverage"
@@ -31,6 +32,7 @@
     "@readme/eslint-config": "^8.5.0",
     "@readme/oas-examples": "^4.3.2",
     "@readme/oas-extensions": "^14.2.0",
+    "alex": "^10.0.0",
     "datauri": "^4.1.0",
     "eslint": "^8.10.0",
     "har-examples": "^3.1.0",
