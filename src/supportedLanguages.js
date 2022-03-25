@@ -95,7 +95,7 @@ module.exports = {
   kotlin: {
     highlight: 'java',
     httpsnippet: {
-      lang: 'java',
+      lang: 'kotlin',
       default: 'okhttp',
       targets: {
         okhttp: { name: 'OkHttp' },
