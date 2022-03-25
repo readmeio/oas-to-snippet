@@ -1,3 +1,13 @@
+## <small>15.0.7 (2022-03-25)</small>
+
+* chore(deps): bumping out of date deps ([2c66536](https://github.com/readmeio/oas-to-snippet/commit/2c66536))
+* chore(deps): bumping out of date deps (#77) ([e5ec77a](https://github.com/readmeio/oas-to-snippet/commit/e5ec77a)), closes [#77](https://github.com/readmeio/oas-to-snippet/issues/77)
+* docs: incorporating alex into our documentation workflow (#78) ([96349c2](https://github.com/readmeio/oas-to-snippet/commit/96349c2)), closes [#78](https://github.com/readmeio/oas-to-snippet/issues/78)
+* docs: removing some project docs from our repo as they're in our .github/ repo now ([4a47393](https://github.com/readmeio/oas-to-snippet/commit/4a47393))
+* fix: kotlin snippets to actually use the kotlin generator (#79) ([015bdcd](https://github.com/readmeio/oas-to-snippet/commit/015bdcd)), closes [#79](https://github.com/readmeio/oas-to-snippet/issues/79)
+
+
+
 ## <small>15.0.6 (2022-02-02)</small>
 
 * chore(deps-dev): bump @commitlint/cli from 16.0.1 to 16.1.0 (#61) ([d8b7287](https://github.com/readmeio/oas-to-snippet/commit/d8b7287)), closes [#61](https://github.com/readmeio/oas-to-snippet/issues/61)
