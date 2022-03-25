@@ -445,30 +445,30 @@ xhr.send(data);",
 
 exports[`supported languages kotlin should generate code for the default target 1`] = `
 Object {
-  "code": "OkHttpClient client = new OkHttpClient();
+  "code": "val client = OkHttpClient()
 
-Request request = new Request.Builder()
+val request = Request.Builder()
   .url(\\"http://petstore.swagger.io/v2/pet\\")
   .post(null)
   .addHeader(\\"Content-Type\\", \\"application/json\\")
-  .build();
+  .build()
 
-Response response = client.newCall(request).execute();",
+val response = client.newCall(request).execute()",
   "highlightMode": "java",
 }
 `;
 
 exports[`supported languages kotlin targets okhttp should support snippet generation 1`] = `
 Object {
-  "code": "OkHttpClient client = new OkHttpClient();
+  "code": "val client = OkHttpClient()
 
-Request request = new Request.Builder()
+val request = Request.Builder()
   .url(\\"http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark\\")
   .get()
   .addHeader(\\"Accept\\", \\"application/xml\\")
-  .build();
+  .build()
 
-Response response = client.newCall(request).execute();",
+val response = client.newCall(request).execute()",
   "highlightMode": "java",
 }
 `;
