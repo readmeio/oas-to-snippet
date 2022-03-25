@@ -23,23 +23,23 @@
   },
   "dependencies": {
     "@readme/httpsnippet": "^3.0.3",
-    "@readme/oas-to-har": "^16.0.0",
+    "@readme/oas-to-har": "^16.1.0",
     "httpsnippet-client-api": "^4.1.2"
   },
   "devDependencies": {
-    "@commitlint/cli": "^16.2.1",
+    "@commitlint/cli": "^16.2.3",
     "@commitlint/config-conventional": "^16.2.1",
-    "@readme/eslint-config": "^8.5.0",
-    "@readme/oas-examples": "^4.3.2",
+    "@readme/eslint-config": "^8.5.1",
+    "@readme/oas-examples": "^5.0.0",
     "@readme/oas-extensions": "^14.2.0",
     "alex": "^10.0.0",
     "datauri": "^4.1.0",
-    "eslint": "^8.10.0",
+    "eslint": "^8.11.0",
     "har-examples": "^3.1.0",
     "husky": "^7.0.4",
     "jest": "^27.5.1",
-    "oas": "^18.0.0",
-    "prettier": "^2.4.1"
+    "oas": "^18.0.7",
+    "prettier": "^2.6.1"
   },
   "prettier": "@readme/eslint-config/prettier",
   "commitlint": {
