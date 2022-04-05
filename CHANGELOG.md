@@ -1,3 +1,12 @@
+## <small>15.0.8 (2022-04-05)</small>
+
+* chore(deps-dev): bump eslint from 8.11.0 to 8.12.0 (#81) ([4e63f98](https://github.com/readmeio/oas-to-snippet/commit/4e63f98)), closes [#81](https://github.com/readmeio/oas-to-snippet/issues/81)
+* chore(deps-dev): bump oas from 18.0.7 to 18.1.0 (#82) ([3e4f6bf](https://github.com/readmeio/oas-to-snippet/commit/3e4f6bf)), closes [#82](https://github.com/readmeio/oas-to-snippet/issues/82)
+* chore(deps): bump actions/checkout from 2.4.0 to 3 (#80) ([25f3904](https://github.com/readmeio/oas-to-snippet/commit/25f3904)), closes [#80](https://github.com/readmeio/oas-to-snippet/issues/80)
+* chore(deps): bumping httpsnippet-client-api ([abe3b67](https://github.com/readmeio/oas-to-snippet/commit/abe3b67))
+
+
+
 ## <small>15.0.7 (2022-03-25)</small>
 
 * chore(deps): bumping out of date deps ([2c66536](https://github.com/readmeio/oas-to-snippet/commit/2c66536))
