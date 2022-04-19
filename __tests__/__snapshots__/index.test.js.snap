@@ -775,7 +775,7 @@ url = \\"http://petstore.swagger.io/v2/pet\\"
 
 headers = {\\"Content-Type\\": \\"application/json\\"}
 
-response = requests.request(\\"POST\\", url, headers=headers)
+response = requests.post(url, headers=headers)
 
 print(response.text)",
   "highlightMode": "python",
@@ -790,7 +790,7 @@ url = \\"http://petstore.swagger.io/v2/user/login?username=woof&password=barkbar
 
 headers = {\\"Accept\\": \\"application/xml\\"}
 
-response = requests.request(\\"GET\\", url, headers=headers)
+response = requests.get(url, headers=headers)
 
 print(response.text)",
   "highlightMode": "python",
