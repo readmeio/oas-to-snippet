@@ -22,7 +22,7 @@
     "test": "jest --coverage"
   },
   "dependencies": {
-    "@readme/httpsnippet": "^3.0.3",
+    "@readme/httpsnippet": "^3.1.0",
     "@readme/oas-to-har": "^16.1.0",
     "httpsnippet-client-api": "^4.3.0"
   },
