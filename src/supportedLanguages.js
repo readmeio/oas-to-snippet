@@ -226,7 +226,10 @@ module.exports = {
             indent: '     ',
           },
         },
-        httpie: { name: 'HTTPie' },
+        httpie: {
+          name: 'HTTPie',
+          install: 'brew install httpie',
+        },
       },
     },
   },
