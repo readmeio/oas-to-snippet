@@ -1,3 +1,9 @@
+## <small>16.0.1 (2022-04-22)</small>
+
+* feat: documenting an install command for httpie (#87) ([45920ee](https://github.com/readmeio/oas-to-snippet/commit/45920ee)), closes [#87](https://github.com/readmeio/oas-to-snippet/issues/87)
+
+
+
 ## 16.0.0 (2022-04-22)
 
 > **BREAKING RELEASE**
