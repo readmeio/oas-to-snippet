@@ -4,8 +4,6 @@ const { expect } = require('chai');
 
 const extensions = require('@readme/oas-extensions');
 const Oas = require('oas').default;
-const fs = require('fs');
-// const datauri = require('datauri');
 const harExamples = require('har-examples');
 
 const generateCodeSnippet = require('../src');
