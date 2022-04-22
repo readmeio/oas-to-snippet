@@ -1,3 +1,15 @@
+## 16.0.0 (2022-04-22)
+
+> **BREAKING RELEASE**
+>
+> Node 12 is no longer supported.
+
+* fix: upgrading oas-to-har to fix an issue with `accept` header case-insensitivity ([18ba68f](https://github.com/readmeio/oas-to-snippet/commit/18ba68f))
+* feat: browser testing! (#86) ([f83ca98](https://github.com/readmeio/oas-to-snippet/commit/f83ca98)), closes [#86](https://github.com/readmeio/oas-to-snippet/issues/86)
+* feat: upgrading har generation to better support multi-level deepObject parameters (#85) ([55b40a5](https://github.com/readmeio/oas-to-snippet/commit/55b40a5)), closes [#85](https://github.com/readmeio/oas-to-snippet/issues/85)
+
+
+
 ## <small>15.0.8 (2022-04-05)</small>
 
 * chore(deps-dev): bump eslint from 8.11.0 to 8.12.0 (#81) ([4e63f98](https://github.com/readmeio/oas-to-snippet/commit/4e63f98)), closes [#81](https://github.com/readmeio/oas-to-snippet/issues/81)
