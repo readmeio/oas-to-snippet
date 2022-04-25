@@ -1,3 +1,9 @@
+## <small>16.0.2 (2022-04-25)</small>
+
+* fix: upgrading oas-to-har to resolve an issue with RAW_BODY payloads ([1905dbf](https://github.com/readmeio/oas-to-snippet/commit/1905dbf))
+
+
+
 ## <small>16.0.1 (2022-04-22)</small>
 
 * feat: documenting an install command for httpie (#87) ([45920ee](https://github.com/readmeio/oas-to-snippet/commit/45920ee)), closes [#87](https://github.com/readmeio/oas-to-snippet/issues/87)
