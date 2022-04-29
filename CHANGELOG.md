@@ -1,3 +1,10 @@
+## <small>16.0.3 (2022-04-29)</small>
+
+* fix: upgrading httpsnippet to fix a compat issue with js + axios ([e215b31](https://github.com/readmeio/oas-to-snippet/commit/e215b31))
+* fix: upgrading some deps for node 18 compat ([149bc7f](https://github.com/readmeio/oas-to-snippet/commit/149bc7f))
+
+
+
 ## <small>16.0.2 (2022-04-25)</small>
 
 * fix: upgrading oas-to-har to resolve an issue with RAW_BODY payloads ([1905dbf](https://github.com/readmeio/oas-to-snippet/commit/1905dbf))
