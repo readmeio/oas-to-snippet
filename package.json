@@ -24,7 +24,7 @@
     "test": "nyc mocha"
   },
   "dependencies": {
-    "@readme/httpsnippet": "^3.1.0",
+    "@readme/httpsnippet": "^3.1.1",
     "@readme/oas-to-har": "^17.0.3",
     "httpsnippet-client-api": "^4.3.0"
   },
