@@ -1,7 +1,7 @@
 {
   "name": "@readme/oas-to-snippet",
   "description": "Transform an OpenAPI operation into a code snippet",
-  "version": "16.0.3",
+  "version": "16.0.4",
   "main": "src/index.js",
   "author": "Jon Ursenbach <jon@readme.io>",
   "license": "MIT",
@@ -16,7 +16,7 @@
     "lint": "eslint .",
     "prepare": "husky install",
     "pretest": "npm run lint",
-    "prettier": "prettier --list-different --write \"./**/**.{js,jsx}\"",
+    "prettier": "prettier --list-different --write \"./**/**.{js}\"",
     "release": "npx conventional-changelog-cli -i CHANGELOG.md -s && git add CHANGELOG.md",
     "test:browser": "karma start --single-run",
     "test:browser:chrome": "karma start --browsers=Chrome --single-run=false",

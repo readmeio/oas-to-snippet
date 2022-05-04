@@ -1,3 +1,15 @@
+## <small>16.0.4 (2022-05-04)</small>
+
+* chore: minor cleanup ([15cdae0](https://github.com/readmeio/oas-to-snippet/commit/15cdae0))
+* chore(deps-dev): bump @commitlint/cli from 16.2.3 to 16.2.4 (#91) ([2e36950](https://github.com/readmeio/oas-to-snippet/commit/2e36950)), closes [#91](https://github.com/readmeio/oas-to-snippet/issues/91)
+* chore(deps-dev): bump @commitlint/config-conventional (#92) ([03c8a33](https://github.com/readmeio/oas-to-snippet/commit/03c8a33)), closes [#92](https://github.com/readmeio/oas-to-snippet/issues/92)
+* chore(deps-dev): bump eslint from 8.13.0 to 8.14.0 (#89) ([2516365](https://github.com/readmeio/oas-to-snippet/commit/2516365)), closes [#89](https://github.com/readmeio/oas-to-snippet/issues/89)
+* chore(deps-dev): bump mocha from 9.2.2 to 10.0.0 (#90) ([fa93f4c](https://github.com/readmeio/oas-to-snippet/commit/fa93f4c)), closes [#90](https://github.com/readmeio/oas-to-snippet/issues/90)
+* chore(deps): bump github/codeql-action from 1 to 2 (#88) ([c62ed7f](https://github.com/readmeio/oas-to-snippet/commit/c62ed7f)), closes [#88](https://github.com/readmeio/oas-to-snippet/issues/88)
+* fix: upgrading oas-to-har to fix an issue with primitive RAW_BODY usages ([a81a75b](https://github.com/readmeio/oas-to-snippet/commit/a81a75b))
+
+
+
 ## <small>16.0.3 (2022-04-29)</small>
 
 * fix: upgrading httpsnippet to fix a compat issue with js + axios ([e215b31](https://github.com/readmeio/oas-to-snippet/commit/e215b31))
