@@ -17,10 +17,11 @@ module.exports = (oas, operation, values, auth, lang, oasUrl, harOverride) => {
   let language;
   let target;
 
-  // If `lang` is an array, then it's a mixture of language and targets like `[php, guzzle]` or `[javascript, axios]` so
-  // we need to a bit of work to pull out the necessary information needed to build the snippet. For backwards
-  // compatibility sake we still need to support supplying `node-simple` as the language even though `node-simple` does
-  // not exist within the list of `supportedLanguages`.
+  // If `lang` is an array, then it's a mixture of language and targets like `[php, guzzle]` or
+  // `[javascript, axios]` so we need to a bit of work to pull out the necessary information needed
+  // to build the snippet. For backwards compatibility sake we still need to support supplying
+  // `node-simple` as the language even though `node-simple` does not exist within the list of
+  // `supportedLanguages`.
   if (lang === 'node-simple') {
     config = supportedLanguages.node;
     language = 'node';
@@ -43,8 +44,8 @@ module.exports = (oas, operation, values, auth, lang, oasUrl, harOverride) => {
     target = config.httpsnippet.default;
   }
 
-  // Prevents errors if non-generated code snippet is selected and there isn't a way to generate a code snippet for it
-  // (like for example `shell`).
+  // Prevents errors if non-generated code snippet is selected and there isn't a way to generate a
+  // code snippet for it (like for example `shell`).
   if (!language || !target) {
     return { code: '', highlightMode: false };
   }
@@ -58,8 +59,8 @@ module.exports = (oas, operation, values, auth, lang, oasUrl, harOverride) => {
   let targetOpts = config.httpsnippet.targets[target].opts || {};
   const highlightMode = config.highlight;
 
-  // API SDK client needs additional runtime information on the API definition we're showing the user so it can
-  // generate an appropriate snippet.
+  // API SDK client needs additional runtime information on the API definition we're showing the
+  // user so it can generate an appropriate snippet.
   if (language === 'node' && target === 'api') {
     try {
       HTTPSnippet.addTargetClient('node', HTTPSnippetSimpleApiClient);
@@ -83,8 +84,9 @@ module.exports = (oas, operation, values, auth, lang, oasUrl, harOverride) => {
       throw err;
     }
 
-    // Since `api` depends upon the API definition it's more subject to breakage than other snippet targets, so if we
-    // failed when attempting to generate one for that let's instead render out a `fetch` snippet.
+    // Since `api` depends upon the API definition it's more subject to breakage than other snippet
+    // targets, so if we failed when attempting to generate one for that let's instead render out a
+    // `fetch` snippet.
     targetOpts = config.httpsnippet.targets.fetch.opts || {};
 
     return {
