@@ -1,3 +1,9 @@
+## <small>16.0.5 (2022-05-19)</small>
+
+* fix: upgrading httpsnippet to resolve an issue with R snippets ([8c2ecb3](https://github.com/readmeio/oas-to-snippet/commit/8c2ecb3))
+
+
+
 ## <small>16.0.4 (2022-05-04)</small>
 
 * chore: minor cleanup ([15cdae0](https://github.com/readmeio/oas-to-snippet/commit/15cdae0))
