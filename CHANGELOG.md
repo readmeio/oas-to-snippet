@@ -1,3 +1,9 @@
+## <small>16.0.6 (2022-05-27)</small>
+
+* fix: upgrade httpsnippet to fix a bug with r snippets building querystrings wrong (#93) ([284eb98](https://github.com/readmeio/oas-to-snippet/commit/284eb98)), closes [#93](https://github.com/readmeio/oas-to-snippet/issues/93)
+
+
+
 ## <small>16.0.5 (2022-05-19)</small>
 
 * fix: upgrading httpsnippet to resolve an issue with R snippets ([8c2ecb3](https://github.com/readmeio/oas-to-snippet/commit/8c2ecb3))
