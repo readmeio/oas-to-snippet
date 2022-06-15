@@ -1,3 +1,18 @@
+## <small>16.0.7 (2022-06-15)</small>
+
+* chore(deps-dev): bump @commitlint/cli from 16.2.4 to 17.0.2 (#96) ([4f677ad](https://github.com/readmeio/oas-to-snippet/commit/4f677ad)), closes [#96](https://github.com/readmeio/oas-to-snippet/issues/96)
+* chore(deps-dev): bump @commitlint/config-conventional (#102) ([37185bb](https://github.com/readmeio/oas-to-snippet/commit/37185bb)), closes [#102](https://github.com/readmeio/oas-to-snippet/issues/102)
+* chore(deps-dev): bump @jsdevtools/karma-config from 3.1.7 to 3.2.0 (#94) ([994241e](https://github.com/readmeio/oas-to-snippet/commit/994241e)), closes [#94](https://github.com/readmeio/oas-to-snippet/issues/94)
+* chore(deps-dev): bump @readme/eslint-config from 8.7.3 to 8.7.5 (#97) ([31f764a](https://github.com/readmeio/oas-to-snippet/commit/31f764a)), closes [#97](https://github.com/readmeio/oas-to-snippet/issues/97)
+* chore(deps-dev): bump @readme/oas-examples from 5.1.1 to 5.2.0 (#95) ([e08fd72](https://github.com/readmeio/oas-to-snippet/commit/e08fd72)), closes [#95](https://github.com/readmeio/oas-to-snippet/issues/95)
+* chore(deps-dev): bump eslint from 8.14.0 to 8.16.0 (#100) ([dc8c472](https://github.com/readmeio/oas-to-snippet/commit/dc8c472)), closes [#100](https://github.com/readmeio/oas-to-snippet/issues/100)
+* chore(deps-dev): bump husky from 7.0.4 to 8.0.1 (#101) ([1a4ce40](https://github.com/readmeio/oas-to-snippet/commit/1a4ce40)), closes [#101](https://github.com/readmeio/oas-to-snippet/issues/101)
+* chore(deps-dev): bump oas from 18.3.1 to 18.3.3 (#98) ([6d3b687](https://github.com/readmeio/oas-to-snippet/commit/6d3b687)), closes [#98](https://github.com/readmeio/oas-to-snippet/issues/98)
+* chore(deps-dev): bumping out of date deps ([d0e5a6f](https://github.com/readmeio/oas-to-snippet/commit/d0e5a6f))
+* chore(deps): bump @readme/oas-to-har from 17.0.4 to 17.0.5 (#99) ([e98ebec](https://github.com/readmeio/oas-to-snippet/commit/e98ebec)), closes [#99](https://github.com/readmeio/oas-to-snippet/issues/99)
+
+
+
 ## <small>16.0.6 (2022-05-27)</small>
 
 * fix: upgrade httpsnippet to fix a bug with r snippets building querystrings wrong (#93) ([284eb98](https://github.com/readmeio/oas-to-snippet/commit/284eb98)), closes [#93](https://github.com/readmeio/oas-to-snippet/issues/93)
