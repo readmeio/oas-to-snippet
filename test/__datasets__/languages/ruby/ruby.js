@@ -7,7 +7,7 @@ module.exports =
   'http = Net::HTTP.new(url.host, url.port)\n' +
   '\n' +
   'request = Net::HTTP::Get.new(url)\n' +
-  `request["Accept"] = 'application/xml'\n` +
+  'request["Accept"] = \'application/xml\'\n' +
   '\n' +
   'response = http.request(request)\n' +
   'puts response.read_body';

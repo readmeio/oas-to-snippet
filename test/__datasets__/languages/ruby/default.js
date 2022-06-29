@@ -7,7 +7,7 @@ module.exports =
   'http = Net::HTTP.new(url.host, url.port)\n' +
   '\n' +
   'request = Net::HTTP::Post.new(url)\n' +
-  `request["Content-Type"] = 'application/json'\n` +
+  'request["Content-Type"] = \'application/json\'\n' +
   '\n' +
   'response = http.request(request)\n' +
   'puts response.read_body';
