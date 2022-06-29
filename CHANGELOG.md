@@ -1,3 +1,10 @@
+## <small>16.0.8 (2022-06-29)</small>
+
+* chore: rename `fetch` to `node-fetch` (#103) ([eea4a86](https://github.com/readmeio/oas-to-snippet/commit/eea4a86)), closes [#103](https://github.com/readmeio/oas-to-snippet/issues/103)
+* chore(deps-dev): bumping out of date dev deps ([197af5c](https://github.com/readmeio/oas-to-snippet/commit/197af5c))
+
+
+
 ## <small>16.0.7 (2022-06-15)</small>
 
 * chore(deps-dev): bump @commitlint/cli from 16.2.4 to 17.0.2 (#96) ([4f677ad](https://github.com/readmeio/oas-to-snippet/commit/4f677ad)), closes [#96](https://github.com/readmeio/oas-to-snippet/issues/96)
