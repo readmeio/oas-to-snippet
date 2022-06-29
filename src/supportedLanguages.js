@@ -121,7 +121,7 @@ module.exports = {
           install: 'npm install axios --save',
         },
         fetch: {
-          name: 'fetch',
+          name: 'node-fetch',
           install: 'npm install node-fetch --save',
         },
         native: { name: 'http' },
