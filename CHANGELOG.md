@@ -1,3 +1,9 @@
+## <small>16.0.9 (2022-07-05)</small>
+
+* chore(deps): upgrading @readme/oas-to-har ([c87c60c](https://github.com/readmeio/oas-to-snippet/commit/c87c60c))
+
+
+
 ## <small>16.0.8 (2022-06-29)</small>
 
 * chore: rename `fetch` to `node-fetch` (#103) ([eea4a86](https://github.com/readmeio/oas-to-snippet/commit/eea4a86)), closes [#103](https://github.com/readmeio/oas-to-snippet/issues/103)
