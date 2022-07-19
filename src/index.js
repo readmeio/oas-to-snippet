@@ -1,5 +1,5 @@
-const HTTPSnippet = require('@readme/httpsnippet');
-const HTTPSnippetSimpleApiClient = require('httpsnippet-client-api');
+const { HTTPSnippet, addTargetClient } = require('@readme/httpsnippet');
+const HTTPSnippetSimpleApiClient = require('httpsnippet-client-api').default;
 const generateHar = require('@readme/oas-to-har');
 const supportedLanguages = require('./supportedLanguages');
 
@@ -63,7 +63,7 @@ module.exports = (oas, operation, values, auth, lang, oasUrl, harOverride) => {
   // user so it can generate an appropriate snippet.
   if (language === 'node' && target === 'api') {
     try {
-      HTTPSnippet.addTargetClient('node', HTTPSnippetSimpleApiClient);
+      addTargetClient('node', HTTPSnippetSimpleApiClient);
     } catch (e) {
       if (!e.message.match(/already exists/)) {
         throw e;

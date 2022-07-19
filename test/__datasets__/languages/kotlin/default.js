@@ -1,10 +1,9 @@
-module.exports =
-  'val client = OkHttpClient()\n' +
-  '\n' +
-  'val request = Request.Builder()\n' +
-  '  .url("http://petstore.swagger.io/v2/pet")\n' +
-  '  .post(null)\n' +
-  '  .addHeader("Content-Type", "application/json")\n' +
-  '  .build()\n' +
-  '\n' +
-  'val response = client.newCall(request).execute()';
+module.exports = `val client = OkHttpClient()
+
+val request = Request.Builder()
+  .url("http://petstore.swagger.io/v2/pet")
+  .post(null)
+  .addHeader("Content-Type", "application/json")
+  .build()
+
+val response = client.newCall(request).execute()`;

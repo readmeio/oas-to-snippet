@@ -1,13 +1,12 @@
-module.exports =
-  '<?php\n' +
-  "require_once('vendor/autoload.php');\n" +
-  '\n' +
-  '$client = new \\GuzzleHttp\\Client();\n' +
-  '\n' +
-  "$response = $client->request('POST', 'http://petstore.swagger.io/v2/pet', [\n" +
-  "  'headers' => [\n" +
-  "    'Content-Type' => 'application/json',\n" +
-  '  ],\n' +
-  ']);\n' +
-  '\n' +
-  'echo $response->getBody();';
+module.exports = `<?php
+require_once('vendor/autoload.php');
+
+$client = new \\GuzzleHttp\\Client();
+
+$response = $client->request('POST', 'http://petstore.swagger.io/v2/pet', [
+  'headers' => [
+    'Content-Type' => 'application/json',
+  ],
+]);
+
+echo $response->getBody();`;
