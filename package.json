@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@readme/httpsnippet": "^4.0.3",
-    "@readme/oas-to-har": "^17.0.7",
+    "@readme/oas-to-har": "^17.0.8",
     "httpsnippet-client-api": "^5.0.0-beta.2"
   },
   "devDependencies": {
@@ -33,11 +33,11 @@
     "@commitlint/config-conventional": "^17.0.3",
     "@jsdevtools/host-environment": "^2.1.2",
     "@jsdevtools/karma-config": "^3.1.7",
-    "@readme/eslint-config": "^8.8.0",
-    "@readme/oas-examples": "^5.4.0",
+    "@readme/eslint-config": "^8.8.3",
+    "@readme/oas-examples": "^5.4.1",
     "@readme/oas-extensions": "^14.2.0",
     "chai": "^4.3.6",
-    "eslint": "^8.18.0",
+    "eslint": "^8.20.0",
     "har-examples": "^3.1.1",
     "husky": "^8.0.1",
     "mocha": "^10.0.0",
