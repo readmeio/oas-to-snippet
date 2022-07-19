@@ -1,3 +1,10 @@
+## 17.0.0 (2022-07-19)
+
+* chore: bumping out of date dep ([75a5830](https://github.com/readmeio/oas-to-snippet/commit/75a5830))
+* feat: upgrading the library to support httpsnippet v4 (#104) ([d0de0bb](https://github.com/readmeio/oas-to-snippet/commit/d0de0bb)), closes [#104](https://github.com/readmeio/oas-to-snippet/issues/104)
+
+
+
 ## <small>16.0.9 (2022-07-05)</small>
 
 * chore(deps): upgrading @readme/oas-to-har ([c87c60c](https://github.com/readmeio/oas-to-snippet/commit/c87c60c))
