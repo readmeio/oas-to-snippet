@@ -3,9 +3,9 @@ module.exports = {
     highlight: 'text/x-csrc',
     httpsnippet: {
       lang: 'c',
-      default: 'c',
+      default: 'libcurl',
       targets: {
-        c: { name: 'libcurl' },
+        libcurl: { name: 'libcurl' },
       },
     },
   },
@@ -13,9 +13,9 @@ module.exports = {
     highlight: 'clojure',
     httpsnippet: {
       lang: 'clojure',
-      default: 'clojure',
+      default: 'clj_http',
       targets: {
-        clojure: { name: 'clj-http' },
+        clj_http: { name: 'clj-http' },
       },
     },
   },
@@ -23,9 +23,9 @@ module.exports = {
     highlight: 'text/x-c++src',
     httpsnippet: {
       lang: 'c',
-      default: 'c',
+      default: 'libcurl',
       targets: {
-        c: { name: 'libcurl' },
+        libcurl: { name: 'libcurl' },
       },
     },
   },
@@ -47,9 +47,9 @@ module.exports = {
     highlight: 'http',
     httpsnippet: {
       lang: 'http',
-      default: '1.1',
+      default: 'http1.1',
       targets: {
-        1.1: { name: 'HTTP 1.1' },
+        'http1.1': { name: 'HTTP 1.1' },
       },
     },
   },
@@ -146,9 +146,9 @@ module.exports = {
     highlight: 'ocaml',
     httpsnippet: {
       lang: 'ocaml',
-      default: 'ocaml',
+      default: 'cohttp',
       targets: {
-        ocaml: {
+        cohttp: {
           name: 'CoHTTP',
           install: 'opam install cohttp-lwt-unix cohttp-async',
         },
@@ -197,9 +197,9 @@ module.exports = {
     highlight: 'r',
     httpsnippet: {
       lang: 'r',
-      default: 'r',
+      default: 'httr',
       targets: {
-        r: { name: 'httr' },
+        httr: { name: 'httr' },
       },
     },
   },
@@ -207,9 +207,9 @@ module.exports = {
     highlight: 'ruby',
     httpsnippet: {
       lang: 'ruby',
-      default: 'ruby',
+      default: 'native',
       targets: {
-        ruby: { name: 'net::http' },
+        native: { name: 'net::http' },
       },
     },
   },
