@@ -1,3 +1,10 @@
+## <small>17.0.2 (2022-07-21)</small>
+
+* fix: upgrading the snippet library ([d6d91a2](https://github.com/readmeio/oas-to-snippet/commit/d6d91a2))
+* chore(deps): bump terser from 4.8.0 to 4.8.1 (#106) ([cade817](https://github.com/readmeio/oas-to-snippet/commit/cade817)), closes [#106](https://github.com/readmeio/oas-to-snippet/issues/106)
+
+
+
 ## 17.0.0 (2022-07-19)
 
 * chore: bumping out of date dep ([75a5830](https://github.com/readmeio/oas-to-snippet/commit/75a5830))
