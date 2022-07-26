@@ -1,3 +1,9 @@
+## <small>17.0.3 (2022-07-26)</small>
+
+* fix: handling for multipart/form-data payloads of multiple files (#107) ([59daa70](https://github.com/readmeio/oas-to-snippet/commit/59daa70)), closes [#107](https://github.com/readmeio/oas-to-snippet/issues/107)
+
+
+
 ## <small>17.0.2 (2022-07-21)</small>
 
 * fix: upgrading the snippet library ([d6d91a2](https://github.com/readmeio/oas-to-snippet/commit/d6d91a2))
