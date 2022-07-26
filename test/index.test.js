@@ -12,6 +12,7 @@ const supportedLanguages = require('../src/supportedLanguages');
 const queryEncodedHAR = require('./__datasets__/query-encoded.har.json');
 const petstoreOas = require('@readme/oas-examples/3.0/json/petstore.json');
 const owlbert = require('./__datasets__/owlbert.dataurl.json');
+const owlbertShrub = require('./__datasets__/owlbert-shrub.dataurl.json');
 
 const petstore = new Oas(petstoreOas);
 
@@ -321,6 +322,52 @@ fetch(url, options)
     expect(snippet.code).to.contain(encodeURIComponent(endTime));
     expect(snippet.code).not.to.contain(encodeURIComponent(encodeURIComponent(startTime)));
     expect(snippet.code).not.to.contain(encodeURIComponent(encodeURIComponent(endTime)));
+  });
+
+  it('should handle `multipart/form-data` payloads of multiple files', function () {
+    const oas = new Oas({
+      openapi: '3.1.0',
+      servers: [
+        {
+          url: 'https://httpbin.org',
+        },
+      ],
+      paths: {
+        '/anything': {
+          post: {
+            requestBody: {
+              content: {
+                'multipart/form-data': {
+                  schema: {
+                    type: 'object',
+                    properties: {
+                      documentFiles: {
+                        type: 'array',
+                        items: {
+                          type: 'string',
+                          format: 'binary',
+                        },
+                      },
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    });
+
+    const snippet = generateCodeSnippet(
+      oas,
+      oas.operation('/anything', 'post'),
+      { body: { documentFiles: [owlbert, owlbertShrub] } },
+      {},
+      'node'
+    );
+
+    expect(snippet.code).to.contain("formData.append('documentFiles', fs.createReadStream('owlbert.png'));");
+    expect(snippet.code).to.contain("formData.append('documentFiles', fs.createReadStream('owlbert-shrub.png'));");
   });
 
   describe('supported languages', function () {
