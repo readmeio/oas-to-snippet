@@ -1,3 +1,9 @@
+## <small>17.0.5 (2022-07-27)</small>
+
+* fix: upgrading oas-to-har for a fix to filename case sensitivity ([9b36895](https://github.com/readmeio/oas-to-snippet/commit/9b36895))
+
+
+
 ## <small>17.0.4 (2022-07-27)</small>
 
 * fix: updating oas-to-har to fix issues with files that have underscores (#108) ([cb0b97a](https://github.com/readmeio/oas-to-snippet/commit/cb0b97a)), closes [#108](https://github.com/readmeio/oas-to-snippet/issues/108)
