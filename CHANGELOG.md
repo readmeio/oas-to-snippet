@@ -1,3 +1,9 @@
+## <small>17.0.4 (2022-07-27)</small>
+
+* fix: updating oas-to-har to fix issues with files that have underscores (#108) ([cb0b97a](https://github.com/readmeio/oas-to-snippet/commit/cb0b97a)), closes [#108](https://github.com/readmeio/oas-to-snippet/issues/108)
+
+
+
 ## <small>17.0.3 (2022-07-26)</small>
 
 * fix: handling for multipart/form-data payloads of multiple files (#107) ([59daa70](https://github.com/readmeio/oas-to-snippet/commit/59daa70)), closes [#107](https://github.com/readmeio/oas-to-snippet/issues/107)
