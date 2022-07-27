@@ -11,6 +11,7 @@ const supportedLanguages = require('../src/supportedLanguages');
 
 const queryEncodedHAR = require('./__datasets__/query-encoded.har.json');
 const petstoreOas = require('@readme/oas-examples/3.0/json/petstore.json');
+const fileUploads = require('@readme/oas-examples/3.0/json/file-uploads.json');
 const owlbert = require('./__datasets__/owlbert.dataurl.json');
 const owlbertShrub = require('./__datasets__/owlbert-shrub.dataurl.json');
 
@@ -325,49 +326,36 @@ fetch(url, options)
   });
 
   it('should handle `multipart/form-data` payloads of multiple files', function () {
-    const oas = new Oas({
-      openapi: '3.1.0',
-      servers: [
-        {
-          url: 'https://httpbin.org',
-        },
-      ],
-      paths: {
-        '/anything': {
-          post: {
-            requestBody: {
-              content: {
-                'multipart/form-data': {
-                  schema: {
-                    type: 'object',
-                    properties: {
-                      documentFiles: {
-                        type: 'array',
-                        items: {
-                          type: 'string',
-                          format: 'binary',
-                        },
-                      },
-                    },
-                  },
-                },
-              },
-            },
-          },
-        },
-      },
-    });
+    const oas = new Oas(fileUploads);
 
     const snippet = generateCodeSnippet(
       oas,
-      oas.operation('/anything', 'post'),
-      { body: { documentFiles: [owlbert, owlbertShrub] } },
+      oas.operation('/anything/multipart-formdata', 'put'),
+      { body: { filename: [owlbert, owlbertShrub] } },
       {},
       'node'
     );
 
-    expect(snippet.code).to.contain("formData.append('documentFiles', fs.createReadStream('owlbert.png'));");
-    expect(snippet.code).to.contain("formData.append('documentFiles', fs.createReadStream('owlbert-shrub.png'));");
+    expect(snippet.code).to.contain("formData.append('filename', fs.createReadStream('owlbert.png'));");
+    expect(snippet.code).to.contain("formData.append('filename', fs.createReadStream('owlbert-shrub.png'));");
+  });
+
+  it('should handle a `multipart/form-data` payload where a file has an underscore in its name', function () {
+    const oas = new Oas(fileUploads);
+
+    const snippet = generateCodeSnippet(
+      oas,
+      oas.operation('/anything/multipart-formdata', 'post'),
+      {
+        body: {
+          documentFile: 'data:text/plain;name=lorem_ipsum.txt;base64,TG9yZW0gaXBzdW0gZG9sb3Igc2l0IG1ldA==',
+        },
+      },
+      {},
+      'node'
+    );
+
+    expect(snippet.code).to.contain("formData.append('documentFile', fs.createReadStream('lorem_ipsum.txt'));");
   });
 
   describe('supported languages', function () {
