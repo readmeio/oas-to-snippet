@@ -1,3 +1,13 @@
+## 17.1.0 (2022-08-01)
+
+* feat: upgrading httpsnippet-client-api to have headers in api snippets lowercased (#113) ([9b86884](https://github.com/readmeio/oas-to-snippet/commit/9b86884)), closes [#113](https://github.com/readmeio/oas-to-snippet/issues/113)
+* chore(deps-dev): bump @readme/eslint-config from 8.8.3 to 9.0.0 (#111) ([b0ce19c](https://github.com/readmeio/oas-to-snippet/commit/b0ce19c)), closes [#111](https://github.com/readmeio/oas-to-snippet/issues/111)
+* chore(deps-dev): bump @readme/oas-examples from 5.4.1 to 5.5.0 (#109) ([a8a1142](https://github.com/readmeio/oas-to-snippet/commit/a8a1142)), closes [#109](https://github.com/readmeio/oas-to-snippet/issues/109)
+* chore(deps-dev): bump eslint from 8.20.0 to 8.21.0 (#112) ([bedcc07](https://github.com/readmeio/oas-to-snippet/commit/bedcc07)), closes [#112](https://github.com/readmeio/oas-to-snippet/issues/112)
+* chore(deps-dev): bump oas from 18.3.3 to 18.3.4 (#110) ([8ced8d1](https://github.com/readmeio/oas-to-snippet/commit/8ced8d1)), closes [#110](https://github.com/readmeio/oas-to-snippet/issues/110)
+
+
+
 ## <small>17.0.5 (2022-07-27)</small>
 
 * fix: upgrading oas-to-har for a fix to filename case sensitivity ([9b36895](https://github.com/readmeio/oas-to-snippet/commit/9b36895))
