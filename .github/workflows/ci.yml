@@ -10,7 +10,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 14
+          node-version: 16
 
       - name: Get npm cache directory
         id: npm-cache-dir
@@ -65,14 +65,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      - name: Install npm@8
-        run: npm install -g npm@8
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Run tests
-        run: npx mocha
+      - run: npm ci
+      - run: npm run build
+      - run: npx mocha
 
   browser_tests:
     name: Browser
@@ -94,7 +89,7 @@ jobs:
       - name: Install Node
         uses: actions/setup-node@v3
         with:
-          node-version: 14
+          node-version: 16
 
       - name: Get npm cache directory
         id: npm-cache-dir
@@ -109,11 +104,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      - name: Install npm@8
-        run: npm install -g npm@8
-
-      - name: Install dependencies
-        run: npm ci
+      - run: npm ci
+      - run: npm run build
 
       # Chrome
       - uses: browser-actions/setup-chrome@latest

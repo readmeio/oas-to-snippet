@@ -17,10 +17,11 @@ npm install --save @readme/oas-to-snippet
 ## Usage
 
 ```js
-const Oas = require('oas');
-const generateSnippet = require('@readme/oas-to-snippet');
+import Oas from 'oas';
+import generateSnippet from '@readme/oas-to-snippet';
+import petstore from './petstore.json';
 
-const apiDefinition = new Oas('petstore.json');
+const apiDefinition = new Oas(petstore);
 const operation = apiDefinition.operation('/pets', 'get');
 
 // This is a keyed object containing formData for your operation. Available keys are: path,
@@ -34,8 +35,8 @@ const formData = {
 // its value should either be a String, or an Object containing `user` and/or `pass` (for Basic
 // auth schemes).
 const auth = {
-  'oauth2': 'bearerToken',
-}
+  oauth2: 'bearerToken',
+};
 
 // This is the language to generate a snippet to. See below for supported languages.
 //
@@ -59,40 +60,40 @@ const { code, highlightMode } = generateSnippet(apiDefinition, operation, formDa
 
 Since this library uses [HTTP Snippet](https://github.com/Kong/httpsnippet), we support most of its languages, and their associated targets, which are the following:
 
-* `c`
-* `clojure`
-* `cplusplus`
-* `csharp`
-  * `httpclient`
-  * `restsharp`
-* `curl`
-* `go`
-* `java`
-  * `asynchttp`
-  * `nethttp`
-  * `okhttp`
-  * `unirest`
-* `javascript`
-  * `axios`
-  * `fetch`
-  * `jquery`
-  * `xhr`
-* `kotlin`
-  * `okhttp`
-* `node`
-  * `api`: This is our OpenAPI-powered SDK generation library; see https://npm.im/api for more info.
-  * `axios`
-  * `fetch`
-  * `native`
-  * `request`
-* `node-simple`: This is a shortcut for supplying `['node', 'api']` as the `lang` argument.
-* `objectivec`
-* `ocaml`
-* `php`
-  * `curl`
-* `powershell`
-* `python`
-  * `requests`
-* `r`
-* `ruby`
-* `swift`
+- `c`
+- `clojure`
+- `cplusplus`
+- `csharp`
+  - `httpclient`
+  - `restsharp`
+- `curl`
+- `go`
+- `java`
+  - `asynchttp`
+  - `nethttp`
+  - `okhttp`
+  - `unirest`
+- `javascript`
+  - `axios`
+  - `fetch`
+  - `jquery`
+  - `xhr`
+- `kotlin`
+  - `okhttp`
+- `node`
+  - `api`: This is our OpenAPI-powered SDK generation library; see https://npm.im/api for more info.
+  - `axios`
+  - `fetch`
+  - `native`
+  - `request`
+- `node-simple`: This is a shortcut for supplying `['node', 'api']` as the `lang` argument.
+- `objectivec`
+- `ocaml`
+- `php`
+  - `curl`
+- `powershell`
+- `python`
+  - `requests`
+- `r`
+- `ruby`
+- `swift`

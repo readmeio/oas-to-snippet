@@ -1,21 +1,20 @@
-/* eslint-disable import/no-dynamic-require */
-/* eslint-disable global-require */
-const { expect } = require('chai');
+import type { HarRequest } from '@readme/httpsnippet';
+import type { SupportedLanguages } from 'supportedLanguages';
+import { expect } from 'chai';
 
-const extensions = require('@readme/oas-extensions');
-const Oas = require('oas').default;
-const harExamples = require('har-examples');
+import * as extensions from '@readme/oas-extensions';
+import Oas from 'oas';
+import harExamples from 'har-examples';
 
-const generateCodeSnippet = require('../src');
-const supportedLanguages = require('../src/supportedLanguages');
+import generateCodeSnippet, { supportedLanguages } from '../src';
 
-const queryEncodedHAR = require('./__datasets__/query-encoded.har.json');
-const petstoreOas = require('@readme/oas-examples/3.0/json/petstore.json');
-const fileUploads = require('@readme/oas-examples/3.0/json/file-uploads.json');
-const owlbert = require('./__datasets__/owlbert.dataurl.json');
-const owlbertShrub = require('./__datasets__/owlbert-shrub.dataurl.json');
+import queryEncodedHAR from './__datasets__/query-encoded.har.json';
+import petstoreOas from '@readme/oas-examples/3.0/json/petstore.json';
+import fileUploads from '@readme/oas-examples/3.0/json/file-uploads.json';
+import owlbert from './__datasets__/owlbert.dataurl.json';
+import owlbertShrub from './__datasets__/owlbert-shrub.dataurl.json';
 
-const petstore = new Oas(petstoreOas);
+const petstore = Oas.init(petstoreOas);
 
 const oasUrl = 'https://example.com/openapi.json';
 const formData = { path: { petId: 123 } };
@@ -48,7 +47,16 @@ fetch(url, options)
     });
 
     it('should treat overrides as if they are not yet encoded', function () {
-      const { code } = generateCodeSnippet(null, null, null, null, 'node', null, queryEncodedHAR);
+      const { code } = generateCodeSnippet(
+        null,
+        null,
+        null,
+        null,
+        'node',
+        null,
+        queryEncodedHAR as unknown as HarRequest
+      );
+
       expect(code).to.equal(`const fetch = require('node-fetch');
 
 const url = 'https://httpbin.org/anything?startTime=2019-06-13T19%3A08%3A25.455Z&endTime=2015-09-15T14%3A00%3A12-04%3A00';
@@ -62,6 +70,7 @@ fetch(url, options)
   });
 
   it('should return falsy values for an unknown language', function () {
+    // @ts-expect-error Testing an improper typing case here.
     const codeSnippet = generateCodeSnippet(petstore, petstore.operation('/pet/{petId}', 'get'), {}, {}, 'css', oasUrl);
 
     expect(codeSnippet).to.deep.equal({
@@ -118,7 +127,7 @@ fetch(url, options)
   });
 
   it('should have special indents for curl snippets', function () {
-    const oas = new Oas({
+    const oas = Oas.init({
       paths: {
         '/body': {
           get: {
@@ -199,7 +208,7 @@ fetch(url, options)
     let formDataOas;
 
     beforeEach(function () {
-      formDataOas = new Oas({
+      formDataOas = Oas.init({
         servers: [{ url: 'https://example.com' }],
         paths: {
           '/multipart': {
@@ -281,7 +290,7 @@ fetch(url, options)
     const startTime = '2019-06-13T19:08:25.455Z';
     const endTime = '2015-09-15T14:00:12-04:00';
 
-    const oas = new Oas({
+    const oas = Oas.init({
       paths: {
         '/': {
           get: {
@@ -326,7 +335,7 @@ fetch(url, options)
   });
 
   it('should handle `multipart/form-data` payloads of multiple files', function () {
-    const oas = new Oas(fileUploads);
+    const oas = Oas.init(fileUploads);
 
     const snippet = generateCodeSnippet(
       oas,
@@ -341,7 +350,7 @@ fetch(url, options)
   });
 
   it('should handle a `multipart/form-data` payload where a file has an underscore in its name', function () {
-    const oas = new Oas(fileUploads);
+    const oas = Oas.init(fileUploads);
 
     const snippet = generateCodeSnippet(
       oas,
@@ -360,7 +369,7 @@ fetch(url, options)
 
   describe('supported languages', function () {
     // eslint-disable-next-line mocha/no-setup-in-describe
-    Object.keys(supportedLanguages).forEach(lang => {
+    Object.keys(supportedLanguages).forEach((lang: keyof SupportedLanguages) => {
       describe(lang, function () {
         // eslint-disable-next-line mocha/no-setup-in-describe
         const targets = Object.keys(supportedLanguages[lang].httpsnippet.targets);
@@ -375,10 +384,11 @@ fetch(url, options)
           expect(targets).to.contain(supportedLanguages[lang].httpsnippet.default);
         });
 
-        it('should generate code for the default target', function () {
+        it('should generate code for the default target', async function () {
+          const expected = await import(`./__datasets__/languages/${lang}/default.js`).then(r => r.default);
           const snippet = generateCodeSnippet(petstore, petstore.operation('/pet', 'post'), formData, {}, lang);
 
-          expect(snippet.code).to.equal(require(`./__datasets__/languages/${lang}/default.js`));
+          expect(snippet.code).to.equal(expected);
           expect(snippet.highlightMode).to.equal(supportedLanguages[lang].highlight);
         });
 
@@ -398,7 +408,8 @@ fetch(url, options)
                 }
               });
 
-              it('should support snippet generation', function () {
+              it('should support snippet generation', async function () {
+                const expected = await import(`./__datasets__/languages/${lang}/${target}.js`).then(r => r.default);
                 const snippet = generateCodeSnippet(
                   petstore,
                   petstore.operation('/user/login', 'get'),
@@ -410,7 +421,7 @@ fetch(url, options)
                   oasUrl
                 );
 
-                expect(snippet.code).to.equal(require(`./__datasets__/languages/${lang}/${target}.js`));
+                expect(snippet.code).to.equal(expected);
                 expect(snippet.highlightMode).to.equal(supportedLanguages[lang].highlight);
               });
             });
@@ -421,8 +432,8 @@ fetch(url, options)
 
     describe('backwards compatibiltiy', function () {
       // eslint-disable-next-line mocha/no-setup-in-describe
-      ['curl', 'node-simple'].forEach(lang => {
-        it(`should still support \`${lang}\` as the supplied language`, function () {
+      ['curl', 'node-simple'].forEach((lang: 'curl' | 'node-simple') => {
+        it(`should still support \`${lang}\` as the supplied language`, async function () {
           const snippet = generateCodeSnippet(
             petstore,
             petstore.operation('/user/login', 'get'),
@@ -435,10 +446,12 @@ fetch(url, options)
           );
 
           if (lang === 'curl') {
-            expect(snippet.code).to.equal(require('./__datasets__/languages/shell/curl'));
+            const expected = await import('./__datasets__/languages/shell/curl').then(r => r.default);
+            expect(snippet.code).to.equal(expected);
             expect(snippet.highlightMode).to.equal('shell');
           } else if (lang === 'node-simple') {
-            expect(snippet.code).to.equal(require('./__datasets__/languages/node/api'));
+            const expected = await import('./__datasets__/languages/node/api').then(r => r.default);
+            expect(snippet.code).to.equal(expected);
             expect(snippet.highlightMode).to.equal('javascript');
           }
         });

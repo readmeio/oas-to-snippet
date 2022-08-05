@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const { karmaConfig } = require('@jsdevtools/karma-config');
 const { host } = require('@jsdevtools/host-environment');
 
@@ -10,5 +11,17 @@ module.exports = karmaConfig({
     safari: host.os.mac,
     edge: false,
     ie: false,
+  },
+  tests: ['test/*.ts'],
+  config: {
+    webpack: {
+      resolve: {
+        extensions: ['.js', '.ts'],
+      },
+      mode: 'production',
+      module: {
+        rules: [{ test: /\.ts$/, use: 'ts-loader' }],
+      },
+    },
   },
 });
