@@ -17,8 +17,8 @@ npm install --save @readme/oas-to-snippet
 ## Usage
 
 ```js
-const Oas = require('oas');
-const generateSnippet = require('@readme/oas-to-snippet');
+import Oas from 'oas';
+import generateSnippet from '@readme/oas-to-snippet';
 
 const apiDefinition = new Oas('petstore.json');
 const operation = apiDefinition.operation('/pets', 'get');
