@@ -19,8 +19,9 @@ npm install --save @readme/oas-to-snippet
 ```js
 import Oas from 'oas';
 import generateSnippet from '@readme/oas-to-snippet';
+import petstore from './petstore.json';
 
-const apiDefinition = new Oas('petstore.json');
+const apiDefinition = new Oas(petstore);
 const operation = apiDefinition.operation('/pets', 'get');
 
 // This is a keyed object containing formData for your operation. Available keys are: path,
