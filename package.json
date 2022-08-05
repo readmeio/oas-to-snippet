@@ -19,7 +19,7 @@
     "prebuild": "rm -rf dist/",
     "prepack": "npm run build",
     "prepare": "husky install",
-    "__pretest": "npm run lint",
+    "pretest": "npm run lint",
     "prettier": "prettier --list-different --write \"./**/**.{js,ts}\"",
     "release": "npx conventional-changelog-cli -i CHANGELOG.md -s && git add CHANGELOG.md",
     "test": "nyc mocha \"test/**/*.test.ts\"",
