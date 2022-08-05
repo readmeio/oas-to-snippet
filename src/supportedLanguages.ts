@@ -1,4 +1,26 @@
-module.exports = {
+import type { ClientId, TargetId } from '@readme/httpsnippet/dist/targets/targets';
+
+export type SupportedTargets = Exclude<TargetId, 'objc'> | 'cplusplus' | 'objectivec';
+export type SupportedLanguages = Record<
+  SupportedTargets,
+  {
+    highlight: string;
+    httpsnippet: {
+      lang: TargetId;
+      default: ClientId;
+      targets: Record<
+        ClientId,
+        {
+          name: string;
+          install?: string;
+          opts?: Record<string, unknown>;
+        }
+      >;
+    };
+  }
+>;
+
+const supportedLanguages: SupportedLanguages = {
   c: {
     highlight: 'text/x-csrc',
     httpsnippet: {
@@ -244,3 +266,5 @@ module.exports = {
     },
   },
 };
+
+export default supportedLanguages;

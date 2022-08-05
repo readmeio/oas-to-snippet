@@ -1,27 +1,37 @@
-const { HTTPSnippet, addTargetClient } = require('@readme/httpsnippet');
-const HTTPSnippetSimpleApiClient = require('httpsnippet-client-api').default;
-const generateHar = require('@readme/oas-to-har').default;
-const supportedLanguages = require('./supportedLanguages');
+import type { HarRequest } from '@readme/httpsnippet';
+import type Oas from 'oas';
+import type { Operation } from 'oas';
+import type { AuthForHAR, DataForHAR } from '@readme/oas-to-har';
+import type { ClientId, TargetId } from '@readme/httpsnippet/dist/targets/targets';
+import type { SupportedTargets, SupportedLanguages } from './supportedLanguages';
 
-/**
- * @param {Oas} oas
- * @param {Operation} operation
- * @param {Object} values
- * @param {Object} auth
- * @param {String|Array} lang
- * @param {String} oasUrl
- * @param {Object|undefined} harOverride
- */
-module.exports = (oas, operation, values, auth, lang, oasUrl, harOverride) => {
+import { HTTPSnippet, addTargetClient } from '@readme/httpsnippet';
+import HTTPSnippetSimpleApiClient from 'httpsnippet-client-api';
+import generateHar from '@readme/oas-to-har';
+import supportedLanguages from './supportedLanguages';
+
+export type { AuthForHAR, DataForHAR, SupportedTargets, SupportedLanguages };
+
+export default function oasToSnippet(
+  oas: Oas,
+  operation: Operation,
+  values: DataForHAR,
+  auth: AuthForHAR,
+  lang: keyof typeof supportedLanguages | [keyof typeof supportedLanguages, ClientId] | 'node-simple' | 'curl',
+  oasUrl?: string,
+  harOverride?: HarRequest
+) {
   let config;
-  let language;
+  let language: TargetId;
   let target;
 
-  // If `lang` is an array, then it's a mixture of language and targets like `[php, guzzle]` or
-  // `[javascript, axios]` so we need to a bit of work to pull out the necessary information needed
-  // to build the snippet. For backwards compatibility sake we still need to support supplying
-  // `node-simple` as the language even though `node-simple` does not exist within the list of
-  // `supportedLanguages`.
+  /**
+   * If `lang` is an array, then it's a mixture of language and targets like `[php, guzzle]` or
+   * `[javascript, axios]` so we need to a bit of work to pull out the necessary information needed
+   * to build the snippet. For backwards compatibility sake we still need to support supplying
+   * `node-simple` as the language even though `node-simple` does not exist within the list of
+   * `supportedLanguages`.
+   */
   if (lang === 'node-simple') {
     config = supportedLanguages.node;
     language = 'node';
@@ -51,7 +61,7 @@ module.exports = (oas, operation, values, auth, lang, oasUrl, harOverride) => {
   }
 
   const har = harOverride || generateHar(oas, operation, values, auth);
-  const snippet = new HTTPSnippet(har, {
+  const snippet = new HTTPSnippet(har as HarRequest, {
     // We should only expect HAR's generated with `@readme/oas-to-har` to already be encoded.
     harIsAlreadyEncoded: !harOverride,
   });
@@ -84,9 +94,11 @@ module.exports = (oas, operation, values, auth, lang, oasUrl, harOverride) => {
       throw err;
     }
 
-    // Since `api` depends upon the API definition it's more subject to breakage than other snippet
-    // targets, so if we failed when attempting to generate one for that let's instead render out a
-    // `fetch` snippet.
+    /**
+     * Since `api` depends upon the API definition it's more subject to breakage than other snippet
+     * targets, so if we failed when attempting to generate one for that let's instead render out a
+     * `fetch` snippet.
+     */
     targetOpts = config.httpsnippet.targets.fetch.opts || {};
 
     return {
@@ -94,6 +106,6 @@ module.exports = (oas, operation, values, auth, lang, oasUrl, harOverride) => {
       highlightMode,
     };
   }
-};
+}
 
-module.exports.supportedLanguages = supportedLanguages;
+export { supportedLanguages };

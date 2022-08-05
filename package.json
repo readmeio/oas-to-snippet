@@ -2,7 +2,8 @@
   "name": "@readme/oas-to-snippet",
   "description": "Transform an OpenAPI operation into a code snippet",
   "version": "17.1.0",
-  "main": "src/index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "author": "Jon Ursenbach <jon@readme.io>",
   "license": "MIT",
   "repository": {
@@ -13,15 +14,18 @@
     "node": ">=14"
   },
   "scripts": {
+    "build": "tsc",
     "lint": "eslint .",
+    "prebuild": "rm -rf dist/",
+    "prepack": "npm run build",
     "prepare": "husky install",
-    "pretest": "npm run lint",
-    "prettier": "prettier --list-different --write \"./**/**.{js}\"",
+    "__pretest": "npm run lint",
+    "prettier": "prettier --list-different --write \"./**/**.{js,ts}\"",
     "release": "npx conventional-changelog-cli -i CHANGELOG.md -s && git add CHANGELOG.md",
+    "test": "nyc mocha \"test/**/*.test.ts\"",
     "test:browser": "karma start --single-run",
     "test:browser:chrome": "karma start --browsers=Chrome --single-run=false",
-    "test:browser:debug": "karma start --single-run=false",
-    "test": "nyc mocha"
+    "test:browser:debug": "karma start --single-run=false"
   },
   "dependencies": {
     "@readme/httpsnippet": "^4.0.5",
@@ -36,6 +40,9 @@
     "@readme/eslint-config": "^9.0.0",
     "@readme/oas-examples": "^5.4.1",
     "@readme/oas-extensions": "^14.2.0",
+    "@types/chai": "^4.3.1",
+    "@types/har-format": "^1.2.8",
+    "@types/mocha": "^9.1.1",
     "chai": "^4.3.6",
     "eslint": "^8.20.0",
     "har-examples": "^3.1.1",
@@ -43,7 +50,12 @@
     "mocha": "^10.0.0",
     "nyc": "^15.1.0",
     "oas": "^18.2.2",
-    "prettier": "^2.7.1"
+    "prettier": "^2.7.1",
+    "ts-loader": "^8.4.0",
+    "ts-node": "^10.9.1",
+    "type-fest": "^2.18.0",
+    "typescript": "^4.7.4",
+    "webpack": "^4.46.0"
   },
   "prettier": "@readme/eslint-config/prettier",
   "commitlint": {
