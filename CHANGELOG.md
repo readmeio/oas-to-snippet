@@ -1,3 +1,10 @@
+## 18.0.0 (2022-08-05)
+
+* feat: rewriting the library in typescript (#115) ([14745ca](https://github.com/readmeio/oas-to-snippet/commit/14745ca)), closes [#115](https://github.com/readmeio/oas-to-snippet/issues/115)
+* feat: upgrading oas-to-har to v18 (#114) ([8da3593](https://github.com/readmeio/oas-to-snippet/commit/8da3593)), closes [#114](https://github.com/readmeio/oas-to-snippet/issues/114)
+
+
+
 ## 17.1.0 (2022-08-01)
 
 * feat: upgrading httpsnippet-client-api to have headers in api snippets lowercased (#113) ([9b86884](https://github.com/readmeio/oas-to-snippet/commit/9b86884)), closes [#113](https://github.com/readmeio/oas-to-snippet/issues/113)
