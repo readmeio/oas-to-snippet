@@ -1,6 +1,6 @@
 const { HTTPSnippet, addTargetClient } = require('@readme/httpsnippet');
 const HTTPSnippetSimpleApiClient = require('httpsnippet-client-api').default;
-const generateHar = require('@readme/oas-to-har');
+const generateHar = require('@readme/oas-to-har').default;
 const supportedLanguages = require('./supportedLanguages');
 
 /**
