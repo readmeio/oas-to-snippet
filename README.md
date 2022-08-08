@@ -18,7 +18,7 @@ npm install --save @readme/oas-to-snippet
 
 ```js
 import Oas from 'oas';
-import generateSnippet from '@readme/oas-to-snippet';
+import { oasToSnippet } from '@readme/oas-to-snippet';
 import petstore from './petstore.json';
 
 const apiDefinition = new Oas(petstore);
@@ -53,7 +53,7 @@ const url = 'https://example.com/petstore.json';
 // This will return an object containing `code` and `highlightMode`. `code` is the generated code
 // snippet, while `highlightMode` is the language mode you can use to render it for syntax
 // highlighting (with @readme/syntax-highlighter, for example).
-const { code, highlightMode } = generateSnippet(apiDefinition, operation, formData, auth, language, url);
+const { code, highlightMode } = oasToSnippet(apiDefinition, operation, formData, auth, language, url);
 ```
 
 ## Supported Languages
