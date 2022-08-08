@@ -6,7 +6,7 @@ import * as extensions from '@readme/oas-extensions';
 import Oas from 'oas';
 import harExamples from 'har-examples';
 
-import generateCodeSnippet, { supportedLanguages } from '../src';
+import { oasToSnippet, supportedLanguages } from '../src';
 
 import queryEncodedHAR from './__datasets__/query-encoded.har.json';
 import petstoreOas from '@readme/oas-examples/3.0/json/petstore.json';
@@ -22,7 +22,7 @@ const formData = { path: { petId: 123 } };
 describe('oas-to-snippet', function () {
   describe('HAR overrides', function () {
     it('should be able to accept a har override', function () {
-      const { code } = generateCodeSnippet(null, null, null, null, 'node', null, harExamples.full);
+      const { code } = oasToSnippet(null, null, null, null, 'node', null, harExamples.full);
       expect(code).to.equal(`const { URLSearchParams } = require('url');
 const fetch = require('node-fetch');
 const encodedParams = new URLSearchParams();
@@ -47,15 +47,7 @@ fetch(url, options)
     });
 
     it('should treat overrides as if they are not yet encoded', function () {
-      const { code } = generateCodeSnippet(
-        null,
-        null,
-        null,
-        null,
-        'node',
-        null,
-        queryEncodedHAR as unknown as HarRequest
-      );
+      const { code } = oasToSnippet(null, null, null, null, 'node', null, queryEncodedHAR as unknown as HarRequest);
 
       expect(code).to.equal(`const fetch = require('node-fetch');
 
@@ -71,7 +63,7 @@ fetch(url, options)
 
   it('should return falsy values for an unknown language', function () {
     // @ts-expect-error Testing an improper typing case here.
-    const codeSnippet = generateCodeSnippet(petstore, petstore.operation('/pet/{petId}', 'get'), {}, {}, 'css', oasUrl);
+    const codeSnippet = oasToSnippet(petstore, petstore.operation('/pet/{petId}', 'get'), {}, {}, 'css', oasUrl);
 
     expect(codeSnippet).to.deep.equal({
       code: '',
@@ -80,20 +72,13 @@ fetch(url, options)
   });
 
   it('should pass through values to code snippet', function () {
-    const { code } = generateCodeSnippet(
-      petstore,
-      petstore.operation('/pet/{petId}', 'get'),
-      formData,
-      {},
-      'node',
-      oasUrl
-    );
+    const { code } = oasToSnippet(petstore, petstore.operation('/pet/{petId}', 'get'), formData, {}, 'node', oasUrl);
 
     expect(code).to.contain('http://petstore.swagger.io/v2/pet/123');
   });
 
   it('should pass through json values to code snippet', function () {
-    const { code } = generateCodeSnippet(
+    const { code } = oasToSnippet(
       petstore,
       petstore.operation('/pet', 'post'),
       { body: { id: '123' } },
@@ -106,7 +91,7 @@ fetch(url, options)
   });
 
   it('should pass through form encoded values to code snippet', function () {
-    const { code } = generateCodeSnippet(
+    const { code } = oasToSnippet(
       petstore,
       petstore.operation('/pet/{petId}', 'post'),
       {
@@ -151,7 +136,7 @@ fetch(url, options)
       },
     });
 
-    const { code } = generateCodeSnippet(
+    const { code } = oasToSnippet(
       oas,
       oas.operation('/body', 'get'),
       { formData: { a: 'test', b: [1, 2, 3] } },
@@ -172,34 +157,20 @@ fetch(url, options)
       [extensions.PROXY_ENABLED]: true,
     });
 
-    const { code } = generateCodeSnippet(oas, oas.operation('/pet/{petId}', 'post'), formData, {}, 'node', oasUrl);
+    const { code } = oasToSnippet(oas, oas.operation('/pet/{petId}', 'post'), formData, {}, 'node', oasUrl);
 
     expect(code).to.contain('http://petstore.swagger.io/v2/pet/123');
     expect(code).not.to.contain('try.readme.io');
   });
 
   it('should not contain `withCredentials` in javascript snippets', function () {
-    const { code } = generateCodeSnippet(
-      petstore,
-      petstore.operation('/pet/{petId}', 'post'),
-      {},
-      {},
-      'javascript',
-      oasUrl
-    );
+    const { code } = oasToSnippet(petstore, petstore.operation('/pet/{petId}', 'post'), {}, {}, 'javascript', oasUrl);
 
     expect(code).not.to.match(/withCredentials/);
   });
 
   it('should return with unhighlighted code', function () {
-    const { code } = generateCodeSnippet(
-      petstore,
-      petstore.operation('/pet/{petId}', 'post'),
-      {},
-      {},
-      'javascript',
-      oasUrl
-    );
+    const { code } = oasToSnippet(petstore, petstore.operation('/pet/{petId}', 'post'), {}, {}, 'javascript', oasUrl);
 
     expect(code).not.to.match(/cm-s-tomorrow-night/);
   });
@@ -266,7 +237,7 @@ fetch(url, options)
     });
 
     it('should convert a multipart/form-data operation into a proper snippet that uses the original file', function () {
-      const { code } = generateCodeSnippet(
+      const { code } = oasToSnippet(
         formDataOas,
         formDataOas.operation('/multipart', 'post'),
         {
@@ -319,7 +290,7 @@ fetch(url, options)
       },
     });
 
-    const snippet = generateCodeSnippet(
+    const snippet = oasToSnippet(
       oas,
       oas.operation('/', 'get'),
       { query: { startTime, endTime } },
@@ -337,7 +308,7 @@ fetch(url, options)
   it('should handle `multipart/form-data` payloads of multiple files', function () {
     const oas = Oas.init(fileUploads);
 
-    const snippet = generateCodeSnippet(
+    const snippet = oasToSnippet(
       oas,
       oas.operation('/anything/multipart-formdata', 'put'),
       { body: { filename: [owlbert, owlbertShrub] } },
@@ -352,7 +323,7 @@ fetch(url, options)
   it('should handle a `multipart/form-data` payload where a file has an underscore in its name', function () {
     const oas = Oas.init(fileUploads);
 
-    const snippet = generateCodeSnippet(
+    const snippet = oasToSnippet(
       oas,
       oas.operation('/anything/multipart-formdata', 'post'),
       {
@@ -386,7 +357,7 @@ fetch(url, options)
 
         it('should generate code for the default target', async function () {
           const expected = await import(`./__datasets__/languages/${lang}/default.js`).then(r => r.default);
-          const snippet = generateCodeSnippet(petstore, petstore.operation('/pet', 'post'), formData, {}, lang);
+          const snippet = oasToSnippet(petstore, petstore.operation('/pet', 'post'), formData, {}, lang);
 
           expect(snippet.code).to.equal(expected);
           expect(snippet.highlightMode).to.equal(supportedLanguages[lang].highlight);
@@ -410,7 +381,7 @@ fetch(url, options)
 
               it('should support snippet generation', async function () {
                 const expected = await import(`./__datasets__/languages/${lang}/${target}.js`).then(r => r.default);
-                const snippet = generateCodeSnippet(
+                const snippet = oasToSnippet(
                   petstore,
                   petstore.operation('/user/login', 'get'),
                   {
@@ -434,7 +405,7 @@ fetch(url, options)
       // eslint-disable-next-line mocha/no-setup-in-describe
       ['curl', 'node-simple'].forEach((lang: 'curl' | 'node-simple') => {
         it(`should still support \`${lang}\` as the supplied language`, async function () {
-          const snippet = generateCodeSnippet(
+          const snippet = oasToSnippet(
             petstore,
             petstore.operation('/user/login', 'get'),
             {
@@ -461,7 +432,7 @@ fetch(url, options)
     it('should gracefully fallback to `fetch` snippets if our `api` target fails', function () {
       // Reason that this'll trigger a failure in the `api` snippet target is because we aren't
       // passing in an API definition for it to look or an operation in.
-      const snippet = generateCodeSnippet(null, null, null, null, 'node-simple', oasUrl, harExamples.full);
+      const snippet = oasToSnippet(null, null, null, null, 'node-simple', oasUrl, harExamples.full);
 
       expect(snippet.code).to.contain('node-fetch');
       expect(snippet.highlightMode).to.equal('javascript');

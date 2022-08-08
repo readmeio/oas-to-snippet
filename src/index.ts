@@ -12,7 +12,7 @@ import supportedLanguages from './supportedLanguages';
 
 export type { AuthForHAR, DataForHAR, SupportedTargets, SupportedLanguages };
 
-export default function oasToSnippet(
+export function oasToSnippet(
   oas: Oas,
   operation: Operation,
   values: DataForHAR,
