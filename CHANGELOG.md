@@ -1,3 +1,9 @@
+## 19.0.0 (2022-08-08)
+
+* fix: refactoring the main export so it's easier to load in ES environments (#116) ([0ec4871](https://github.com/readmeio/oas-to-snippet/commit/0ec4871)), closes [#116](https://github.com/readmeio/oas-to-snippet/issues/116)
+
+
+
 ## 18.0.0 (2022-08-05)
 
 * feat: rewriting the library in typescript (#115) ([14745ca](https://github.com/readmeio/oas-to-snippet/commit/14745ca)), closes [#115](https://github.com/readmeio/oas-to-snippet/issues/115)
