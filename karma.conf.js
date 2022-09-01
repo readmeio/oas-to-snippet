@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { karmaConfig } = require('@jsdevtools/karma-config');
 const { host } = require('@jsdevtools/host-environment');
+const { karmaConfig } = require('@jsdevtools/karma-config');
 
 module.exports = karmaConfig({
   sourceDir: '.',
