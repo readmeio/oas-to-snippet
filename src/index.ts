@@ -1,13 +1,14 @@
+import type { SupportedTargets, SupportedLanguages } from './supportedLanguages';
 import type { HarRequest } from '@readme/httpsnippet';
+import type { ClientId, TargetId } from '@readme/httpsnippet/dist/targets/targets';
+import type { AuthForHAR, DataForHAR } from '@readme/oas-to-har';
 import type Oas from 'oas';
 import type { Operation } from 'oas';
-import type { AuthForHAR, DataForHAR } from '@readme/oas-to-har';
-import type { ClientId, TargetId } from '@readme/httpsnippet/dist/targets/targets';
-import type { SupportedTargets, SupportedLanguages } from './supportedLanguages';
 
 import { HTTPSnippet, addTargetClient } from '@readme/httpsnippet';
-import HTTPSnippetSimpleApiClient from 'httpsnippet-client-api';
 import generateHar from '@readme/oas-to-har';
+import HTTPSnippetSimpleApiClient from 'httpsnippet-client-api';
+
 import supportedLanguages from './supportedLanguages';
 
 export type { AuthForHAR, DataForHAR, SupportedTargets, SupportedLanguages };

@@ -1,19 +1,19 @@
 import type { HarRequest } from '@readme/httpsnippet';
 import type { SupportedLanguages } from 'supportedLanguages';
-import chai, { expect } from 'chai';
-import { jestSnapshotPlugin } from 'mocha-chai-jest-snapshot';
 
+import fileUploads from '@readme/oas-examples/3.0/json/file-uploads.json';
+import petstoreOas from '@readme/oas-examples/3.0/json/petstore.json';
 import * as extensions from '@readme/oas-extensions';
-import Oas from 'oas';
+import chai, { expect } from 'chai';
 import harExamples from 'har-examples';
+import { jestSnapshotPlugin } from 'mocha-chai-jest-snapshot';
+import Oas from 'oas';
 
 import { oasToSnippet, supportedLanguages } from '../src';
 
-import queryEncodedHAR from './__datasets__/query-encoded.har.json';
-import petstoreOas from '@readme/oas-examples/3.0/json/petstore.json';
-import fileUploads from '@readme/oas-examples/3.0/json/file-uploads.json';
-import owlbert from './__datasets__/owlbert.dataurl.json';
 import owlbertShrub from './__datasets__/owlbert-shrub.dataurl.json';
+import owlbert from './__datasets__/owlbert.dataurl.json';
+import queryEncodedHAR from './__datasets__/query-encoded.har.json';
 
 chai.use(jestSnapshotPlugin());
 
