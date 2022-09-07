@@ -4,8 +4,9 @@ import type { SupportedLanguages } from 'supportedLanguages';
 import fileUploads from '@readme/oas-examples/3.0/json/file-uploads.json';
 import petstoreOas from '@readme/oas-examples/3.0/json/petstore.json';
 import * as extensions from '@readme/oas-extensions';
-import { expect } from 'chai';
+import chai, { expect } from 'chai';
 import harExamples from 'har-examples';
+import { jestSnapshotPlugin } from 'mocha-chai-jest-snapshot';
 import Oas from 'oas';
 
 import { oasToSnippet, supportedLanguages } from '../src';
@@ -13,6 +14,8 @@ import { oasToSnippet, supportedLanguages } from '../src';
 import owlbertShrub from './__datasets__/owlbert-shrub.dataurl.json';
 import owlbert from './__datasets__/owlbert.dataurl.json';
 import queryEncodedHAR from './__datasets__/query-encoded.har.json';
+
+chai.use(jestSnapshotPlugin());
 
 const petstore = Oas.init(petstoreOas);
 
@@ -146,7 +149,7 @@ fetch(url, options)
 
     expect(code).to.equal(`curl --request GET \\
      --url https://example.com/body \\
-     --header 'Content-Type: application/x-www-form-urlencoded' \\
+     --header 'content-type: application/x-www-form-urlencoded' \\
      --data a=test \\
      --data 'b=1,2,3'`);
   });
@@ -250,7 +253,7 @@ fetch(url, options)
 
       expect(code).to.equal(`curl --request POST \\
      --url https://example.com/multipart \\
-     --header 'Content-Type: multipart/form-data' \\
+     --header 'content-type: multipart/form-data' \\
      --form orderId=10 \\
      --form userId=3232 \\
      --form documentFile=@owlbert.png`);
@@ -355,11 +358,10 @@ fetch(url, options)
           expect(targets).to.contain(supportedLanguages[lang].httpsnippet.default);
         });
 
-        it('should generate code for the default target', async function () {
-          const expected = await import(`./__datasets__/languages/${lang}/default.js`).then(r => r.default);
+        it('should generate code for the default target', function () {
           const snippet = oasToSnippet(petstore, petstore.operation('/pet', 'post'), formData, {}, lang);
 
-          expect(snippet.code).to.equal(expected);
+          expect(snippet.code).toMatchSnapshot();
           expect(snippet.highlightMode).to.equal(supportedLanguages[lang].highlight);
         });
 
@@ -379,8 +381,7 @@ fetch(url, options)
                 }
               });
 
-              it('should support snippet generation', async function () {
-                const expected = await import(`./__datasets__/languages/${lang}/${target}.js`).then(r => r.default);
+              it('should support snippet generation', function () {
                 const snippet = oasToSnippet(
                   petstore,
                   petstore.operation('/user/login', 'get'),
@@ -392,7 +393,7 @@ fetch(url, options)
                   oasUrl
                 );
 
-                expect(snippet.code).to.equal(expected);
+                expect(snippet.code).toMatchSnapshot();
                 expect(snippet.highlightMode).to.equal(supportedLanguages[lang].highlight);
               });
             });
@@ -404,7 +405,7 @@ fetch(url, options)
     describe('backwards compatibiltiy', function () {
       // eslint-disable-next-line mocha/no-setup-in-describe
       ['curl', 'node-simple'].forEach((lang: 'curl' | 'node-simple') => {
-        it(`should still support \`${lang}\` as the supplied language`, async function () {
+        it(`should still support \`${lang}\` as the supplied language`, function () {
           const snippet = oasToSnippet(
             petstore,
             petstore.operation('/user/login', 'get'),
@@ -416,13 +417,11 @@ fetch(url, options)
             oasUrl
           );
 
+          expect(snippet.code).toMatchSnapshot();
+
           if (lang === 'curl') {
-            const expected = await import('./__datasets__/languages/shell/curl').then(r => r.default);
-            expect(snippet.code).to.equal(expected);
             expect(snippet.highlightMode).to.equal('shell');
           } else if (lang === 'node-simple') {
-            const expected = await import('./__datasets__/languages/node/api').then(r => r.default);
-            expect(snippet.code).to.equal(expected);
             expect(snippet.highlightMode).to.equal('javascript');
           }
         });
