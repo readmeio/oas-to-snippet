@@ -1,3 +1,17 @@
+## 19.1.0 (2022-09-07)
+
+* fix: upgrading oas-to-har (#125) ([e804c7b](https://github.com/readmeio/oas-to-snippet/commit/e804c7b)), closes [#125](https://github.com/readmeio/oas-to-snippet/issues/125)
+* chore(deps-dev): bump @commitlint/cli from 17.0.3 to 17.1.2 (#120) ([4808b88](https://github.com/readmeio/oas-to-snippet/commit/4808b88)), closes [#120](https://github.com/readmeio/oas-to-snippet/issues/120)
+* chore(deps-dev): bump @commitlint/config-conventional (#124) ([e0956a8](https://github.com/readmeio/oas-to-snippet/commit/e0956a8)), closes [#124](https://github.com/readmeio/oas-to-snippet/issues/124)
+* chore(deps-dev): bump @readme/eslint-config from 9.0.0 to 10.1.0 (#118) ([7c6709e](https://github.com/readmeio/oas-to-snippet/commit/7c6709e)), closes [#118](https://github.com/readmeio/oas-to-snippet/issues/118)
+* chore(deps-dev): bump @types/chai from 4.3.1 to 4.3.3 (#123) ([b4df737](https://github.com/readmeio/oas-to-snippet/commit/b4df737)), closes [#123](https://github.com/readmeio/oas-to-snippet/issues/123)
+* chore(deps-dev): bump eslint from 8.21.0 to 8.23.0 (#122) ([51c666b](https://github.com/readmeio/oas-to-snippet/commit/51c666b)), closes [#122](https://github.com/readmeio/oas-to-snippet/issues/122)
+* chore(deps-dev): bump oas from 18.3.4 to 18.4.4 (#121) ([5f165ec](https://github.com/readmeio/oas-to-snippet/commit/5f165ec)), closes [#121](https://github.com/readmeio/oas-to-snippet/issues/121)
+* chore(deps-dev): bump type-fest from 2.18.0 to 2.19.0 (#117) ([00899a7](https://github.com/readmeio/oas-to-snippet/commit/00899a7)), closes [#117](https://github.com/readmeio/oas-to-snippet/issues/117)
+* chore(deps-dev): bump typescript from 4.7.4 to 4.8.2 (#119) ([2576425](https://github.com/readmeio/oas-to-snippet/commit/2576425)), closes [#119](https://github.com/readmeio/oas-to-snippet/issues/119)
+
+
+
 ## 19.0.0 (2022-08-08)
 
 * fix: refactoring the main export so it's easier to load in ES environments (#116) ([0ec4871](https://github.com/readmeio/oas-to-snippet/commit/0ec4871)), closes [#116](https://github.com/readmeio/oas-to-snippet/issues/116)
