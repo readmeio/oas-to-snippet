@@ -39,7 +39,7 @@
     "@jsdevtools/karma-config": "^3.1.7",
     "@readme/eslint-config": "^10.1.0",
     "@readme/oas-examples": "^5.4.1",
-    "@readme/oas-extensions": "^14.2.0",
+    "@readme/oas-extensions": "^15.0.0",
     "@types/chai": "^4.3.1",
     "@types/har-format": "^1.2.8",
     "@types/mocha": "^9.1.1",
