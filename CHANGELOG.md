@@ -1,3 +1,11 @@
+## 19.2.0 (2022-09-13)
+
+* chore(deps-dev): bumping dev deps ([1af8e5d](https://github.com/readmeio/oas-to-snippet/commit/1af8e5d))
+* chore(deps): bumping @readme/oas-extensions ([6fec8a1](https://github.com/readmeio/oas-to-snippet/commit/6fec8a1))
+* chore(deps): bumping @readme/oas-to-har ([e2ef1c7](https://github.com/readmeio/oas-to-snippet/commit/e2ef1c7))
+
+
+
 ## 19.1.0 (2022-09-07)
 
 * fix: upgrading oas-to-har (#125) ([e804c7b](https://github.com/readmeio/oas-to-snippet/commit/e804c7b)), closes [#125](https://github.com/readmeio/oas-to-snippet/issues/125)
