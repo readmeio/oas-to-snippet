@@ -72,6 +72,7 @@ jobs:
   browser_tests:
     name: Browser
     runs-on: ${{ matrix.os }}
+    timeout-minutes: 5
     strategy:
       fail-fast: true
       matrix:
