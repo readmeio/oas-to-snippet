@@ -144,7 +144,7 @@ const supportedLanguages: SupportedLanguages = {
         },
         fetch: {
           name: 'node-fetch',
-          install: 'npm install node-fetch --save',
+          install: 'npm install node-fetch@2 --save',
         },
         native: { name: 'http' },
         request: {
