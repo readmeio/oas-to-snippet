@@ -1,3 +1,20 @@
+## 20.0.0 (2022-10-31)
+
+* fix: require node-fetch@2 for our node-fetch snippet (#132) ([63a5160](https://github.com/readmeio/oas-to-snippet/commit/63a5160)), closes [#132](https://github.com/readmeio/oas-to-snippet/issues/132)
+* chore(deps-dev): bump @readme/oas-examples from 5.6.0 to 5.7.0 (#131) ([556c247](https://github.com/readmeio/oas-to-snippet/commit/556c247)), closes [#131](https://github.com/readmeio/oas-to-snippet/issues/131)
+* chore(deps-dev): bump @types/har-format from 1.2.8 to 1.2.9 (#130) ([0b97002](https://github.com/readmeio/oas-to-snippet/commit/0b97002)), closes [#130](https://github.com/readmeio/oas-to-snippet/issues/130)
+* chore(deps-dev): bump @types/mocha from 9.1.1 to 10.0.0 (#127) ([1219c4a](https://github.com/readmeio/oas-to-snippet/commit/1219c4a)), closes [#127](https://github.com/readmeio/oas-to-snippet/issues/127)
+* chore(deps-dev): bump eslint from 8.23.1 to 8.24.0 (#128) ([69b9764](https://github.com/readmeio/oas-to-snippet/commit/69b9764)), closes [#128](https://github.com/readmeio/oas-to-snippet/issues/128)
+* chore(deps-dev): bump type-fest from 2.19.0 to 3.0.0 (#126) ([da0e95e](https://github.com/readmeio/oas-to-snippet/commit/da0e95e)), closes [#126](https://github.com/readmeio/oas-to-snippet/issues/126)
+* chore(deps-dev): bump typescript from 4.8.3 to 4.8.4 (#129) ([f0a8d04](https://github.com/readmeio/oas-to-snippet/commit/f0a8d04)), closes [#129](https://github.com/readmeio/oas-to-snippet/issues/129)
+* chore(deps-dev): bumping dev deps ([d6b3ebd](https://github.com/readmeio/oas-to-snippet/commit/d6b3ebd))
+* chore(deps): bumping oas deps ([ec3ba6f](https://github.com/readmeio/oas-to-snippet/commit/ec3ba6f))
+* chore(deps): bumping oas-extensions ([7343419](https://github.com/readmeio/oas-to-snippet/commit/7343419))
+* chore(deps): bumping oas-related deps (#133) ([6c26640](https://github.com/readmeio/oas-to-snippet/commit/6c26640)), closes [#133](https://github.com/readmeio/oas-to-snippet/issues/133)
+* ci: timing out browser tests at 5 mins ([ee5157a](https://github.com/readmeio/oas-to-snippet/commit/ee5157a))
+
+
+
 ## 19.2.0 (2022-09-13)
 
 * chore(deps-dev): bumping dev deps ([1af8e5d](https://github.com/readmeio/oas-to-snippet/commit/1af8e5d))
