@@ -29,8 +29,8 @@
   },
   "dependencies": {
     "@readme/httpsnippet": "^4.0.5",
-    "@readme/oas-to-har": "^19.0.0",
-    "httpsnippet-client-api": "^5.0.0-beta.3"
+    "@readme/oas-to-har": "^20.0.0",
+    "httpsnippet-client-api": "^5.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.3",
@@ -39,7 +39,7 @@
     "@jsdevtools/karma-config": "^3.1.7",
     "@readme/eslint-config": "^10.1.1",
     "@readme/oas-examples": "^5.6.0",
-    "@readme/oas-extensions": "^16.0.0",
+    "@readme/oas-extensions": "^17.0.0",
     "@types/chai": "^4.3.1",
     "@types/har-format": "^1.2.8",
     "@types/mocha": "^10.0.0",
@@ -50,7 +50,7 @@
     "mocha": "^10.0.0",
     "mocha-chai-jest-snapshot": "^1.1.4",
     "nyc": "^15.1.0",
-    "oas": "^19.0.0",
+    "oas": "^20.0.0",
     "prettier": "^2.7.1",
     "ts-loader": "^8.4.0",
     "ts-node": "^10.9.1",
