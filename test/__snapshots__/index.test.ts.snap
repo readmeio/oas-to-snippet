@@ -355,7 +355,7 @@ sdk.loginUser({username: 'woof', password: 'barkbarkbark'})
 `;
 
 exports[`oas-to-snippet supported languages node targets axios should support snippet generation 1`] = `
-"const axios = require('axios').default;
+"const axios = require('axios');
 
 const options = {
   method: 'GET',

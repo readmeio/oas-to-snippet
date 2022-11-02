@@ -28,7 +28,7 @@
     "test:browser:debug": "karma start --single-run=false"
   },
   "dependencies": {
-    "@readme/httpsnippet": "^4.0.5",
+    "@readme/httpsnippet": "^4.1.0",
     "@readme/oas-to-har": "^20.0.0",
     "httpsnippet-client-api": "^5.0.0"
   },
