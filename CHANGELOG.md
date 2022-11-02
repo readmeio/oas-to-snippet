@@ -1,3 +1,11 @@
+## 20.1.0 (2022-11-02)
+
+* fix: upgrade httpsnippet to fix python and axios issues ([afca2a4](https://github.com/readmeio/oas-to-snippet/commit/afca2a4))
+* chore(deps-dev): bump @readme/oas-examples from 5.7.1 to 5.8.0 (#134) ([ec6deb5](https://github.com/readmeio/oas-to-snippet/commit/ec6deb5)), closes [#134](https://github.com/readmeio/oas-to-snippet/issues/134)
+* chore(deps): bump httpsnippet-client-api from 5.0.0 to 5.0.1 (#135) ([06f0682](https://github.com/readmeio/oas-to-snippet/commit/06f0682)), closes [#135](https://github.com/readmeio/oas-to-snippet/issues/135)
+
+
+
 ## 20.0.0 (2022-10-31)
 
 * fix: require node-fetch@2 for our node-fetch snippet (#132) ([63a5160](https://github.com/readmeio/oas-to-snippet/commit/63a5160)), closes [#132](https://github.com/readmeio/oas-to-snippet/issues/132)
