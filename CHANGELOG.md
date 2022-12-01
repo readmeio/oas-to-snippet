@@ -1,3 +1,23 @@
+## <small>20.1.1 (2022-12-01)</small>
+
+* chore(deps-dev): bump @commitlint/cli from 17.2.0 to 17.3.0 (#141) ([722e82d](https://github.com/readmeio/oas-to-snippet/commit/722e82d)), closes [#141](https://github.com/readmeio/oas-to-snippet/issues/141)
+* chore(deps-dev): bump @commitlint/config-conventional (#148) ([12cbe73](https://github.com/readmeio/oas-to-snippet/commit/12cbe73)), closes [#148](https://github.com/readmeio/oas-to-snippet/issues/148)
+* chore(deps-dev): bump @readme/eslint-config from 10.1.1 to 10.2.0 (#140) ([a1b2d65](https://github.com/readmeio/oas-to-snippet/commit/a1b2d65)), closes [#140](https://github.com/readmeio/oas-to-snippet/issues/140)
+* chore(deps-dev): bump @readme/oas-examples from 5.8.0 to 5.9.0 (#142) ([8b07332](https://github.com/readmeio/oas-to-snippet/commit/8b07332)), closes [#142](https://github.com/readmeio/oas-to-snippet/issues/142)
+* chore(deps-dev): bump @types/har-format from 1.2.9 to 1.2.10 (#147) ([fd9d81e](https://github.com/readmeio/oas-to-snippet/commit/fd9d81e)), closes [#147](https://github.com/readmeio/oas-to-snippet/issues/147)
+* chore(deps-dev): bump @types/mocha from 10.0.0 to 10.0.1 (#144) ([d44c515](https://github.com/readmeio/oas-to-snippet/commit/d44c515)), closes [#144](https://github.com/readmeio/oas-to-snippet/issues/144)
+* chore(deps-dev): bump chai from 4.3.6 to 4.3.7 (#145) ([ee397cc](https://github.com/readmeio/oas-to-snippet/commit/ee397cc)), closes [#145](https://github.com/readmeio/oas-to-snippet/issues/145)
+* chore(deps-dev): bump eslint from 8.26.0 to 8.28.0 (#143) ([743070c](https://github.com/readmeio/oas-to-snippet/commit/743070c)), closes [#143](https://github.com/readmeio/oas-to-snippet/issues/143)
+* chore(deps-dev): bump oas from 20.0.0 to 20.0.1 (#146) ([6d509ae](https://github.com/readmeio/oas-to-snippet/commit/6d509ae)), closes [#146](https://github.com/readmeio/oas-to-snippet/issues/146)
+* chore(deps): bump engine.io and socket.io (#139) ([2ea7a9f](https://github.com/readmeio/oas-to-snippet/commit/2ea7a9f)), closes [#139](https://github.com/readmeio/oas-to-snippet/issues/139)
+* chore(deps): bump httpsnippet-client-api from 5.0.1 to 5.0.4 (#149) ([be8c02e](https://github.com/readmeio/oas-to-snippet/commit/be8c02e)), closes [#149](https://github.com/readmeio/oas-to-snippet/issues/149)
+* chore(deps): bump loader-utils from 1.4.0 to 1.4.1 (#136) ([3cf0d59](https://github.com/readmeio/oas-to-snippet/commit/3cf0d59)), closes [#136](https://github.com/readmeio/oas-to-snippet/issues/136)
+* chore(deps): bump loader-utils from 1.4.1 to 1.4.2 (#138) ([cbb2987](https://github.com/readmeio/oas-to-snippet/commit/cbb2987)), closes [#138](https://github.com/readmeio/oas-to-snippet/issues/138)
+* chore(deps): bump socket.io-parser from 4.0.4 to 4.0.5 (#137) ([de22364](https://github.com/readmeio/oas-to-snippet/commit/de22364)), closes [#137](https://github.com/readmeio/oas-to-snippet/issues/137)
+* ci: simplify dep caching ([3ba2444](https://github.com/readmeio/oas-to-snippet/commit/3ba2444))
+
+
+
 ## 20.1.0 (2022-11-02)
 
 * fix: upgrade httpsnippet to fix python and axios issues ([afca2a4](https://github.com/readmeio/oas-to-snippet/commit/afca2a4))
