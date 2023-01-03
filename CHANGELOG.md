@@ -1,3 +1,9 @@
+## <small>20.1.3 (2023-01-03)</small>
+
+* fix: `@types/node` issue ([274fe24](https://github.com/readmeio/oas-to-snippet/commit/274fe24))
+
+
+
 ## <small>20.1.2 (2023-01-03)</small>
 
 * chore: bumping deps ([d48eab4](https://github.com/readmeio/oas-to-snippet/commit/d48eab4))
