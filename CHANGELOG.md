@@ -1,3 +1,13 @@
+## <small>21.0.1 (2023-03-02)</small>
+
+* chore: bumping out of date deps ([e3463dc](https://github.com/readmeio/oas-to-snippet/commit/e3463dc))
+* chore(deps-dev): bumping deps ([0dfe4be](https://github.com/readmeio/oas-to-snippet/commit/0dfe4be))
+* chore(deps): bump ua-parser-js from 0.7.31 to 0.7.33 (#161) ([3c7d8a6](https://github.com/readmeio/oas-to-snippet/commit/3c7d8a6)), closes [#161](https://github.com/readmeio/oas-to-snippet/issues/161)
+* chore(deps): bumping deps ([23b907d](https://github.com/readmeio/oas-to-snippet/commit/23b907d))
+* build: 21.0.0 release ([c3574ce](https://github.com/readmeio/oas-to-snippet/commit/c3574ce))
+
+
+
 ## 21.0.0 (2023-01-23)
 
 * chore(deps): bumping deps ([23b907d](https://github.com/readmeio/oas-to-snippet/commit/23b907d))
