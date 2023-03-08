@@ -6,7 +6,7 @@ Transform an OpenAPI operation into a code snippet.
 
 [![](https://d3vv6lp55qjaqc.cloudfront.net/items/1M3C3j0I0s0j3T362344/Untitled-2.png)](https://readme.io)
 
-This library was built with [ReadMe's reference guide](https://readme.com/documentation) offering in mind, but it's built to support all OpenAPI use-cases.
+This library was built with [ReadMe's reference guide](https://readme.com/documentation) offering in mind but it will support all OpenAPI use-cases.
 
 ## Installation
 
@@ -66,7 +66,7 @@ Since this library uses [HTTP Snippet](https://github.com/Kong/httpsnippet), we 
 - `csharp`
   - `httpclient`
   - `restsharp`
-- `curl`
+- `http`
 - `go`
 - `java`
   - `asynchttp`
@@ -79,21 +79,24 @@ Since this library uses [HTTP Snippet](https://github.com/Kong/httpsnippet), we 
   - `jquery`
   - `xhr`
 - `kotlin`
-  - `okhttp`
 - `node`
   - `api`: This is our OpenAPI-powered SDK generation library; see https://npm.im/api for more info.
   - `axios`
   - `fetch`
   - `native`
   - `request`
-- `node-simple`: This is a shortcut for supplying `['node', 'api']` as the `lang` argument.
 - `objectivec`
 - `ocaml`
 - `php`
   - `curl`
+  - `guzzle`
 - `powershell`
+  - `restmethod`
+  - `webrequest`
 - `python`
-  - `requests`
 - `r`
 - `ruby`
+- `shell`
+  - `curl`
+  - `httpie`
 - `swift`
