@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`oas-to-snippet supported languages backwards compatibiltiy should still support \`curl\` as the supplied language 1`] = `
-"curl --request GET \\\\
-     --url 'http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark' \\\\
+"curl --request GET \\
+     --url 'http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark' \\
      --header 'accept: application/json'"
 `;
 
@@ -17,11 +17,11 @@ sdk.loginUser({username: 'woof', password: 'barkbarkbark'})
 exports[`oas-to-snippet supported languages c should generate code for the default target 1`] = `
 "CURL *hnd = curl_easy_init();
 
-curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, \\"POST\\");
-curl_easy_setopt(hnd, CURLOPT_URL, \\"http://petstore.swagger.io/v2/pet\\");
+curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, "POST");
+curl_easy_setopt(hnd, CURLOPT_URL, "http://petstore.swagger.io/v2/pet");
 
 struct curl_slist *headers = NULL;
-headers = curl_slist_append(headers, \\"content-type: application/json\\");
+headers = curl_slist_append(headers, "content-type: application/json");
 curl_easy_setopt(hnd, CURLOPT_HTTPHEADER, headers);
 
 CURLcode ret = curl_easy_perform(hnd);"
@@ -30,11 +30,11 @@ CURLcode ret = curl_easy_perform(hnd);"
 exports[`oas-to-snippet supported languages c targets libcurl should support snippet generation 1`] = `
 "CURL *hnd = curl_easy_init();
 
-curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, \\"GET\\");
-curl_easy_setopt(hnd, CURLOPT_URL, \\"http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark\\");
+curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, "GET");
+curl_easy_setopt(hnd, CURLOPT_URL, "http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark");
 
 struct curl_slist *headers = NULL;
-headers = curl_slist_append(headers, \\"accept: application/json\\");
+headers = curl_slist_append(headers, "accept: application/json");
 curl_easy_setopt(hnd, CURLOPT_HTTPHEADER, headers);
 
 CURLcode ret = curl_easy_perform(hnd);"
@@ -43,25 +43,25 @@ CURLcode ret = curl_easy_perform(hnd);"
 exports[`oas-to-snippet supported languages clojure should generate code for the default target 1`] = `
 "(require '[clj-http.client :as client])
 
-(client/post \\"http://petstore.swagger.io/v2/pet\\" {:headers {:content-type \\"application/json\\"}})"
+(client/post "http://petstore.swagger.io/v2/pet" {:headers {:content-type "application/json"}})"
 `;
 
 exports[`oas-to-snippet supported languages clojure targets clj_http should support snippet generation 1`] = `
 "(require '[clj-http.client :as client])
 
-(client/get \\"http://petstore.swagger.io/v2/user/login\\" {:query-params {:username \\"woof\\"
-                                                                       :password \\"barkbarkbark\\"}
+(client/get "http://petstore.swagger.io/v2/user/login" {:query-params {:username "woof"
+                                                                       :password "barkbarkbark"}
                                                         :accept :json})"
 `;
 
 exports[`oas-to-snippet supported languages cplusplus should generate code for the default target 1`] = `
 "CURL *hnd = curl_easy_init();
 
-curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, \\"POST\\");
-curl_easy_setopt(hnd, CURLOPT_URL, \\"http://petstore.swagger.io/v2/pet\\");
+curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, "POST");
+curl_easy_setopt(hnd, CURLOPT_URL, "http://petstore.swagger.io/v2/pet");
 
 struct curl_slist *headers = NULL;
-headers = curl_slist_append(headers, \\"content-type: application/json\\");
+headers = curl_slist_append(headers, "content-type: application/json");
 curl_easy_setopt(hnd, CURLOPT_HTTPHEADER, headers);
 
 CURLcode ret = curl_easy_perform(hnd);"
@@ -70,20 +70,20 @@ CURLcode ret = curl_easy_perform(hnd);"
 exports[`oas-to-snippet supported languages cplusplus targets libcurl should support snippet generation 1`] = `
 "CURL *hnd = curl_easy_init();
 
-curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, \\"GET\\");
-curl_easy_setopt(hnd, CURLOPT_URL, \\"http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark\\");
+curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, "GET");
+curl_easy_setopt(hnd, CURLOPT_URL, "http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark");
 
 struct curl_slist *headers = NULL;
-headers = curl_slist_append(headers, \\"accept: application/json\\");
+headers = curl_slist_append(headers, "accept: application/json");
 curl_easy_setopt(hnd, CURLOPT_HTTPHEADER, headers);
 
 CURLcode ret = curl_easy_perform(hnd);"
 `;
 
 exports[`oas-to-snippet supported languages csharp should generate code for the default target 1`] = `
-"var client = new RestClient(\\"http://petstore.swagger.io/v2/pet\\");
+"var client = new RestClient("http://petstore.swagger.io/v2/pet");
 var request = new RestRequest(Method.POST);
-request.AddHeader(\\"content-type\\", \\"application/json\\");
+request.AddHeader("content-type", "application/json");
 IRestResponse response = client.Execute(request);"
 `;
 
@@ -93,10 +93,10 @@ var client = new HttpClient();
 var request = new HttpRequestMessage
 {
     Method = HttpMethod.Get,
-    RequestUri = new Uri(\\"http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark\\"),
+    RequestUri = new Uri("http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark"),
     Headers =
     {
-        { \\"accept\\", \\"application/json\\" },
+        { "accept", "application/json" },
     },
 };
 using (var response = await client.SendAsync(request))
@@ -108,9 +108,9 @@ using (var response = await client.SendAsync(request))
 `;
 
 exports[`oas-to-snippet supported languages csharp targets restsharp should support snippet generation 1`] = `
-"var client = new RestClient(\\"http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark\\");
+"var client = new RestClient("http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark");
 var request = new RestRequest(Method.GET);
-request.AddHeader(\\"accept\\", \\"application/json\\");
+request.AddHeader("accept", "application/json");
 IRestResponse response = client.Execute(request);"
 `;
 
@@ -118,18 +118,18 @@ exports[`oas-to-snippet supported languages go should generate code for the defa
 "package main
 
 import (
-	\\"fmt\\"
-	\\"net/http\\"
-	\\"io/ioutil\\"
+	"fmt"
+	"net/http"
+	"io/ioutil"
 )
 
 func main() {
 
-	url := \\"http://petstore.swagger.io/v2/pet\\"
+	url := "http://petstore.swagger.io/v2/pet"
 
-	req, _ := http.NewRequest(\\"POST\\", url, nil)
+	req, _ := http.NewRequest("POST", url, nil)
 
-	req.Header.Add(\\"content-type\\", \\"application/json\\")
+	req.Header.Add("content-type", "application/json")
 
 	res, _ := http.DefaultClient.Do(req)
 
@@ -146,18 +146,18 @@ exports[`oas-to-snippet supported languages go targets native should support sni
 "package main
 
 import (
-	\\"fmt\\"
-	\\"net/http\\"
-	\\"io/ioutil\\"
+	"fmt"
+	"net/http"
+	"io/ioutil"
 )
 
 func main() {
 
-	url := \\"http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark\\"
+	url := "http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark"
 
-	req, _ := http.NewRequest(\\"GET\\", url, nil)
+	req, _ := http.NewRequest("GET", url, nil)
 
-	req.Header.Add(\\"accept\\", \\"application/json\\")
+	req.Header.Add("accept", "application/json")
 
 	res, _ := http.DefaultClient.Do(req)
 
@@ -190,9 +190,9 @@ exports[`oas-to-snippet supported languages java should generate code for the de
 "OkHttpClient client = new OkHttpClient();
 
 Request request = new Request.Builder()
-  .url(\\"http://petstore.swagger.io/v2/pet\\")
+  .url("http://petstore.swagger.io/v2/pet")
   .post(null)
-  .addHeader(\\"content-type\\", \\"application/json\\")
+  .addHeader("content-type", "application/json")
   .build();
 
 Response response = client.newCall(request).execute();"
@@ -200,8 +200,8 @@ Response response = client.newCall(request).execute();"
 
 exports[`oas-to-snippet supported languages java targets asynchttp should support snippet generation 1`] = `
 "AsyncHttpClient client = new DefaultAsyncHttpClient();
-client.prepare(\\"GET\\", \\"http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark\\")
-  .setHeader(\\"accept\\", \\"application/json\\")
+client.prepare("GET", "http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark")
+  .setHeader("accept", "application/json")
   .execute()
   .toCompletableFuture()
   .thenAccept(System.out::println)
@@ -212,9 +212,9 @@ client.close();"
 
 exports[`oas-to-snippet supported languages java targets nethttp should support snippet generation 1`] = `
 "HttpRequest request = HttpRequest.newBuilder()
-    .uri(URI.create(\\"http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark\\"))
-    .header(\\"accept\\", \\"application/json\\")
-    .method(\\"GET\\", HttpRequest.BodyPublishers.noBody())
+    .uri(URI.create("http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark"))
+    .header("accept", "application/json")
+    .method("GET", HttpRequest.BodyPublishers.noBody())
     .build();
 HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
 System.out.println(response.body());"
@@ -224,17 +224,17 @@ exports[`oas-to-snippet supported languages java targets okhttp should support s
 "OkHttpClient client = new OkHttpClient();
 
 Request request = new Request.Builder()
-  .url(\\"http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark\\")
+  .url("http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark")
   .get()
-  .addHeader(\\"accept\\", \\"application/json\\")
+  .addHeader("accept", "application/json")
   .build();
 
 Response response = client.newCall(request).execute();"
 `;
 
 exports[`oas-to-snippet supported languages java targets unirest should support snippet generation 1`] = `
-"HttpResponse<String> response = Unirest.get(\\"http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark\\")
-  .header(\\"accept\\", \\"application/json\\")
+"HttpResponse<String> response = Unirest.get("http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark")
+  .header("accept", "application/json")
   .asString();"
 `;
 
@@ -314,9 +314,9 @@ exports[`oas-to-snippet supported languages kotlin should generate code for the 
 "val client = OkHttpClient()
 
 val request = Request.Builder()
-  .url(\\"http://petstore.swagger.io/v2/pet\\")
+  .url("http://petstore.swagger.io/v2/pet")
   .post(null)
-  .addHeader(\\"content-type\\", \\"application/json\\")
+  .addHeader("content-type", "application/json")
   .build()
 
 val response = client.newCall(request).execute()"
@@ -326,9 +326,9 @@ exports[`oas-to-snippet supported languages kotlin targets okhttp should support
 "val client = OkHttpClient()
 
 val request = Request.Builder()
-  .url(\\"http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark\\")
+  .url("http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark")
   .get()
-  .addHeader(\\"accept\\", \\"application/json\\")
+  .addHeader("accept", "application/json")
   .build()
 
 val response = client.newCall(request).execute()"
@@ -433,22 +433,22 @@ request(options, function (error, response, body) {
 exports[`oas-to-snippet supported languages objectivec should generate code for the default target 1`] = `
 "#import <Foundation/Foundation.h>
 
-NSDictionary *headers = @{ @\\"content-type\\": @\\"application/json\\" };
+NSDictionary *headers = @{ @"content-type": @"application/json" };
 
-NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@\\"http://petstore.swagger.io/v2/pet\\"]
+NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://petstore.swagger.io/v2/pet"]
                                                        cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                    timeoutInterval:10.0];
-[request setHTTPMethod:@\\"POST\\"];
+[request setHTTPMethod:@"POST"];
 [request setAllHTTPHeaderFields:headers];
 
 NSURLSession *session = [NSURLSession sharedSession];
 NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
                                             completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                                                 if (error) {
-                                                    NSLog(@\\"%@\\", error);
+                                                    NSLog(@"%@", error);
                                                 } else {
                                                     NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
-                                                    NSLog(@\\"%@\\", httpResponse);
+                                                    NSLog(@"%@", httpResponse);
                                                 }
                                             }];
 [dataTask resume];"
@@ -457,22 +457,22 @@ NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
 exports[`oas-to-snippet supported languages objectivec targets nsurlsession should support snippet generation 1`] = `
 "#import <Foundation/Foundation.h>
 
-NSDictionary *headers = @{ @\\"accept\\": @\\"application/json\\" };
+NSDictionary *headers = @{ @"accept": @"application/json" };
 
-NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@\\"http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark\\"]
+NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark"]
                                                        cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                    timeoutInterval:10.0];
-[request setHTTPMethod:@\\"GET\\"];
+[request setHTTPMethod:@"GET"];
 [request setAllHTTPHeaderFields:headers];
 
 NSURLSession *session = [NSURLSession sharedSession];
 NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
                                             completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                                                 if (error) {
-                                                    NSLog(@\\"%@\\", error);
+                                                    NSLog(@"%@", error);
                                                 } else {
                                                     NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
-                                                    NSLog(@\\"%@\\", httpResponse);
+                                                    NSLog(@"%@", httpResponse);
                                                 }
                                             }];
 [dataTask resume];"
@@ -483,8 +483,8 @@ exports[`oas-to-snippet supported languages ocaml should generate code for the d
 open Cohttp
 open Lwt
 
-let uri = Uri.of_string \\"http://petstore.swagger.io/v2/pet\\" in
-let headers = Header.add (Header.init ()) \\"content-type\\" \\"application/json\\" in
+let uri = Uri.of_string "http://petstore.swagger.io/v2/pet" in
+let headers = Header.add (Header.init ()) "content-type" "application/json" in
 
 Client.call ~headers \`POST uri
 >>= fun (res, body_stream) ->
@@ -496,8 +496,8 @@ exports[`oas-to-snippet supported languages ocaml targets cohttp should support 
 open Cohttp
 open Lwt
 
-let uri = Uri.of_string \\"http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark\\" in
-let headers = Header.add (Header.init ()) \\"accept\\" \\"application/json\\" in
+let uri = Uri.of_string "http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark" in
+let headers = Header.add (Header.init ()) "accept" "application/json" in
 
 Client.call ~headers \`GET uri
 >>= fun (res, body_stream) ->
@@ -508,7 +508,7 @@ exports[`oas-to-snippet supported languages php should generate code for the def
 "<?php
 require_once('vendor/autoload.php');
 
-$client = new \\\\GuzzleHttp\\\\Client();
+$client = new \\GuzzleHttp\\Client();
 
 $response = $client->request('POST', 'http://petstore.swagger.io/v2/pet', [
   'headers' => [
@@ -525,15 +525,15 @@ exports[`oas-to-snippet supported languages php targets curl should support snip
 $curl = curl_init();
 
 curl_setopt_array($curl, [
-  CURLOPT_URL => \\"http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark\\",
+  CURLOPT_URL => "http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark",
   CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_ENCODING => \\"\\",
+  CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-  CURLOPT_CUSTOMREQUEST => \\"GET\\",
+  CURLOPT_CUSTOMREQUEST => "GET",
   CURLOPT_HTTPHEADER => [
-    \\"accept: application/json\\"
+    "accept: application/json"
   ],
 ]);
 
@@ -543,7 +543,7 @@ $err = curl_error($curl);
 curl_close($curl);
 
 if ($err) {
-  echo \\"cURL Error #:\\" . $err;
+  echo "cURL Error #:" . $err;
 } else {
   echo $response;
 }"
@@ -553,7 +553,7 @@ exports[`oas-to-snippet supported languages php targets guzzle should support sn
 "<?php
 require_once('vendor/autoload.php');
 
-$client = new \\\\GuzzleHttp\\\\Client();
+$client = new \\GuzzleHttp\\Client();
 
 $response = $client->request('GET', 'http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark', [
   'headers' => [
@@ -566,28 +566,28 @@ echo $response->getBody();"
 
 exports[`oas-to-snippet supported languages powershell should generate code for the default target 1`] = `
 "$headers=@{}
-$headers.Add(\\"content-type\\", \\"application/json\\")
+$headers.Add("content-type", "application/json")
 $response = Invoke-WebRequest -Uri 'http://petstore.swagger.io/v2/pet' -Method POST -Headers $headers"
 `;
 
 exports[`oas-to-snippet supported languages powershell targets restmethod should support snippet generation 1`] = `
 "$headers=@{}
-$headers.Add(\\"accept\\", \\"application/json\\")
+$headers.Add("accept", "application/json")
 $response = Invoke-RestMethod -Uri 'http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark' -Method GET -Headers $headers"
 `;
 
 exports[`oas-to-snippet supported languages powershell targets webrequest should support snippet generation 1`] = `
 "$headers=@{}
-$headers.Add(\\"accept\\", \\"application/json\\")
+$headers.Add("accept", "application/json")
 $response = Invoke-WebRequest -Uri 'http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark' -Method GET -Headers $headers"
 `;
 
 exports[`oas-to-snippet supported languages python should generate code for the default target 1`] = `
 "import requests
 
-url = \\"http://petstore.swagger.io/v2/pet\\"
+url = "http://petstore.swagger.io/v2/pet"
 
-headers = {\\"content-type\\": \\"application/json\\"}
+headers = {"content-type": "application/json"}
 
 response = requests.post(url, headers=headers)
 
@@ -597,9 +597,9 @@ print(response.text)"
 exports[`oas-to-snippet supported languages python targets requests should support snippet generation 1`] = `
 "import requests
 
-url = \\"http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark\\"
+url = "http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark"
 
-headers = {\\"accept\\": \\"application/json\\"}
+headers = {"accept": "application/json"}
 
 response = requests.get(url, headers=headers)
 
@@ -609,38 +609,38 @@ print(response.text)"
 exports[`oas-to-snippet supported languages r should generate code for the default target 1`] = `
 "library(httr)
 
-url <- \\"http://petstore.swagger.io/v2/pet\\"
+url <- "http://petstore.swagger.io/v2/pet"
 
-response <- VERB(\\"POST\\", url, content_type(\\"application/octet-stream\\"))
+response <- VERB("POST", url, content_type("application/octet-stream"))
 
-content(response, \\"text\\")"
+content(response, "text")"
 `;
 
 exports[`oas-to-snippet supported languages r targets httr should support snippet generation 1`] = `
 "library(httr)
 
-url <- \\"http://petstore.swagger.io/v2/user/login\\"
+url <- "http://petstore.swagger.io/v2/user/login"
 
 queryString <- list(
-  username = \\"woof\\",
-  password = \\"barkbarkbark\\"
+  username = "woof",
+  password = "barkbarkbark"
 )
 
-response <- VERB(\\"GET\\", url, query = queryString, content_type(\\"application/octet-stream\\"), accept(\\"application/json\\"))
+response <- VERB("GET", url, query = queryString, content_type("application/octet-stream"), accept("application/json"))
 
-content(response, \\"text\\")"
+content(response, "text")"
 `;
 
 exports[`oas-to-snippet supported languages ruby should generate code for the default target 1`] = `
 "require 'uri'
 require 'net/http'
 
-url = URI(\\"http://petstore.swagger.io/v2/pet\\")
+url = URI("http://petstore.swagger.io/v2/pet")
 
 http = Net::HTTP.new(url.host, url.port)
 
 request = Net::HTTP::Post.new(url)
-request[\\"content-type\\"] = 'application/json'
+request["content-type"] = 'application/json'
 
 response = http.request(request)
 puts response.read_body"
@@ -650,43 +650,43 @@ exports[`oas-to-snippet supported languages ruby targets native should support s
 "require 'uri'
 require 'net/http'
 
-url = URI(\\"http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark\\")
+url = URI("http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark")
 
 http = Net::HTTP.new(url.host, url.port)
 
 request = Net::HTTP::Get.new(url)
-request[\\"accept\\"] = 'application/json'
+request["accept"] = 'application/json'
 
 response = http.request(request)
 puts response.read_body"
 `;
 
 exports[`oas-to-snippet supported languages shell should generate code for the default target 1`] = `
-"curl --request POST \\\\
-     --url http://petstore.swagger.io/v2/pet \\\\
+"curl --request POST \\
+     --url http://petstore.swagger.io/v2/pet \\
      --header 'content-type: application/json'"
 `;
 
 exports[`oas-to-snippet supported languages shell targets curl should support snippet generation 1`] = `
-"curl --request GET \\\\
-     --url 'http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark' \\\\
+"curl --request GET \\
+     --url 'http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark' \\
      --header 'accept: application/json'"
 `;
 
 exports[`oas-to-snippet supported languages shell targets httpie should support snippet generation 1`] = `
-"http GET 'http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark' \\\\
+"http GET 'http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark' \\
   accept:application/json"
 `;
 
 exports[`oas-to-snippet supported languages swift should generate code for the default target 1`] = `
 "import Foundation
 
-let headers = [\\"content-type\\": \\"application/json\\"]
+let headers = ["content-type": "application/json"]
 
-let request = NSMutableURLRequest(url: NSURL(string: \\"http://petstore.swagger.io/v2/pet\\")! as URL,
+let request = NSMutableURLRequest(url: NSURL(string: "http://petstore.swagger.io/v2/pet")! as URL,
                                         cachePolicy: .useProtocolCachePolicy,
                                     timeoutInterval: 10.0)
-request.httpMethod = \\"POST\\"
+request.httpMethod = "POST"
 request.allHTTPHeaderFields = headers
 
 let session = URLSession.shared
@@ -705,12 +705,12 @@ dataTask.resume()"
 exports[`oas-to-snippet supported languages swift targets nsurlsession should support snippet generation 1`] = `
 "import Foundation
 
-let headers = [\\"accept\\": \\"application/json\\"]
+let headers = ["accept": "application/json"]
 
-let request = NSMutableURLRequest(url: NSURL(string: \\"http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark\\")! as URL,
+let request = NSMutableURLRequest(url: NSURL(string: "http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark")! as URL,
                                         cachePolicy: .useProtocolCachePolicy,
                                     timeoutInterval: 10.0)
-request.httpMethod = \\"GET\\"
+request.httpMethod = "GET"
 request.allHTTPHeaderFields = headers
 
 let session = URLSession.shared
