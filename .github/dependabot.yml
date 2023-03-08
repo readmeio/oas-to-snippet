@@ -24,11 +24,3 @@ updates:
     commit-message:
       prefix: chore(deps)
       prefix-development: chore(deps-dev)
-    ignore:
-      # These can't be upgraded because `@jsdevtools/karma-config@3` still requires Webpack 4.
-      - dependency-name: ts-loader
-        versions:
-          - "> 8"
-      - dependency-name: webpack
-        versions:
-          - "> 4"
