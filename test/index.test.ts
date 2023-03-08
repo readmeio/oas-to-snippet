@@ -183,7 +183,7 @@ fetch(url, options)
       'curl'
     );
 
-    expect(code).to.equal(`curl --request GET \\
+    expect(code).toBe(`curl --request GET \\
      --url https://example.com/body \\
      --header 'content-type: application/json' \\
      --data '
