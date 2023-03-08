@@ -154,6 +154,54 @@ fetch(url, options)
      --data 'b=1,2,3'`);
   });
 
+  it('should have special indents in curl snippets for JSON payloads', function () {
+    const oas = Oas.init({
+      paths: {
+        '/body': {
+          get: {
+            requestBody: {
+              content: {
+                'application/json': {
+                  schema: {
+                    type: 'object',
+                    required: ['a'],
+                    properties: {
+                      a: {
+                        type: 'string',
+                      },
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    });
+
+    const { code } = oasToSnippet(
+      oas,
+      oas.operation('/body', 'get'),
+      { body: { a: 'test', b: [1, 2, 3] } },
+      {},
+      'curl'
+    );
+
+    expect(code).to.equal(`curl --request GET \\
+     --url https://example.com/body \\
+     --header 'content-type: application/json' \\
+     --data '
+{
+  "a": "test",
+  "b": [
+    1,
+    2,
+    3
+  ]
+}
+'`);
+  });
+
   it('should not contain proxy url', function () {
     const oas = new Oas({
       ...JSON.parse(JSON.stringify(petstoreOas)),
