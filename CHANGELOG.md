@@ -1,3 +1,10 @@
+## 21.1.0 (2023-03-08)
+
+* test: moving unit testing back to jest (#173) ([09b6f21](https://github.com/readmeio/oas-to-snippet/commit/09b6f21)), closes [#173](https://github.com/readmeio/oas-to-snippet/issues/173)
+* feat: changing the indent level of JSON payloads in cURL snippets to be 2 characters (#172) ([2b60de7](https://github.com/readmeio/oas-to-snippet/commit/2b60de7)), closes [#172](https://github.com/readmeio/oas-to-snippet/issues/172)
+
+
+
 ## <small>21.0.1 (2023-03-02)</small>
 
 * chore: bumping out of date deps ([e3463dc](https://github.com/readmeio/oas-to-snippet/commit/e3463dc))
