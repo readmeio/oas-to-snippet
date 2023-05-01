@@ -30,23 +30,23 @@
     "httpsnippet-client-api": "^5.0.8"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.5.1",
-    "@commitlint/config-conventional": "^17.4.4",
+    "@commitlint/cli": "^17.6.1",
+    "@commitlint/config-conventional": "^17.6.1",
     "@readme/eslint-config": "^10.5.2",
     "@readme/oas-examples": "^5.10.0",
     "@readme/oas-extensions": "^17.0.1",
     "@types/har-format": "^1.2.8",
-    "@types/jest": "^29.5.0",
-    "@types/node": "^18.15.11",
-    "eslint": "^8.37.0",
+    "@types/jest": "^29.5.1",
+    "@types/node": "^18.16.3",
+    "eslint": "^8.39.0",
     "har-examples": "^3.1.1",
     "husky": "^8.0.3",
     "jest": "^29.5.0",
-    "oas": "^20.5.3",
-    "prettier": "^2.8.7",
+    "oas": "^20.6.2",
+    "prettier": "^2.8.8",
     "ts-jest": "^29.1.0",
-    "type-fest": "^3.7.2",
-    "typescript": "^5.0.3"
+    "type-fest": "^3.9.0",
+    "typescript": "^5.0.4"
   },
   "prettier": "@readme/eslint-config/prettier",
   "commitlint": {
