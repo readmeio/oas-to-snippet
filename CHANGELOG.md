@@ -1,3 +1,13 @@
+## <small>21.1.1 (2023-05-25)</small>
+
+* chore(deps-dev): bumping out of date deps ([a6f31cd](https://github.com/readmeio/oas-to-snippet/commit/a6f31cd))
+* chore(deps): bumping out of date deps ([fffbcfc](https://github.com/readmeio/oas-to-snippet/commit/fffbcfc))
+* chore(deps): bumping out of date deps ([c4baf11](https://github.com/readmeio/oas-to-snippet/commit/c4baf11))
+* ci: extend ci testing to run on node 19 and 20 ([b2f525b](https://github.com/readmeio/oas-to-snippet/commit/b2f525b))
+* docs: refreshing the supported languages readme ([a40c1d0](https://github.com/readmeio/oas-to-snippet/commit/a40c1d0))
+
+
+
 ## 21.1.0 (2023-03-08)
 
 * test: moving unit testing back to jest (#173) ([09b6f21](https://github.com/readmeio/oas-to-snippet/commit/09b6f21)), closes [#173](https://github.com/readmeio/oas-to-snippet/issues/173)
