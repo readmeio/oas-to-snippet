@@ -1,3 +1,10 @@
+## 22.0.0 (2023-06-01)
+
+* feat: dropping support for node 14 ([b6835c3](https://github.com/readmeio/oas-to-snippet/commit/b6835c3))
+* chore(deps): bumping out of date deps ([171dac0](https://github.com/readmeio/oas-to-snippet/commit/171dac0))
+
+
+
 ## <small>21.1.1 (2023-05-25)</small>
 
 * chore(deps-dev): bumping out of date deps ([a6f31cd](https://github.com/readmeio/oas-to-snippet/commit/a6f31cd))
