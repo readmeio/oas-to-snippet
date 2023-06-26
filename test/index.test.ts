@@ -12,6 +12,7 @@ import { oasToSnippet, supportedLanguages } from '../src';
 import owlbertShrub from './__datasets__/owlbert-shrub.dataurl.json';
 import owlbert from './__datasets__/owlbert.dataurl.json';
 import queryEncodedHAR from './__datasets__/query-encoded.har.json';
+import multipartFormDataOneOfRequestBody from './__datasets__/quirks/multipart-oneOf-requestbody.json';
 
 const petstore = Oas.init(petstoreOas);
 
@@ -301,6 +302,37 @@ fetch(url, options)
      --form orderId=10 \\
      --form userId=3232 \\
      --form documentFile=@owlbert.png`);
+    });
+
+    it('should handle a `multipart/form-data` schema that has a `oneOf`', async () => {
+      const oas = Oas.init(multipartFormDataOneOfRequestBody);
+      await oas.dereference();
+
+      const { code } = oasToSnippet(
+        oas,
+        oas.operation('/anything', 'post'),
+        {
+          body: {
+            output_type: 'cutout',
+            bg_blur: 0,
+            scale: 'fit',
+            format: 'PNG',
+            bg_image: 'fef',
+          },
+        },
+        {},
+        'curl',
+        oasUrl
+      );
+
+      expect(code).toBe(`curl --request POST \\
+     --url https://httpbin.org/anything \\
+     --header 'content-type: multipart/form-data' \\
+     --form output_type=cutout \\
+     --form bg_blur=0 \\
+     --form scale=fit \\
+     --form format=PNG \\
+     --form bg_image=fef`);
     });
   });
 
