@@ -6,13 +6,13 @@ export type SupportedLanguages = Record<
   {
     highlight: string;
     httpsnippet: {
-      lang: TargetId;
       default: ClientId;
+      lang: TargetId;
       targets: Record<
         ClientId,
         {
-          name: string;
           install?: string;
+          name: string;
           opts?: Record<string, unknown>;
         }
       >;
