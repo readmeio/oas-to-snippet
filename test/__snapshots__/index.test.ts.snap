@@ -18,6 +18,7 @@ exports[`oas-to-snippet supported languages c should generate code for the defau
 "CURL *hnd = curl_easy_init();
 
 curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, "POST");
+curl_easy_setopt(hnd, CURLOPT_WRITEDATA, stdout);
 curl_easy_setopt(hnd, CURLOPT_URL, "http://petstore.swagger.io/v2/pet");
 
 struct curl_slist *headers = NULL;
@@ -31,6 +32,7 @@ exports[`oas-to-snippet supported languages c targets libcurl should support sni
 "CURL *hnd = curl_easy_init();
 
 curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, "GET");
+curl_easy_setopt(hnd, CURLOPT_WRITEDATA, stdout);
 curl_easy_setopt(hnd, CURLOPT_URL, "http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark");
 
 struct curl_slist *headers = NULL;
@@ -58,6 +60,7 @@ exports[`oas-to-snippet supported languages cplusplus should generate code for t
 "CURL *hnd = curl_easy_init();
 
 curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, "POST");
+curl_easy_setopt(hnd, CURLOPT_WRITEDATA, stdout);
 curl_easy_setopt(hnd, CURLOPT_URL, "http://petstore.swagger.io/v2/pet");
 
 struct curl_slist *headers = NULL;
@@ -71,6 +74,7 @@ exports[`oas-to-snippet supported languages cplusplus targets libcurl should sup
 "CURL *hnd = curl_easy_init();
 
 curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, "GET");
+curl_easy_setopt(hnd, CURLOPT_WRITEDATA, stdout);
 curl_easy_setopt(hnd, CURLOPT_URL, "http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark");
 
 struct curl_slist *headers = NULL;
@@ -81,10 +85,17 @@ CURLcode ret = curl_easy_perform(hnd);"
 `;
 
 exports[`oas-to-snippet supported languages csharp should generate code for the default target 1`] = `
-"var client = new RestClient("http://petstore.swagger.io/v2/pet");
-var request = new RestRequest(Method.POST);
+"using RestSharp;
+
+
+var options = new RestClientOptions("http://petstore.swagger.io/v2/pet");
+var client = new RestClient(options);
+var request = new RestRequest("");
 request.AddHeader("content-type", "application/json");
-IRestResponse response = client.Execute(request);"
+var response = await client.PostAsync(request);
+
+Console.WriteLine("{0}", response.Content);
+"
 `;
 
 exports[`oas-to-snippet supported languages csharp targets httpclient should support snippet generation 1`] = `
@@ -108,10 +119,17 @@ using (var response = await client.SendAsync(request))
 `;
 
 exports[`oas-to-snippet supported languages csharp targets restsharp should support snippet generation 1`] = `
-"var client = new RestClient("http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark");
-var request = new RestRequest(Method.GET);
+"using RestSharp;
+
+
+var options = new RestClientOptions("http://petstore.swagger.io/v2/user/login?username=woof&password=barkbarkbark");
+var client = new RestClient(options);
+var request = new RestRequest("");
 request.AddHeader("accept", "application/json");
-IRestResponse response = client.Execute(request);"
+var response = await client.GetAsync(request);
+
+Console.WriteLine("{0}", response.Content);
+"
 `;
 
 exports[`oas-to-snippet supported languages go should generate code for the default target 1`] = `
@@ -120,7 +138,7 @@ exports[`oas-to-snippet supported languages go should generate code for the defa
 import (
 	"fmt"
 	"net/http"
-	"io/ioutil"
+	"io"
 )
 
 func main() {
@@ -134,9 +152,8 @@ func main() {
 	res, _ := http.DefaultClient.Do(req)
 
 	defer res.Body.Close()
-	body, _ := ioutil.ReadAll(res.Body)
+	body, _ := io.ReadAll(res.Body)
 
-	fmt.Println(res)
 	fmt.Println(string(body))
 
 }"
@@ -148,7 +165,7 @@ exports[`oas-to-snippet supported languages go targets native should support sni
 import (
 	"fmt"
 	"net/http"
-	"io/ioutil"
+	"io"
 )
 
 func main() {
@@ -162,9 +179,8 @@ func main() {
 	res, _ := http.DefaultClient.Do(req)
 
 	defer res.Body.Close()
-	body, _ := ioutil.ReadAll(res.Body)
+	body, _ := io.ReadAll(res.Body)
 
-	fmt.Println(res)
 	fmt.Println(string(body))
 
 }"
