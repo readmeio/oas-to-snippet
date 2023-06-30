@@ -347,7 +347,7 @@ exports[`oas-to-snippet supported languages json should generate code for the de
 }"
 `;
 
-exports[`oas-to-snippet supported languages json targets native should support snippet generation 1`] = `""`;
+exports[`oas-to-snippet supported languages json targets native should support snippet generation 1`] = `"No JSON body"`;
 
 exports[`oas-to-snippet supported languages kotlin should generate code for the default target 1`] = `
 "val client = OkHttpClient()
