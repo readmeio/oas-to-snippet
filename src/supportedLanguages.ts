@@ -114,6 +114,16 @@ const supportedLanguages: SupportedLanguages = {
       },
     },
   },
+  json: {
+    highlight: 'json',
+    httpsnippet: {
+      lang: 'json',
+      default: 'native',
+      targets: {
+        native: { name: 'JSON' },
+      },
+    },
+  },
   kotlin: {
     highlight: 'java',
     httpsnippet: {

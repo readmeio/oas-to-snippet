@@ -17,7 +17,14 @@ import multipartFormDataOneOfRequestBody from './__datasets__/quirks/multipart-o
 const petstore = Oas.init(petstoreOas);
 
 const oasUrl = 'https://example.com/openapi.json';
-const formData = { path: { petId: 123 } };
+const formData = {
+  path: {
+    petId: 123,
+  },
+  body: {
+    name: 'buster',
+  },
+};
 
 describe('oas-to-snippet', function () {
   describe('HAR overrides', function () {
