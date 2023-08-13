@@ -1,3 +1,4 @@
+/* eslint-disable vitest/no-conditional-expect */
 import type { HarRequest } from '@readme/httpsnippet';
 import type { SupportedLanguages } from 'supportedLanguages';
 
@@ -6,6 +7,7 @@ import petstoreOas from '@readme/oas-examples/3.0/json/petstore.json';
 import * as extensions from '@readme/oas-extensions';
 import harExamples from 'har-examples';
 import Oas from 'oas';
+import { describe, beforeEach, it, expect } from 'vitest';
 
 import { oasToSnippet, supportedLanguages } from '../src';
 
@@ -91,7 +93,7 @@ fetch(url, options)
       { body: { id: '123' } },
       {},
       'node',
-      oasUrl
+      oasUrl,
     );
 
     expect(code).toContain("body: JSON.stringify({id: '123'}");
@@ -110,7 +112,7 @@ fetch(url, options)
       },
       {},
       'node',
-      oasUrl
+      oasUrl,
     );
 
     expect(code).toContain("encodedParams.set('id', '123');");
@@ -148,7 +150,7 @@ fetch(url, options)
       oas.operation('/body', 'get'),
       { formData: { a: 'test', b: [1, 2, 3] } },
       {},
-      'curl'
+      'curl',
     );
 
     expect(code).toBe(`curl --request GET \\
@@ -188,7 +190,7 @@ fetch(url, options)
       oas.operation('/body', 'get'),
       { body: { a: 'test', b: [1, 2, 3] } },
       {},
-      'curl'
+      'curl',
     );
 
     expect(code).toBe(`curl --request GET \\
@@ -300,7 +302,7 @@ fetch(url, options)
         },
         {},
         'curl',
-        oasUrl
+        oasUrl,
       );
 
       expect(code).toBe(`curl --request POST \\
@@ -329,7 +331,7 @@ fetch(url, options)
         },
         {},
         'curl',
-        oasUrl
+        oasUrl,
       );
 
       expect(code).toBe(`curl --request POST \\
@@ -382,7 +384,7 @@ fetch(url, options)
       { query: { startTime, endTime } },
       {},
       'javascript',
-      oasUrl
+      oasUrl,
     );
 
     expect(snippet.code).toContain(encodeURIComponent(startTime));
@@ -399,7 +401,7 @@ fetch(url, options)
       oas.operation('/anything/multipart-formdata', 'put'),
       { body: { filename: [owlbert, owlbertShrub] } },
       {},
-      'node'
+      'node',
     );
 
     expect(snippet.code).toContain("formData.append('filename', fs.createReadStream('owlbert.png'));");
@@ -418,75 +420,70 @@ fetch(url, options)
         },
       },
       {},
-      'node'
+      'node',
     );
 
     expect(snippet.code).toContain("formData.append('documentFile', fs.createReadStream('lorem_ipsum.txt'));");
   });
 
   describe('supported languages', function () {
-    Object.keys(supportedLanguages).forEach((lang: keyof SupportedLanguages) => {
-      describe(`${lang}`, function () {
-        const targets = Object.keys(supportedLanguages[lang].httpsnippet.targets);
+    describe.each(Object.keys(supportedLanguages))('%s', (lang: keyof SupportedLanguages) => {
+      const targets = Object.keys(supportedLanguages[lang].httpsnippet.targets);
 
-        it('should have a language definition', function () {
-          expect(supportedLanguages[lang].highlight).toStrictEqual(expect.any(String));
-          expect(supportedLanguages[lang].httpsnippet.lang).toStrictEqual(expect.any(String));
-          expect(supportedLanguages[lang].httpsnippet.default).toStrictEqual(expect.any(String));
-          expect(supportedLanguages[lang].httpsnippet.targets).toStrictEqual(expect.any(Object));
+      it('should have a language definition', function () {
+        expect(supportedLanguages[lang].highlight).toStrictEqual(expect.any(String));
+        expect(supportedLanguages[lang].httpsnippet.lang).toStrictEqual(expect.any(String));
+        expect(supportedLanguages[lang].httpsnippet.default).toStrictEqual(expect.any(String));
+        expect(supportedLanguages[lang].httpsnippet.targets).toStrictEqual(expect.any(Object));
 
-          expect(targets.length).toBeGreaterThanOrEqual(1);
-          expect(targets).toContain(supportedLanguages[lang].httpsnippet.default);
-        });
+        expect(targets.length).toBeGreaterThanOrEqual(1);
+        expect(targets).toContain(supportedLanguages[lang].httpsnippet.default);
+      });
 
-        it('should generate code for the default target', function () {
-          const snippet = oasToSnippet(petstore, petstore.operation('/pet', 'post'), formData, {}, lang);
+      it('should generate code for the default target', function () {
+        const snippet = oasToSnippet(petstore, petstore.operation('/pet', 'post'), formData, {}, lang);
 
-          expect(snippet.code).toMatchSnapshot();
-          expect(snippet.highlightMode).toBe(supportedLanguages[lang].highlight);
-        });
+        expect(snippet.code).toMatchSnapshot();
+        expect(snippet.highlightMode).toBe(supportedLanguages[lang].highlight);
+      });
 
-        describe('targets', function () {
-          targets.forEach(target => {
-            describe(`${target}`, function () {
-              it('should be properly defined', function () {
-                expect(supportedLanguages[lang].httpsnippet.targets[target].name).toStrictEqual(expect.any(String));
+      describe('targets', function () {
+        describe.each(targets)('%s', target => {
+          it('should be properly defined', function () {
+            expect(supportedLanguages[lang].httpsnippet.targets[target].name).toStrictEqual(expect.any(String));
 
-                if ('opts' in supportedLanguages[lang].httpsnippet.targets[target]) {
-                  expect(supportedLanguages[lang].httpsnippet.targets[target].opts).toStrictEqual(expect.any(Object));
-                }
+            if ('opts' in supportedLanguages[lang].httpsnippet.targets[target]) {
+              expect(supportedLanguages[lang].httpsnippet.targets[target].opts).toStrictEqual(expect.any(Object));
+            }
 
-                if ('install' in supportedLanguages[lang].httpsnippet.targets[target]) {
-                  expect(supportedLanguages[lang].httpsnippet.targets[target].install).toStrictEqual(
-                    expect.any(String)
-                  );
-                }
-              });
+            if ('install' in supportedLanguages[lang].httpsnippet.targets[target]) {
+              expect(supportedLanguages[lang].httpsnippet.targets[target].install).toStrictEqual(expect.any(String));
+            }
+          });
 
-              it('should support snippet generation', function () {
-                const snippet = oasToSnippet(
-                  petstore,
-                  petstore.operation('/user/login', 'get'),
-                  {
-                    query: { username: 'woof', password: 'barkbarkbark' },
-                  },
-                  {},
-                  [lang, target],
-                  oasUrl
-                );
+          it('should support snippet generation', function () {
+            const snippet = oasToSnippet(
+              petstore,
+              petstore.operation('/user/login', 'get'),
+              {
+                query: { username: 'woof', password: 'barkbarkbark' },
+              },
+              {},
+              [lang, target],
+              oasUrl,
+            );
 
-                expect(snippet.code).toMatchSnapshot();
-                expect(snippet.highlightMode).toBe(supportedLanguages[lang].highlight);
-              });
-            });
+            expect(snippet.code).toMatchSnapshot();
+            expect(snippet.highlightMode).toBe(supportedLanguages[lang].highlight);
           });
         });
       });
     });
 
     describe('backwards compatibiltiy', function () {
-      ['curl', 'node-simple'].forEach((lang: 'curl' | 'node-simple') => {
-        it(`should still support \`${lang}\` as the supplied language`, function () {
+      it.each(['curl', 'node-simple'])(
+        'should still support `%s` as the supplied language',
+        (lang: 'curl' | 'node-simple') => {
           const snippet = oasToSnippet(
             petstore,
             petstore.operation('/user/login', 'get'),
@@ -495,7 +492,7 @@ fetch(url, options)
             },
             {},
             lang,
-            oasUrl
+            oasUrl,
           );
 
           expect(snippet.code).toMatchSnapshot();
@@ -505,8 +502,8 @@ fetch(url, options)
           } else if (lang === 'node-simple') {
             expect(snippet.highlightMode).toBe('javascript');
           }
-        });
-      });
+        },
+      );
     });
 
     it('should gracefully fallback to `fetch` snippets if our `api` target fails', function () {

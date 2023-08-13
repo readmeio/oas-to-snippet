@@ -1,6 +1,3 @@
 {
-  "extends": "@readme/eslint-config/testing",
-  "rules": {
-    "jest/no-conditional-expect": "off"
-  }
+  "extends": "@readme/eslint-config/testing/vitest"
 }

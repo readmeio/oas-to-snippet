@@ -20,7 +20,7 @@ export function oasToSnippet(
   auth: AuthForHAR,
   lang: keyof typeof supportedLanguages | [keyof typeof supportedLanguages, ClientId] | 'node-simple' | 'curl',
   oasUrl?: string,
-  harOverride?: HarRequest
+  harOverride?: HarRequest,
 ) {
   let config;
   let language: TargetId;
