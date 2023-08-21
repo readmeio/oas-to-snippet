@@ -60,6 +60,12 @@ const { code, highlightMode } = oasToSnippet(apiDefinition, operation, formData,
 
 Since this library uses [HTTP Snippet](https://github.com/Kong/httpsnippet), we support most of its languages, and their associated targets, which are the following:
 
+<!--
+To regenerate the table below, run the following:
+
+npm run build && node bin/generate-target-markdown-table.js
+ -->
+
 <!-- prettier-ignore-start -->
 | Language | Available language mode(s) | Libraries (if applicable)
 | :---- | :---- | :---- |
