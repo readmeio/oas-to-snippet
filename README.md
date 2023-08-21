@@ -67,6 +67,7 @@ npm run build && node bin/generate-target-markdown-table.js
  -->
 
 <!-- prettier-ignore-start -->
+<!-- table-start -->
 | Language | Available language mode(s) | Libraries (if applicable)
 | :---- | :---- | :---- |
 | C | `c` | [Libcurl](http://curl.haxx.se/libcurl)
@@ -89,4 +90,5 @@ npm run build && node bin/generate-target-markdown-table.js
 | Ruby | `ruby` | [net::http](http://ruby-doc.org/stdlib-2.2.1/libdoc/net/http/rdoc/Net/HTTP.html)
 | Shell | `shell` | [cURL](http://curl.haxx.se/), [HTTPie](http://httpie.org/), [Wget](https://www.gnu.org/software/wget/)
 | Swift | `swift` | [NSURLSession](https://developer.apple.com/library/mac/documentation/Foundation/Reference/NSURLSession_class/index.html)
+<!-- table-end -->
 <!-- prettier-ignore-end -->

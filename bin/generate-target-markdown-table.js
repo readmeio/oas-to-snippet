@@ -1,5 +1,8 @@
 #! /usr/bin/env node
 // eslint-disable-next-line @typescript-eslint/no-var-requires
+const fs = require('fs/promises');
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const { availableTargets } = require('@readme/httpsnippet');
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -14,12 +17,9 @@ function getTarget(targetKey) {
 /**
  * Generates a Markdown table that documents all supported snippets.
  */
-function run() {
+async function run() {
   try {
-    // eslint-disable-next-line no-console
-    console.log('| Language | Available language mode(s) | Libraries (if applicable)');
-    // eslint-disable-next-line no-console
-    console.log('| :---- | :---- | :---- |');
+    const output = ['| Language | Available language mode(s) | Libraries (if applicable)', '| :---- | :---- | :---- |'];
 
     Object.keys(supportedLanguages.default).forEach(lang => {
       let languageTitle = 'TKTK';
@@ -50,13 +50,26 @@ function run() {
         libraries.unshift('[`api`](https://api.readme.dev)');
       }
 
-      // eslint-disable-next-line no-console
-      console.log(`| ${languageTitle} | \`${languageMode}\` | ${libraries.join(', ')}`.trim());
+      output.push(`| ${languageTitle} | \`${languageMode}\` | ${libraries.join(', ')}`.trim());
     });
+
+    // Update README.md
+    const readmeFile = await fs.readFile('README.md', { encoding: 'utf-8' });
+
+    const updatedFile = readmeFile.replace(
+      // https://stackoverflow.com/a/24375554
+      /<!-- table-start -->([\S\s]*?)<!-- table-end -->/g,
+      `<!-- table-start -->\n${output.join('\n')}\n<!-- table-end -->`,
+    );
+
+    await fs.writeFile('README.md', updatedFile, { encoding: 'utf-8' });
+
+    // eslint-disable-next-line no-console
+    console.log('Table updated!');
     return process.exit(0);
   } catch (e) {
     // eslint-disable-next-line no-console
-    console.error('Error generating Markdown Table!');
+    console.error('Error updating Markdown Table!');
     // eslint-disable-next-line no-console
     console.error(e);
     return process.exit(1);
