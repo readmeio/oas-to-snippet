@@ -3,7 +3,7 @@
 const { availableTargets } = require('@readme/httpsnippet');
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const supportedLanguages = require('../dist/supportedLanguages');
+const supportedLanguages = require('../dist/supportedLanguages.js');
 
 const targets = availableTargets();
 
