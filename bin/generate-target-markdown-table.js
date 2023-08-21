@@ -24,7 +24,7 @@ function run() {
     Object.keys(supportedLanguages.default).forEach(lang => {
       let languageTitle = 'TKTK';
       const languageMode = lang;
-      let libraries = '';
+      let libraries = [];
 
       // Corresponding language in httpsnippet library
       const httpsnippetLang = supportedLanguages.default[lang].httpsnippet.lang;
@@ -40,15 +40,18 @@ function run() {
       }
 
       if (httpsnippetTarget?.clients.length) {
-        libraries = httpsnippetTarget.clients
-          .map(client => {
-            return `[${client.title}](${client.link})`;
-          })
-          .join(', ');
+        libraries = httpsnippetTarget.clients.map(client => {
+          return `[${client.title}](${client.link})`;
+        });
+      }
+
+      // backfill `api` since we're grabbing the clients list from httpsnippet
+      if (lang === 'node') {
+        libraries.unshift('[`api`](https://api.readme.dev)');
       }
 
       // eslint-disable-next-line no-console
-      console.log(`| ${languageTitle} | \`${languageMode}\` | ${libraries}`.trim());
+      console.log(`| ${languageTitle} | \`${languageMode}\` | ${libraries.join(', ')}`.trim());
     });
     return process.exit(0);
   } catch (e) {
