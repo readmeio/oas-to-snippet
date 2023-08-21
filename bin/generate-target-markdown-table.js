@@ -33,8 +33,6 @@ function run() {
       // C++ and Objective-C are weird in that their
       if (lang === 'cplusplus') {
         languageTitle = 'C++';
-      } else if (lang === 'objectivec') {
-        languageTitle = 'Objective-C';
       } else {
         languageTitle = httpsnippetTarget.title;
       }
