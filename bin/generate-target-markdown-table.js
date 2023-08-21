@@ -1,3 +1,4 @@
+#! /usr/bin/env node
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { availableTargets } = require('@readme/httpsnippet');
 
@@ -30,7 +31,8 @@ function run() {
       // Corresponding httpsnippet target object
       const httpsnippetTarget = getTarget(httpsnippetLang);
 
-      // C++ and Objective-C are weird in that their
+      // C++ is weird in that it uses the httpsnippet data for C but this library
+      // represents it as a separate language
       if (lang === 'cplusplus') {
         languageTitle = 'C++';
       } else {
@@ -52,6 +54,7 @@ function run() {
   } catch (e) {
     // eslint-disable-next-line no-console
     console.error('Error generating Markdown Table!');
+    // eslint-disable-next-line no-console
     console.error(e);
     return process.exit(1);
   }
