@@ -6,7 +6,7 @@ const fs = require('fs/promises');
 const { availableTargets } = require('@readme/httpsnippet');
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const supportedLanguages = require('../dist/supportedLanguages.js');
+const supportedLanguages = require('../dist/supportedLanguages');
 
 const targets = availableTargets();
 
