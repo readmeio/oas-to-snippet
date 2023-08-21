@@ -60,43 +60,35 @@ const { code, highlightMode } = oasToSnippet(apiDefinition, operation, formData,
 
 Since this library uses [HTTP Snippet](https://github.com/Kong/httpsnippet), we support most of its languages, and their associated targets, which are the following:
 
-- `c`
-- `clojure`
-- `cplusplus`
-- `csharp`
-  - `httpclient`
-  - `restsharp`
-- `http`
-- `go`
-- `java`
-  - `asynchttp`
-  - `nethttp`
-  - `okhttp`
-  - `unirest`
-- `javascript`
-  - `axios`
-  - `fetch`
-  - `jquery`
-  - `xhr`
-- `kotlin`
-- `node`
-  - `api`: This is our OpenAPI-powered SDK generation library; see https://npm.im/api for more info.
-  - `axios`
-  - `fetch`
-  - `native`
-  - `request`
-- `objectivec`
-- `ocaml`
-- `php`
-  - `curl`
-  - `guzzle`
-- `powershell`
-  - `restmethod`
-  - `webrequest`
-- `python`
-- `r`
-- `ruby`
-- `shell`
-  - `curl`
-  - `httpie`
-- `swift`
+<!--
+To regenerate the table below, run the following:
+
+npm run build && node bin/generate-target-markdown-table.js
+ -->
+
+<!-- prettier-ignore-start -->
+<!-- table-start -->
+| Language | Available language mode(s) | Libraries (if applicable)
+| :---- | :---- | :---- |
+| C | `c` | [Libcurl](http://curl.haxx.se/libcurl)
+| Clojure | `clojure` | [clj-http](https://github.com/dakrone/clj-http)
+| C++ | `cplusplus` | [Libcurl](http://curl.haxx.se/libcurl)
+| C# | `csharp` | [HttpClient](https://docs.microsoft.com/en-us/dotnet/api/system.net.http.httpclient), [RestSharp](http://restsharp.org/)
+| HTTP | `http` | [HTTP/1.1](https://tools.ietf.org/html/rfc7230)
+| Go | `go` | [NewRequest](http://golang.org/pkg/net/http/#NewRequest)
+| Java | `java` | [AsyncHttp](https://github.com/AsyncHttpClient/async-http-client), [java.net.http](https://openjdk.java.net/groups/net/httpclient/intro.html), [OkHttp](http://square.github.io/okhttp/), [Unirest](http://unirest.io/java.html)
+| JavaScript | `javascript` | [XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest), [Axios](https://github.com/axios/axios), [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch), [jQuery](http://api.jquery.com/jquery.ajax/)
+| JSON | `json` | [Native JSON](https://www.json.org/json-en.html)
+| Kotlin | `kotlin` | [OkHttp](http://square.github.io/okhttp/)
+| Node.js | `node` | [`api`](https://api.readme.dev), [HTTP](http://nodejs.org/api/http.html#http_http_request_options_callback), [Request](https://github.com/request/request), [Unirest](http://unirest.io/nodejs.html), [Axios](https://github.com/axios/axios), [Fetch](https://github.com/bitinn/node-fetch)
+| Objective-C | `objectivec` | [NSURLSession](https://developer.apple.com/library/mac/documentation/Foundation/Reference/NSURLSession_class/index.html)
+| OCaml | `ocaml` | [CoHTTP](https://github.com/mirage/ocaml-cohttp)
+| PHP | `php` | [cURL](http://php.net/manual/en/book.curl.php), [Guzzle](http://docs.guzzlephp.org/en/stable/), [HTTP v1](http://php.net/manual/en/book.http.php), [HTTP v2](http://devel-m6w6.rhcloud.com/mdref/http)
+| Powershell | `powershell` | [Invoke-WebRequest](https://docs.microsoft.com/en-us/powershell/module/Microsoft.PowerShell.Utility/Invoke-WebRequest), [Invoke-RestMethod](https://docs.microsoft.com/en-us/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod)
+| Python | `python` | [Requests](http://docs.python-requests.org/en/latest/api/#requests.request)
+| R | `r` | [httr](https://cran.r-project.org/web/packages/httr/vignettes/quickstart.html)
+| Ruby | `ruby` | [net::http](http://ruby-doc.org/stdlib-2.2.1/libdoc/net/http/rdoc/Net/HTTP.html)
+| Shell | `shell` | [cURL](http://curl.haxx.se/), [HTTPie](http://httpie.org/), [Wget](https://www.gnu.org/software/wget/)
+| Swift | `swift` | [NSURLSession](https://developer.apple.com/library/mac/documentation/Foundation/Reference/NSURLSession_class/index.html)
+<!-- table-end -->
+<!-- prettier-ignore-end -->
