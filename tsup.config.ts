@@ -7,7 +7,7 @@ export default defineConfig(options => ({
   cjsInterop: true,
   clean: true,
   dts: true,
-  entry: ['src/index.ts', 'src/supportedLanguages.ts', 'src/types.ts'],
+  entry: ['src/lib/utils.ts', 'src/index.ts', 'src/supportedLanguages.ts', 'src/types.ts'],
   format: ['esm', 'cjs'],
   minify: false,
   shims: true,

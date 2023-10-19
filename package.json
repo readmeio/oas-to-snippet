@@ -19,6 +19,10 @@
       "require": "./dist/types.d.cts",
       "import": "./dist/types.d.ts"
     },
+    "./utils": {
+      "require": "./dist/lib/utils.cjs",
+      "import": "./dist/lib/utils.js"
+    },
     "./package.json": "./package.json"
   },
   "main": "dist/index.cjs",

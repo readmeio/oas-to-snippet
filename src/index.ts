@@ -1,5 +1,6 @@
+import type { Language } from './types.js';
 import type { HarRequest } from '@readme/httpsnippet';
-import type { ClientId, TargetId } from '@readme/httpsnippet/targets';
+import type { TargetId } from '@readme/httpsnippet/targets';
 import type { AuthForHAR, DataForHAR } from '@readme/oas-to-har/lib/types';
 import type Oas from 'oas';
 import type Operation from 'oas/operation';
@@ -8,14 +9,14 @@ import { HTTPSnippet, addTargetClient } from '@readme/httpsnippet';
 import generateHar from '@readme/oas-to-har';
 import HTTPSnippetSimpleApiClient from 'httpsnippet-client-api';
 
-import supportedLanguages from './supportedLanguages.js';
+import { getLanguageConfig } from './lib/utils.js';
 
 export default async function oasToSnippet(
   oas: Oas,
   operation: Operation,
   values: DataForHAR,
   auth: AuthForHAR,
-  lang: keyof typeof supportedLanguages | [keyof typeof supportedLanguages, ClientId] | 'node-simple' | 'curl',
+  lang: Language,
   opts: {
     /**
      * If you already have a HAR and you just want to generate a code snippet for it then you should
@@ -50,39 +51,12 @@ export default async function oasToSnippet(
   let language: TargetId;
   let target;
 
-  /**
-   * If `lang` is an array, then it's a mixture of language and targets like `[php, guzzle]` or
-   * `[javascript, axios]` so we need to a bit of work to pull out the necessary information needed
-   * to build the snippet. For backwards compatibility sake we still need to support supplying
-   * `node-simple` as the language even though `node-simple` does not exist within the list of
-   * `supportedLanguages`.
-   */
-  if (lang === 'node-simple') {
-    config = supportedLanguages.node;
-    language = 'node';
-    target = 'api';
-  } else if (lang === 'curl') {
-    config = supportedLanguages.shell;
-    language = 'shell';
-    target = 'curl';
-  } else if (Array.isArray(lang)) {
-    if (lang[0] in supportedLanguages) {
-      if (lang[1] in supportedLanguages[lang[0]].httpsnippet.targets) {
-        config = supportedLanguages[lang[0]];
-        language = config.httpsnippet.lang;
-        target = lang[1];
-      }
+  try {
+    ({ config, language, target } = getLanguageConfig(lang));
+  } catch (err) {
+    if (!language || !target) {
+      return { code: '', highlightMode: false };
     }
-  } else if (lang in supportedLanguages) {
-    config = supportedLanguages[lang];
-    language = config.httpsnippet.lang;
-    target = config.httpsnippet.default;
-  }
-
-  // Prevents errors if non-generated code snippet is selected and there isn't a way to generate a
-  // code snippet for it (like for example `shell`).
-  if (!language || !target) {
-    return { code: '', highlightMode: false };
   }
 
   const har = opts.harOverride || generateHar(oas, operation, values, auth);

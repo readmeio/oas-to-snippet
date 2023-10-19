@@ -1,8 +1,17 @@
+import type supportedLanguages from './supportedLanguages.js';
 import type { ClientId, TargetId } from '@readme/httpsnippet/targets';
 import type { AuthForHAR, DataForHAR } from '@readme/oas-to-har/lib/types';
 
-type SupportedTargets = Exclude<TargetId, 'objc'> | 'cplusplus' | 'objectivec';
-type SupportedLanguages = Record<
+export type { AuthForHAR, DataForHAR };
+
+export type Language =
+  | keyof typeof supportedLanguages
+  | [keyof typeof supportedLanguages, ClientId]
+  | 'node-simple'
+  | 'curl';
+
+export type SupportedTargets = Exclude<TargetId, 'objc'> | 'cplusplus' | 'objectivec';
+export type SupportedLanguages = Record<
   SupportedTargets,
   {
     highlight: string;
@@ -20,5 +29,3 @@ type SupportedLanguages = Record<
     };
   }
 >;
-
-export type { AuthForHAR, DataForHAR, SupportedLanguages, SupportedTargets };

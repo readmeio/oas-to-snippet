@@ -126,7 +126,8 @@ const supportedLanguages: SupportedLanguages = {
             apiDefinition: null,
             apiDefinitionUri: null,
           },
-          install: 'npm install api --save',
+          // `registryIdentifier` will be swapped out dynamically when we retrieve this install copy.
+          install: 'npx api install {registryIdentifier}',
         },
         axios: {
           name: 'Axios',
