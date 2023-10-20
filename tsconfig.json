@@ -9,6 +9,7 @@
     "lib": ["DOM", "ESNext"],
     "module": "ESNext",
     "moduleResolution": "Bundler",
+    "noEmit": true,
     "noImplicitAny": true,
     "outDir": "./dist",
     "skipLibCheck": true,
