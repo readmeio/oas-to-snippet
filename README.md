@@ -18,7 +18,7 @@ npm install --save @readme/oas-to-snippet
 
 ```js
 import Oas from 'oas';
-import { oasToSnippet } from '@readme/oas-to-snippet';
+import oasToSnippet from '@readme/oas-to-snippet';
 import petstore from './petstore.json';
 
 const apiDefinition = new Oas(petstore);
@@ -45,15 +45,15 @@ const auth = {
 // language targets that we support, see below.
 const language = 'node';
 
-// This URL parameter is only necessary when using the `node-simple` language and it should be an
-// addressable URL for your operation so it can be used within ReadMe's OpenAPI auto SDK package.
-// See https://www.npmjs.com/package/api for more information.
-const url = 'https://example.com/petstore.json';
+// This `registryIdentifier` option is only necessary when using the `['node', 'api']` language
+// combination. It controls how these snippets are used according to the code generation tooling
+// that we offer with https://api.readme.dev/.
+const registryIdentifier: '@petstore/v2.0#17273l2glm9fq4l5';
 
 // This will return an object containing `code` and `highlightMode`. `code` is the generated code
 // snippet, while `highlightMode` is the language mode you can use to render it for syntax
 // highlighting (with @readme/syntax-highlighter, for example).
-const { code, highlightMode } = oasToSnippet(apiDefinition, operation, formData, auth, language, url);
+const { code, highlightMode } = oasToSnippet(apiDefinition, operation, formData, auth, language, { openapi: registryIdentifier });
 ```
 
 ## Supported Languages

@@ -7,7 +7,7 @@ exports[`oas-to-snippet > supported languages > backwards compatibiltiy > should
 `;
 
 exports[`oas-to-snippet > supported languages > backwards compatibiltiy > should still support \`node-simple\` as the supplied language 1`] = `
-"const sdk = require('api')('https://example.com/openapi.json');
+"import sdk from '@api/developers';
 
 sdk.loginUser({username: 'woof', password: 'barkbarkbark'})
   .then(({ data }) => console.log(data))
@@ -391,8 +391,16 @@ fetch(url, options)
   .catch(err => console.error('error:' + err));"
 `;
 
+exports[`oas-to-snippet > supported languages > node > targets > api > should support custom variable names 1`] = `
+"import developers from '@api/developers';
+
+developers.loginUser({username: 'woof', password: 'barkbarkbark'})
+  .then(({ data }) => console.log(data))
+  .catch(err => console.error(err));"
+`;
+
 exports[`oas-to-snippet > supported languages > node > targets > api > should support snippet generation 1`] = `
-"const sdk = require('api')('https://example.com/openapi.json');
+"import sdk from '@api/developers';
 
 sdk.loginUser({username: 'woof', password: 'barkbarkbark'})
   .then(({ data }) => console.log(data))

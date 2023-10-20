@@ -3,11 +3,18 @@
     "allowJs": true,
     "baseUrl": "./src",
     "declaration": true,
+    "declarationMap": true,
     "downlevelIteration": true,
     "esModuleInterop": true,
-    "lib": ["dom", "ESNext"],
+    "lib": ["ESNext"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "noEmit": true,
     "noImplicitAny": true,
-    "outDir": "dist/"
+    "outDir": "./dist",
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "target": "ES2020"
   },
   "include": ["./src/**/*"]
 }

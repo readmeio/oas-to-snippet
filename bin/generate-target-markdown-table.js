@@ -1,12 +1,9 @@
 #! /usr/bin/env node
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const fs = require('fs/promises');
+import fs from 'node:fs/promises';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const { availableTargets } = require('@readme/httpsnippet');
+import { availableTargets } from '@readme/httpsnippet';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const supportedLanguages = require('../dist/supportedLanguages');
+import supportedLanguages from '@readme/oas-to-snippet/supportedLanguages';
 
 const targets = availableTargets();
 
@@ -21,15 +18,18 @@ async function run() {
   try {
     const output = ['| Language | Available language mode(s) | Libraries (if applicable)', '| :---- | :---- | :---- |'];
 
-    Object.keys(supportedLanguages.default).forEach(lang => {
+    Object.keys(supportedLanguages).forEach(lang => {
       let languageTitle = 'TKTK';
       const languageMode = lang;
       let libraries = [];
 
       // Corresponding language in httpsnippet library
-      const httpsnippetLang = supportedLanguages.default[lang].httpsnippet.lang;
+      const httpsnippetLang = supportedLanguages[lang].httpsnippet.lang;
       // Corresponding httpsnippet target object
       const httpsnippetTarget = getTarget(httpsnippetLang);
+      if (!httpsnippetTarget) {
+        throw new Error(`Unable to locate the target for ${httpsnippetLang}.`);
+      }
 
       // C++ is weird in that it uses the httpsnippet data for C but this library
       // represents it as a separate language
