@@ -1,8 +1,5 @@
 import type supportedLanguages from './supportedLanguages.js';
 import type { ClientId, TargetId } from '@readme/httpsnippet/targets';
-import type { AuthForHAR, DataForHAR } from '@readme/oas-to-har/lib/types';
-
-export type { AuthForHAR, DataForHAR };
 
 export type Language =
   | keyof typeof supportedLanguages
