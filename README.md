@@ -1,3 +1,7 @@
+> **Warning**
+>
+> `@readme/oas-to-snippet` has moved! The source for this library now lives at https://github.com/readmeio/oas.
+
 # @readme/oas-to-snippet
 
 Transform an OpenAPI operation into a code snippet.
